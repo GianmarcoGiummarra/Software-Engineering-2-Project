@@ -124,17 +124,6 @@ Corso di Laurea Magistrale in Computer Science and Engineering
 
 \end_layout
 
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename /Users/gianmarco/Downloads/Logo_Politecnico_Milano.png
-	scale 40
-
-\end_inset
-
-
-\end_layout
-
 \end_inset
 
 
@@ -516,7 +505,8 @@ Overview
 \end_layout
 
 \begin_layout Standard
-The system will be developed on the J2EE platform, for many reasons:
+The myTaxiService system will be developed on the J2EE platform, for many
+ reasons:
 \end_layout
 
 \begin_layout Itemize
@@ -524,8 +514,11 @@ to manage the big number of possible users;
 \end_layout
 
 \begin_layout Itemize
-to allow the developers to concentrate on business logic and help them building
- it as a distributed system;
+to help developers building it as a distributed system;
+\end_layout
+
+\begin_layout Itemize
+to allow the developers to concentrate on business logic;
 \end_layout
 
 \begin_layout Itemize
@@ -542,7 +535,48 @@ High level components and their interaction
 \end_layout
 
 \begin_layout Standard
-From a high level point of view, the system has to be 
+From a high level point of view, the system will be designed according to
+ the traditional multi-tier architecture used in enterprise applications.
+ In more detail, the architecture will consist of four logical levels: the
+ Client tier, the Web tier, the Business tier and the Data tier.
+ The Client tier is allocated to the terminal the user logs in from, the
+ Web tier and the Business tier stays on the Application Server, and the
+ Data tier stays on the DBMS: this decision is made in order to guarantee
+ properties such as scalability and fault tolerance.
+ The Business tier are expected to interact with a mail server, using the
+ SMTP protocol to send users messages, for example the confirmation code
+ of the recording or the confirmation of a reservation.
+\end_layout
+
+\begin_layout Standard
+Here follows a detailed description of each logical level:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Client tier: 
+\series default
+accessible via the web or mobile application.
+ This tier interacts with the Web tier through an HTTP connection, requesting
+ HTML pages and eventually sending data provided by the user.
+ Furtermore the browser interprets the JavaScript code, in order to provide
+ an improvement of performances of the service (e.g.
+ validation forms or asynchronous requests to the server).
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Web tier: 
+\series default
+this level receives from the Client tier HTTP requests and answers with
+ HTML pages, generated basing on the data received, and eventually forwards
+ requests to the Business tier.
+ The Web tier will be implemented with JEE technology and will work with
+ a compatible application server.
+ 
 \end_layout
 
 \begin_layout Subsection
