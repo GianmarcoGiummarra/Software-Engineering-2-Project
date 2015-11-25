@@ -96,10 +96,6 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
 \align center
 Politecnico di Milano 
 \begin_inset Newline newline
@@ -576,7 +572,33 @@ this level receives from the Client tier HTTP requests and answers with
  requests to the Business tier.
  The Web tier will be implemented with JEE technology and will work with
  a compatible application server.
- 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Business tier: 
+\series default
+this tier can directly communicate with the database and encapsulates the
+ business logic.
+ The model is based on a MVC pattern, and the persistent application data
+ are represented by Entity Beans objects.
+ The interaction with the database and the application logic are made with
+ EJB components.
+ To access the database this tier uses the JPA specification, which also
+ features ORM, abstracting the relational model implemented by the database
+ in a model of data objects, in order to allow the interaction with the
+ application.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Data tier: 
+\series default
+it consists of a DBMS in order to guarantee data persistency.
+ The Business tier communicates with the database using the standard technologie
+s oj java (JDBC).
 \end_layout
 
 \begin_layout Subsection
@@ -642,6 +664,98 @@ Requirements traceability
 
 \begin_layout Section
 References
+\end_layout
+
+\begin_layout Section
+Glossary
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+DBMS:
+\series default
+ database management system, a software that control the creation, maintenance,
+ and use of a database.
+ (e.g.
+ MySQL).
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+HTML:
+\series default
+ HyperText Markup Language, a markup language for building web pages.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+HTTP:
+\series default
+ Hypertext Transfer Protocol, an application protocol used by web browsers.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+SMTP: 
+\series default
+Simple Message Transfer Protocol, an internet standard for e-mail transmission.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+MVC:
+\series default
+ Model-View-Control, a design pattern.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+JDBC:
+\series default
+ Java Database Connectivity, a Java API that allows the application to communica
+te with a database.open source database manager system, a software capable
+ of managing data.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+JPA: 
+\series default
+Java Persistent API, a programming interface specification that describes
+ the management of relational data.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+ORM: 
+\series default
+Object Relational Mapping, a technique of access do databases from object
+ oriented languages.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+EJB:
+\series default
+ Enterprise JavaBeans, a managed server-side component architecture for
+ modular construction of enterprise applications.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Entity bean:
+\series default
+ a distributed object that have persistent state.
 \end_layout
 
 \end_body
