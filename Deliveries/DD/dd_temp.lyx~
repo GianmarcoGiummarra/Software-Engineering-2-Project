@@ -654,6 +654,14 @@ Components
 \end_layout
 
 \begin_layout Standard
+
+\series bold
+Server sid
+\series default
+e
+\end_layout
+
+\begin_layout Standard
 \begin_inset ERT
 status open
 
@@ -670,11 +678,10 @@ begin{itemize}
 \backslash
 item {
 \backslash
-textit{Authentication and user management component}}: this is an important
- sub-system responsible for the security of the customer registration and
- login system.
- It handles activities such as creating a new customer account, deleting
- an existing account;
+textit{Authentication component}}: this is an important sub-system responsible
+ for the security of the customer registration and login system.
+ It handles activities such as creating a new customer account, log into
+ the system or deleting an existing account;
 \end_layout
 
 \begin_layout Plain Layout
@@ -683,9 +690,8 @@ textit{Authentication and user management component}}: this is an important
 \backslash
 item {
 \backslash
-textit{Guest component}}: this is the component where the guest user is
- implemented, with the allowed privileges; it interfaces with the limited
- views which allow the registration;
+textit{Customer profile management component}}: this is the component responsibl
+e for the customer profile management;
 \end_layout
 
 \begin_layout Plain Layout
@@ -694,54 +700,8 @@ textit{Guest component}}: this is the component where the guest user is
 \backslash
 item {
 \backslash
-textit{Customer component}}: it is one of the key component of the system
- and it's where the customer is implemented.
- From this component, through the proper interfaces that we will discuss
- below, the user gets access to the functionalities and the key features
- of the service.
- Some of the most important sub-systems included in this component are the
- following:
-\end_layout
-
-\begin_layout Plain Layout
-
-		
-\backslash
-begin{enumerate}
-\end_layout
-
-\begin_layout Plain Layout
-
-			
-\backslash
-item {
-\backslash
-textit{Profile management sub-system}};
-\end_layout
-
-\begin_layout Plain Layout
-
-			
-\backslash
-item {
-\backslash
-textit{Immediate taxi call sub-system}};
-\end_layout
-
-\begin_layout Plain Layout
-
-			
-\backslash
-item {
-\backslash
-textit{Taxi reservation sub-system}};
-\end_layout
-
-\begin_layout Plain Layout
-
-		
-\backslash
-end{enumerate}
+textit{Immediate taxi call component}}: this component is the one which
+ manages the immediate taxi calls from the customer point of view;
 \end_layout
 
 \begin_layout Plain Layout
@@ -750,51 +710,38 @@ end{enumerate}
 \backslash
 item {
 \backslash
-textit{Taxi driver component}}: it is another key component of the system,
- it implements the taxi driver.
- It's the dual of the customer component, and includes, among other things,
- the following sub-systems:
+textit{Taxi reservation component}}: this component is the one which manages
+ the reservation calls from the customer point of view;
 \end_layout
 
 \begin_layout Plain Layout
 
-		
-\backslash
-begin{enumerate}
-\end_layout
-
-\begin_layout Plain Layout
-
-			
+	
 \backslash
 item {
 \backslash
-textit{Profile management (for taxi drivers) component}};
+textit{Taxi driver profile management component}}: this is the component
+ responsible for the taxi driver profile management;
 \end_layout
 
 \begin_layout Plain Layout
 
-			
+	
 \backslash
 item {
 \backslash
-textit{Call management component}};
+textit{Call management component}}: this component is the component the
+ taxi drivers interact with in order to accept or decline the customer requests;
 \end_layout
 
 \begin_layout Plain Layout
 
-			
+	
 \backslash
 item {
 \backslash
-textit{Assistance call component}};
-\end_layout
-
-\begin_layout Plain Layout
-
-		
-\backslash
-end{enumerate}
+textit{Assistance call component}}: this component is the component the
+ taxi drivers interact with in order to accept or decline the customer requests;
 \end_layout
 
 \begin_layout Plain Layout
@@ -822,26 +769,71 @@ end{itemize}
 \end_inset
 
 
+\series bold
+Client side
 \end_layout
 
 \begin_layout Standard
-\align center
-\begin_inset Graphics
-	filename /Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Diagrams/Sub-system diagram.png
-	scale 40
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item {
+\backslash
+textit{Guest component}}: this is the component where the guest user is
+ implemented, with the allowed privileges; it interfaces with the limited
+ views which allow the registration;
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item {
+\backslash
+textit{Customer component}}: it is one of the key component of the system
+ and it's where the customer is implemented.
+ From this component, through the proper interfaces that we will discuss
+ below, the user gets access to the functionalities and the key features
+ of the service;
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item {
+\backslash
+textit{Taxi driver component}}: it is another key component of the system,
+ it implements the taxi driver.
+ It's the dual of the customer component;
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{itemize}
+\end_layout
 
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-\align center
-
-\shape italic
-Figure 2.
-\shape default
-2: System component view and suddivision
 \end_layout
 
 \begin_layout Subsubsection
@@ -850,14 +842,410 @@ Interfaces
 
 \begin_layout Standard
 In this subsection we define the interfaces the components will interact
- with, 
+ with, in order to follow the adopted top-down approach.
 \end_layout
 
 \begin_layout Standard
-\begin_inset VSpace 1cm
+
+\series bold
+Server side
+\series default
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item {
+\backslash
+textit{Authentication component}}:
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+begin{enumerate}
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+item {
+\backslash
+textit{authenticationManager}}: this interface provides the methods that
+ will allow the non-logged users to login to the system; it manages situation
+ like guiding the recognized user to the relevant home page or sending email
+ confirmation in case of registration of a new user; it will guide the recognize
+d user to the relevant home page;
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+item {
+\backslash
+textit{registrationManager}}: this interface provides the methods which
+ contribute to the registration of a new user and the consequent email verificat
+ion request;
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+end{enumerate}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item{
+\backslash
+textit{Customer profile management component}}
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+begin{enumerate}
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+item {
+\backslash
+textit{manageCustomerProfile}}: this interface provides methods such as
+ {
+\backslash
+textit{updateProfileInfo()}} and {
+\backslash
+textit{updatePaymentInfo()}};
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+end{enumerate}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item{
+\backslash
+textit{Immediate taxi call component}}
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+begin{enumerate}
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+item {
+\backslash
+textit{makeImmediateCall}}: this interface allows the customers to interact
+ with the system in order to make requests for immediate taxi calls;
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+end{enumerate}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item{
+\backslash
+textit{Taxi reservation component}}
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+begin{enumerate}
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+item {
+\backslash
+textit{makeReservation}}: this interface allows the customers to interact
+ with the system in order to make requests for reservations;
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+end{enumerate}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item {
+\backslash
+textit{Taxi driver profile management component}}
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+begin{enumerate}
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+item {
+\backslash
+textit{taxiDriverProfileManager}}: this interface provides methods such
+ as {
+\backslash
+textit{updateProfileInfo()}} and {
+\backslash
+textit{seePersonalUserRating()}};
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+end{enumerate}
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+item {
+\backslash
+textit{Taxi driver call management component}}
+\end_layout
+
+\begin_layout Plain Layout
+
+				
+\backslash
+begin{enumerate}
+\end_layout
+
+\begin_layout Plain Layout
+
+					
+\backslash
+item {
+\backslash
+textit{manageCall}}: this interface provides methods such as {
+\backslash
+textit{acceptCall()}} and {
+\backslash
+textit{declineCall()}};
+\end_layout
+
+\begin_layout Plain Layout
+
+				
+\backslash
+end{enumerate}
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+item {
+\backslash
+textit{Taxi driver assistance call component}}
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+begin{enumerate}
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+item {
+\backslash
+textit{assistanceCall}}: this interface provides methods such as {
+\backslash
+textit{accidentAssistanceCall()}},  {
+\backslash
+textit{systemFailureAssistanceCall()}} or {
+\backslash
+textit{genericAssistanceCall()}};
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+end{enumerate}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item {
+\backslash
+textit{Data component}}:
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+begin{enumerate}
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+item {
+\backslash
+textit{dataHandler}}: this interface provides the data management methods
+ in order to store and retrieve data to and from the server;
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+end{enumerate}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{itemize}
+\end_layout
+
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Client side
+\series default
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item {
+\backslash
+textit{Guest component}}: the guest component communicates with the authenticati
+on and user management component through the {
+\backslash
+textit{registrationManager}} and {
+\backslash
+textit{authenticationManager}} interfaces, explained above.
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item {
+\backslash
+textit{Customer component}}: the customer component communicates with the
+ corresponding server side components through the {
+\backslash
+textit{manageCustomerProfile}}, {
+\backslash
+textit{makeImmediateCall}} and {
+\backslash
+textit{makeReservation}} interfaces, explained above.
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item {
+\backslash
+textit{Taxi driver component}}: the taxi driver component communicates with
+ the corresponding server side components through the {
+\backslash
+textit{taxiDriverProfileManager}}, {
+\backslash
+textit{manageCall}} and {
+\backslash
+textit{assistanceCall}} interfaces, explained above.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{itemize}
+\end_layout
+
+\end_inset
+
+Here is the diagram showing the interaction between the two sides of the
+ component view, including the interfaces.
 \end_layout
 
 \begin_layout Subsection
