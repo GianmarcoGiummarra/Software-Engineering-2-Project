@@ -90,12 +90,6 @@ pagenumbering{gobble}
 \end_layout
 
 \begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
 \align center
 Politecnico di Milano 
 \begin_inset Newline newline
@@ -113,13 +107,8 @@ Corso di Laurea Magistrale in Computer Science and Engineering
  2015-2016
 \end_layout
 
-\begin_layout Plain Layout
+\begin_layout Standard
 \begin_inset VSpace 1cm
-\end_inset
-
-
-\end_layout
-
 \end_inset
 
 
@@ -608,7 +597,7 @@ s oj java (JDBC).
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename /Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Diagrams/architecture.png
+	filename D:/Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Diagrams/architecture.png
 	scale 50
 
 \end_inset
@@ -1246,6 +1235,26 @@ end{itemize}
 
 Here is the diagram showing the interaction between the two sides of the
  component view, including the interfaces.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename Diagrams/Sub-system diagram 2.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\shape italic
+Figure 2.2:
+\shape default
+ Component view of the system, with interfaces.
 \end_layout
 
 \begin_layout Subsection
