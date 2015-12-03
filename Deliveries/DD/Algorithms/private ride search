@@ -1,0 +1,31 @@
+//private ride search
+
+/*
+ *The algorithm retrieves the zone of the starting point of the ride, then according to that queue forwards the reuest
+ *to the first taxi driver in the line, empting the queue with a FIFO policy.
+ *If the request is accepted the taxi is removed from the queue and takes in charge the call. Otherwise he is removed and readded to the same queue,
+ *in order to shift him in the bottom position.
+*/
+
+Ride SEARCH_PRIVATE_RIDE(Call call){
+		Zone startingZone = call.getQueueStartingZone();
+		List<int> queue = startingZone.GET_QUEUE();
+		for(i=0, j=0; i<queue.length() && j<queu.length(); i++, j++){
+			forward request to taxi driver with id queue[i];
+			wait for taxi driver response;
+			if(taxi driver accepts the call){
+				ride<-create a new ride;
+				REMOVE_FROM_QUEUE(queue[i]);
+				return ride;
+			}
+			else{
+				REMOVE_FROM_QUEUE(queue[i]);
+				ADD_TO_QUEUE(queue[i]);
+				i--; /*In this way at the next iteration i'll chech again the same index but with a different associated object, due to the shift.
+					  *j is not decremented, in order to avoid a loop if every taxi driver rejects the call and the queue restarts from the first
+					  *rejecting taxi driver: in this way we forward every request only one time to the same taxi driver.
+					 */
+			}
+		}
+		return null;
+	}

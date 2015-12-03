@@ -1,0 +1,57 @@
+//taxi queue handler
+
+/*
+ *This function handles the taxi queue for a certain zone.
+ *It uses some other methods defined below for the basic operations such as refreshing, adding and removing an item from the queue.
+ *Some methods are not defined and they refer to the interaction with gps. We don't know weather they exists or not, or exists with different names,
+ *but they are surely easily implemented using the gps' API.
+*/
+
+List<int> queue;
+
+void TAXI_QUEUE_HANDLER(){
+		queue = empty_set;
+		while service is active do{
+			List<signal> taxiSignals = searchSignals(currentZone);
+			for(i=0; i<taxiSignals.length; i++){
+				id = getTaxiDriverId(taxiSignals[i]);
+				if(id doesn't belongs to queue){
+					queue = ADD_TO_QUEUE(id);
+				}
+			}
+			queue = REFRESH_QUEUE(); /*after inserting new elements, the system refreshes the queue in order to eliminate taxi
+										   *drivers that moved in another zone.
+										   */
+		}
+	}
+
+List<int> REFRESH_QUEUE(){
+		Position currentPosition;
+		for(i=0; i<queue.length; i++){
+			currentPosition = getTaxiDriverPosition(queue[i]);
+			if(currentPosition doesn't belongs to currentZone){
+				queue = REMOVE_FROM_QUEUE(queue[i]);
+				i--; /*
+					  *in this way the algorithm will recheck the same value of i at the next iteration,
+					  *but with the correct next value, taking into account that the list we are reading
+					  *changes at every remove.
+					  */
+			}
+		}
+		return queue;
+	}
+
+List<int> ADD_TO_QUEUE(int taxiDriverId){
+		queue.add(taxiDriverId);
+		return queue;
+		}
+
+List<int> REMOVE_FROM_QUEUE(int taxiDriverId){
+		queue.remove(taxiDriverId);
+		return queue;
+	}
+
+List<int> GET_QUEUE(){
+		queue = REFRESH_QUEUE;
+		return queue;
+	}

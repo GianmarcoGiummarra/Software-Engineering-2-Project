@@ -1,0 +1,40 @@
+//fee amount for shared ride
+
+void FEE_SHARED_RIDE(Customer passenger, SharedRide ride){
+	
+		List<Customer> temp = ride.getPassengers();
+		List<Time> passengersStartingTime = ride.getPassengersStartingTime();
+		List<Time> passengersEndingTime = ride.getPassengersEndingTime();
+		int x = GET_PASSENGER_LIST_INDEX(passenger, temp);
+		for(i=0; i<temp.length; i++){
+			if(passengersStartingTime(x) >= passengersEndingTime(i)){
+				temp.remove(temp[i]);
+				passengersStartingTime.remove(passengersStartingTime[i]);
+				passengersEndingTime.remove(passengersEndingTime[i]);
+			}/*
+			  *A passenger that ended his ride before the starting time of the passenger I want to calculate the fee for
+			  *it's useless, so it can be eliminated from the list, together with the corresponding starting and ending time.
+			 */
+			if(passengersStartingTime[i] <= passengersStartingTime[x]){
+				passengersStartingTime[i] = passengersStartingTime[x];
+			}/*
+			  *A passenger that started his ride before the user I want to calculate the fee for it's useless for the interval before
+			  *the current user joined the ride, so I can set his starting time cohincident with the starting time of my passenger.
+			 */
+			if(passengersEndingTime[i] == null){
+				passengersEndingTime[i] = passengersEndingTime[x];
+			}/*
+			  *If a passenger has not finished the ride yet his ending time is still not setted, so in order to avoid errors due to
+			  *unexisting data I set the end time at the end time of the ride I am calculating the fee for.
+			 */
+		}
+		
+
+int GET_PASSENGER_LIST_INDEX(Customer c, List<Customer> l){
+		int i=0;
+		for(Customer t: l){
+			if(t.equals(c)) return i;
+			else i++;
+		}
+		return i;
+	}
