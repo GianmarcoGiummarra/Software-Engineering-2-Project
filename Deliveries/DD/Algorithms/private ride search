@@ -1,12 +1,3 @@
-//private ride search
-
-/*
- *The algorithm retrieves the zone of the starting point of the ride, then according to that queue forwards the reuest
- *to the first taxi driver in the line, empting the queue with a FIFO policy.
- *If the request is accepted the taxi is removed from the queue and takes in charge the call. Otherwise he is removed and readded to the same queue,
- *in order to shift him in the bottom position.
-*/
-
 Ride SEARCH_PRIVATE_RIDE(Call call){
 		Zone startingZone = call.getQueueStartingZone();
 		List<int> queue = startingZone.GET_QUEUE();

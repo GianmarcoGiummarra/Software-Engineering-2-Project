@@ -1,5 +1,3 @@
-//private reservation call
-
 Ride PRIVATE_RESERVATION(ReservationCall call){
 		Time reservationTime = call.getRideStartingTime();
 		if(currentTime()-reservationTime < 2hours){

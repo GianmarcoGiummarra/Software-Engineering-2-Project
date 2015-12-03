@@ -3,7 +3,7 @@
 void SEARCH_SHARED_RIDE(Position startingPoint, Position destinationPoint){
 		Ride selectedRide = RIDE_MATCHING;
 		if(ride == null){
-			create a new ride with the specified starting and destination points;
+			create a new shared ride with the specified starting and destination points;
 		}
 		else{
 			add the customer to the selected ride;

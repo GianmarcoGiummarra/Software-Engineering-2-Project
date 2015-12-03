@@ -1,5 +1,3 @@
-//fee amount for shared ride
-
 void FEE_SHARED_RIDE(Customer passenger, SharedRide ride){
 	
 		List<Customer> temp = ride.getPassengers();
