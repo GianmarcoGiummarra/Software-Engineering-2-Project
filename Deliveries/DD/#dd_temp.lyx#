@@ -1568,19 +1568,13 @@ This function handles the taxi queue for a certain zone, searching for new
 \end_layout
 
 \begin_layout Standard
-\begin_inset ERT
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
 status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{lstlisting}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
 
 \begin_layout Plain Layout
 
@@ -1677,26 +1671,12 @@ queue = empty_set;
 
 \begin_layout Plain Layout
 
-while service is active do{
+	while service is active do{
 \end_layout
 
 \begin_layout Plain Layout
 
-	List<signal> taxiSignals = searchSignals(currentZone);
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-	for(i=0; i<taxiSignals.length; i++){
-\end_layout
-
-\begin_layout Plain Layout
-
-		id = getTaxiDriverId(taxiSignals[i]);
+		List<signal> taxiSignals = searchSignals(currentZone);
 \end_layout
 
 \begin_layout Plain Layout
@@ -1706,12 +1686,32 @@ while service is active do{
 
 \begin_layout Plain Layout
 
-		if(id doesn't belongs to queue){
+		for(i=0; i<taxiSignals.length; i++){
 \end_layout
 
 \begin_layout Plain Layout
 
-		queue = ADD_TO_QUEUE(id);
+			id = getTaxiDriverId(taxiSignals[i]);
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\end_layout
+
+\begin_layout Plain Layout
+
+			if(id doesn't belongs to queue){
+\end_layout
+
+\begin_layout Plain Layout
+
+				queue = ADD_TO_QUEUE(id);
+\end_layout
+
+\begin_layout Plain Layout
+
+			}
 \end_layout
 
 \begin_layout Plain Layout
@@ -1721,27 +1721,37 @@ while service is active do{
 
 \begin_layout Plain Layout
 
-	}
+	
 \end_layout
 
 \begin_layout Plain Layout
 
+		queue = REFRESH_QUEUE(); 
 \end_layout
 
 \begin_layout Plain Layout
 
-	queue = REFRESH_QUEUE(); 
+	/*
 \end_layout
 
 \begin_layout Plain Layout
 
+	after inserting new elements, the system refreshes the
 \end_layout
 
 \begin_layout Plain Layout
 
-	/* after inserting new elements, the system refreshes the 	queue in order
- to eliminate taxi drivers that moved in 	another zone.
- */
+	queue in order to eliminate taxi drivers that moved in
+\end_layout
+
+\begin_layout Plain Layout
+
+	another zone.
+\end_layout
+
+\begin_layout Plain Layout
+
+	*/
 \end_layout
 
 \begin_layout Plain Layout
@@ -1808,14 +1818,32 @@ List<int> REFRESH_QUEUE(){
 
 \begin_layout Plain Layout
 
-	/* in this way the algorithm will recheck the same 		value of i at the
- next iteration, but with the correct 		next value, taking into account
- that the list we are 		reading changes at every remove.
+			/*
 \end_layout
 
 \begin_layout Plain Layout
 
-	*/
+			in this way the algorithm will recheck the same
+\end_layout
+
+\begin_layout Plain Layout
+
+			value of i at the next iteration, but with the correct
+\end_layout
+
+\begin_layout Plain Layout
+
+			next value, taking into account that the list we are
+\end_layout
+
+\begin_layout Plain Layout
+
+			reading changes at every remove.
+\end_layout
+
+\begin_layout Plain Layout
+
+			*/
 \end_layout
 
 \begin_layout Plain Layout
@@ -1900,26 +1928,19 @@ List<int> GET_QUEUE(){
 }
 \end_layout
 
-\begin_layout Plain Layout
-
-
-\backslash
-end{lstlisting}
-\end_layout
-
 \end_inset
 
 
 \end_layout
 
 \begin_layout Subsection
-Shared ride search
+Private ride search
 \end_layout
 
 \begin_layout Standard
 
 \shape italic
-Private Ride Search:
+Private ride search:
 \shape default
  the algorithm retrieves the zone of the starting point of the ride, then
  according to that queue forwards the request to the first taxi driver in
@@ -1931,7 +1952,253 @@ Private Ride Search:
 \end_layout
 
 \begin_layout Standard
-\begin_inset ERT
+\begin_inset VSpace 0.5cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\color black
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+/*
+\end_layout
+
+\begin_layout Plain Layout
+
+The algorithm retrieves the zone of the starting point of
+\end_layout
+
+\begin_layout Plain Layout
+
+the ride, then according to that queue forwards the reuest
+\end_layout
+
+\begin_layout Plain Layout
+
+to the first taxi driver in the line, empting the queue
+\end_layout
+
+\begin_layout Plain Layout
+
+with a FIFO policy.
+ If the request is accepted the taxi
+\end_layout
+
+\begin_layout Plain Layout
+
+is removed from the queue and takes in charge the call.
+\end_layout
+
+\begin_layout Plain Layout
+
+Otherwise he is removed and readded to the same queue,
+\end_layout
+
+\begin_layout Plain Layout
+
+in order to shift him in the bottom position.
+\end_layout
+
+\begin_layout Plain Layout
+
+*/
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Ride SEARCH_PRIVATE_RIDE(Call call){
+\end_layout
+
+\begin_layout Plain Layout
+
+	Zone startingZone=call.getQueueStartingZone();
+\end_layout
+
+\begin_layout Plain Layout
+
+	List<int> queue = startingZone.GET_QUEUE();
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	for(i=0, j=0; i<queue.length() && j<queu.length(); i++, j++){
+\end_layout
+
+\begin_layout Plain Layout
+
+		forward request to taxi driver with id queue[i];
+\end_layout
+
+\begin_layout Plain Layout
+
+		wait for taxi driver response; 
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+		if(taxi driver 	accepts the call){
+\end_layout
+
+\begin_layout Plain Layout
+
+			ride<-create a new ride;
+\end_layout
+
+\begin_layout Plain Layout
+
+			REMOVE_FROM_QUEUE(queue[i]);
+\end_layout
+
+\begin_layout Plain Layout
+
+			return ride;
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+		else{
+\end_layout
+
+\begin_layout Plain Layout
+
+			REMOVE_FROM_QUEUE(queue[i]); 		ADD_TO_QUEUE(queue[i]);
+\end_layout
+
+\begin_layout Plain Layout
+
+			i--; 
+\end_layout
+
+\begin_layout Plain Layout
+
+		/*
+\end_layout
+
+\begin_layout Plain Layout
+
+		In this way at the next iteration i'll chech again the
+\end_layout
+
+\begin_layout Plain Layout
+
+		same index but with a different associated object, due to
+\end_layout
+
+\begin_layout Plain Layout
+
+		the shift.
+ j is not decremented, in order to avoid a loop
+\end_layout
+
+\begin_layout Plain Layout
+
+		if every taxi driver rejects the call and the queue
+\end_layout
+
+\begin_layout Plain Layout
+
+		restarts from the first rejecting taxi driver: in this way
+\end_layout
+
+\begin_layout Plain Layout
+
+		we forward every request only one time to the same taxi driver.
+\end_layout
+
+\begin_layout Plain Layout
+
+		*/
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+	return null;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Private reservation call
+\end_layout
+
+\begin_layout Standard
+the algorithm is used to accomplish a private reserved ride, so it checks
+ that the hour is at least two hours later and then, 10 minutes before the
+ selected time, searches for a taxi driver in the zone.
+ If there is no available driver checks the nearby zones.
+\end_layout
+
+\begin_layout Subsection
+Shared ride search
+\end_layout
+
+\begin_layout Standard
+
+\shape italic
+Shared ride search:
+\shape default
+ the algorithm is used to search for a shared ride, paying attention to
+ the matching of the paths.
+ If no shared ride can be matched with the needed path the system creates
+ a new shared ride, and the customer will be the first passenger.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 0.5cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\color black
+\begin_inset listings
+inline false
 status open
 
 \begin_layout Plain Layout
@@ -1981,23 +2248,37 @@ void SEARCH_SHARED_RIDE(Position startingPoint, Position destinationPoint){
 
 \begin_layout Plain Layout
 
-\end_layout
-
-\begin_layout Plain Layout
-
 Ride RIDE_MATCHING(Position startingPoint, Position destinationPoint){
 \end_layout
 
 \begin_layout Plain Layout
 
-	List<Position> path <- calculate the ideal path for the 	ride, knowing
- the starting and destination points as 	parameters;
+	List<Position> path <- calculate the ideal path for the 
 \end_layout
 
 \begin_layout Plain Layout
 
-	List<Position> currentPath = new List<Position> 	for(Ride r: all the active
- shared ride){ 		currentPath = r.getPath();
+							ride, knowing the starting and 
+\end_layout
+
+\begin_layout Plain Layout
+
+							destination points as parameters;
+\end_layout
+
+\begin_layout Plain Layout
+
+	List<Position> currentPath = new List<Position> 
+\end_layout
+
+\begin_layout Plain Layout
+
+	for(Ride r: all the active shared ride){
+\end_layout
+
+\begin_layout Plain Layout
+
+		currentPath = r.getPath();
 \end_layout
 
 \begin_layout Plain Layout
@@ -2007,172 +2288,27 @@ Ride RIDE_MATCHING(Position startingPoint, Position destinationPoint){
 
 \begin_layout Plain Layout
 
+			return r;
+\end_layout
+
+\begin_layout Plain Layout
+
+	if(currentPath.contains(path.startingPoint) && 
+\end_layout
+
+\begin_layout Plain Layout
+
+		path.contains(currentPath.destinationPoint) && 
+\end_layout
+
+\begin_layout Plain Layout
+
+			r.passengers.length()<4)
+\end_layout
+
+\begin_layout Plain Layout
+
 		return r;
-\end_layout
-
-\begin_layout Plain Layout
-
-	if(currentPath.contains(path.startingPoint) && path.contains(currentPath.destinatio
-nPoint) && r.passengers.length()<4)
-\end_layout
-
-\begin_layout Plain Layout
-
-	return r;
-\end_layout
-
-\begin_layout Plain Layout
-
-	}
-\end_layout
-
-\begin_layout Plain Layout
-
-	return null;
-\end_layout
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-Private ride reservation call
-\end_layout
-
-\begin_layout Standard
-
-\shape italic
-Private Reservation Call:
-\shape default
- the algorithm is used to accomplish a private reserved ride, so it checks
- that the hour is at least two hours later and then, 10 minutes before the
- selected time, searches for a taxi driver in the zone.
- If there is no available driver checks the nearby zones.
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-/*
-\end_layout
-
-\begin_layout Plain Layout
-
-	The algorithm retrieves the zone of the starting point of 	the ride, then
- according to that queue forwards the reuest 	to the first taxi driver in
- the line, empting the queue
-\end_layout
-
-\begin_layout Plain Layout
-
-	with a FIFO policy.
- If the request is accepted the taxi 	is removed from the queue and takes
- in charge the call.
- 	Otherwise he is removed and readded to the same queue,  	in order to shift
- him in the bottom position.
-\end_layout
-
-\begin_layout Plain Layout
-
-*/
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Ride SEARCH_PRIVATE_RIDE(Call call){
-\end_layout
-
-\begin_layout Plain Layout
-
-	Zone startingZone=call.getQueueStartingZone(); 	List<int> queue = startingZone.GE
-T_QUEUE(); 		for(i=0, j=0; i<queue.length() && j<queu.length(); i++, j++){
-\end_layout
-
-\begin_layout Plain Layout
-
-	forward request to taxi driver with id queue[i];
-\end_layout
-
-\begin_layout Plain Layout
-
-	wait for taxi driver response; 
-\end_layout
-
-\begin_layout Plain Layout
-
-	
-\end_layout
-
-\begin_layout Plain Layout
-
-		if(taxi driver 	accepts the call){
-\end_layout
-
-\begin_layout Plain Layout
-
-		ride<-create a new ride; 		REMOVE_FROM_QUEUE(queue[i]);
-\end_layout
-
-\begin_layout Plain Layout
-
-		return ride;
-\end_layout
-
-\begin_layout Plain Layout
-
-		}
-\end_layout
-
-\begin_layout Plain Layout
-
-		else{
-\end_layout
-
-\begin_layout Plain Layout
-
-		REMOVE_FROM_QUEUE(queue[i]); 		ADD_TO_QUEUE(queue[i]);
-\end_layout
-
-\begin_layout Plain Layout
-
-		i--; 
-\end_layout
-
-\begin_layout Plain Layout
-
-/*
-\end_layout
-
-\begin_layout Plain Layout
-
-	In this way at the next iteration i'll chech again the 	same index but
- with a different associated object, due to 	the shift.
- j is not decremented, in order to avoid a loop 	if every taxi driver rejects
- the call and the queue 	restarts from the first rejecting taxi driver:
- in this way 	we forward every request only one time to the same taxi 	driver.
-\end_layout
-
-\begin_layout Plain Layout
-
-*/
-\end_layout
-
-\begin_layout Plain Layout
-
-		}
 \end_layout
 
 \begin_layout Plain Layout

@@ -5,6 +5,7 @@
 \textclass article
 \begin_preamble
 \usepackage{hyperref}
+\usepackage{listings}
 \hypersetup{colorlinks, citecolor=black, filecolor=black, linkcolor=black, urlcolor=black}
 \end_preamble
 \use_default_options true
@@ -608,7 +609,7 @@ s oj java (JDBC).
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename D:/Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Diagrams/architecture.png
+	filename /Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Diagrams/architecture.png
 	scale 50
 
 \end_inset
@@ -678,7 +679,7 @@ begin{itemize}
 \backslash
 item {
 \backslash
-textit{Authentication component}}: this is an important sub-system responsible
+textit{Authentication manager}}: this is an important sub-system responsible
  for the security of the customer registration and login system.
  It handles activities such as creating a new customer account, log into
  the system or deleting an existing account;
@@ -690,8 +691,8 @@ textit{Authentication component}}: this is an important sub-system responsible
 \backslash
 item {
 \backslash
-textit{Customer profile management component}}: this is the component responsibl
-e for the customer profile management;
+textit{Customer profile manager}}: this is the component responsible for
+ the customer profile management;
 \end_layout
 
 \begin_layout Plain Layout
@@ -700,8 +701,8 @@ e for the customer profile management;
 \backslash
 item {
 \backslash
-textit{Immediate taxi call component}}: this component is the one which
- manages the immediate taxi calls from the customer point of view;
+textit{Immediate call manager}}: this component is the one which manages
+ the immediate taxi calls from the customer point of view;
 \end_layout
 
 \begin_layout Plain Layout
@@ -710,7 +711,7 @@ textit{Immediate taxi call component}}: this component is the one which
 \backslash
 item {
 \backslash
-textit{Taxi reservation component}}: this component is the one which manages
+textit{Reservation call manager}}: this component is the one which manages
  the reservation calls from the customer point of view;
 \end_layout
 
@@ -720,8 +721,8 @@ textit{Taxi reservation component}}: this component is the one which manages
 \backslash
 item {
 \backslash
-textit{Taxi driver profile management component}}: this is the component
- responsible for the taxi driver profile management;
+textit{Taxi driver profile manager}}: this is the component responsible
+ for the taxi driver profile management;
 \end_layout
 
 \begin_layout Plain Layout
@@ -730,8 +731,8 @@ textit{Taxi driver profile management component}}: this is the component
 \backslash
 item {
 \backslash
-textit{Call management component}}: this component is the component the
- taxi drivers interact with in order to accept or decline the customer requests;
+textit{Incoming call manager}}: this component is the component the taxi
+ drivers interact with in order to accept or decline the customer requests;
 \end_layout
 
 \begin_layout Plain Layout
@@ -740,8 +741,8 @@ textit{Call management component}}: this component is the component the
 \backslash
 item {
 \backslash
-textit{Assistance call component}}: this component is the component the
- taxi drivers interact with in order to accept or decline the customer requests;
+textit{Assistance call manager}}: this component is the component the taxi
+ drivers interact with in order to accept or decline the customer requests;
 \end_layout
 
 \begin_layout Plain Layout
@@ -752,6 +753,26 @@ item {
 \backslash
 textit{Data component}}: it is the component where the data is managed and
  viewed;
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item {
+\backslash
+textit{Payment manager}}: it is the component that manages the payment informati
+on and calculates the fees for the rides;
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item {
+\backslash
+textit{Notification manager}}: it is the component that manages the notification
+s to/from the users;
 \end_layout
 
 \begin_layout Plain Layout
@@ -870,7 +891,7 @@ begin{itemize}
 \backslash
 item {
 \backslash
-textit{Authentication component}}:
+textit{Authentication manager}}:
 \end_layout
 
 \begin_layout Plain Layout
@@ -886,7 +907,7 @@ begin{enumerate}
 \backslash
 item {
 \backslash
-textit{authenticationManager}}: this interface provides the methods that
+textit{authenticationManagement}}: this interface provides the methods that
  will allow the non-logged users to login to the system; it manages situation
  like guiding the recognized user to the relevant home page or sending email
  confirmation in case of registration of a new user; it will guide the recognize
@@ -917,7 +938,7 @@ end{enumerate}
 \backslash
 item{
 \backslash
-textit{Customer profile management component}}
+textit{Customer profile manager}}
 \end_layout
 
 \begin_layout Plain Layout
@@ -933,8 +954,8 @@ begin{enumerate}
 \backslash
 item {
 \backslash
-textit{manageCustomerProfile}}: this interface provides methods such as
- {
+textit{customerProfileManagement}}: this interface provides methods such
+ as {
 \backslash
 textit{updateProfileInfo()}} and {
 \backslash
@@ -954,7 +975,7 @@ end{enumerate}
 \backslash
 item{
 \backslash
-textit{Immediate taxi call component}}
+textit{Immediate call manager}}
 \end_layout
 
 \begin_layout Plain Layout
@@ -987,7 +1008,7 @@ end{enumerate}
 \backslash
 item{
 \backslash
-textit{Taxi reservation component}}
+textit{Reservation call manager}}
 \end_layout
 
 \begin_layout Plain Layout
@@ -1020,7 +1041,7 @@ end{enumerate}
 \backslash
 item {
 \backslash
-textit{Taxi driver profile management component}}
+textit{Taxi driver profile manager}}
 \end_layout
 
 \begin_layout Plain Layout
@@ -1036,7 +1057,7 @@ begin{enumerate}
 \backslash
 item {
 \backslash
-textit{taxiDriverProfileManager}}: this interface provides methods such
+textit{taxiDriverProfileManagement}}: this interface provides methods such
  as {
 \backslash
 textit{updateProfileInfo()}} and {
@@ -1057,7 +1078,7 @@ end{enumerate}
 \backslash
 item {
 \backslash
-textit{Taxi driver call management component}}
+textit{Incoming call manager}}
 \end_layout
 
 \begin_layout Plain Layout
@@ -1073,7 +1094,8 @@ begin{enumerate}
 \backslash
 item {
 \backslash
-textit{manageCall}}: this interface provides methods such as {
+textit{incomingCallManagement}}: this interface provides methods such as
+ {
 \backslash
 textit{acceptCall()}} and {
 \backslash
@@ -1109,7 +1131,8 @@ begin{enumerate}
 \backslash
 item {
 \backslash
-textit{assistanceCall}}: this interface provides methods such as {
+textit{assistanceCallManagement}}: this interface provides methods such
+ as {
 \backslash
 textit{accidentAssistanceCall()}},  {
 \backslash
@@ -1131,7 +1154,7 @@ end{enumerate}
 \backslash
 item {
 \backslash
-textit{Data component}}:
+textit{Data manager}}:
 \end_layout
 
 \begin_layout Plain Layout
@@ -1200,7 +1223,7 @@ on and user management component through the {
 \backslash
 textit{registrationManager}} and {
 \backslash
-textit{authenticationManager}} interfaces, explained above.
+textit{authenticationManagement}} interfaces, explained above.
 \end_layout
 
 \begin_layout Plain Layout
@@ -1212,7 +1235,7 @@ item {
 textit{Customer component}}: the customer component communicates with the
  corresponding server side components through the {
 \backslash
-textit{manageCustomerProfile}}, {
+textit{customerProfileManagement}}, {
 \backslash
 textit{makeImmediateCall}} and {
 \backslash
@@ -1228,11 +1251,11 @@ item {
 textit{Taxi driver component}}: the taxi driver component communicates with
  the corresponding server side components through the {
 \backslash
-textit{taxiDriverProfileManager}}, {
+textit{taxiDriverProfileManagement}}, {
 \backslash
-textit{manageCall}} and {
+textit{incomingCallManagement}} and {
 \backslash
-textit{assistanceCall}} interfaces, explained above.
+textit{assistanceCallManagement}} interfaces, explained above.
 \end_layout
 
 \begin_layout Plain Layout
@@ -1249,9 +1272,9 @@ Here is the diagram showing the interaction between the two sides of the
 \end_layout
 
 \begin_layout Standard
-\align center
+\align left
 \begin_inset Graphics
-	filename Diagrams/Sub-system diagram 2.png
+	filename /Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Diagrams/Sub-system diagram.png
 	scale 40
 
 \end_inset
@@ -1268,8 +1291,81 @@ Figure 2.2:
  Component view of the system, with interfaces.
 \end_layout
 
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 Deployment view
+\end_layout
+
+\begin_layout Standard
+\align left
+\begin_inset Graphics
+	filename Diagrams/Deployment.png
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\shape italic
+Figure 2.3
+\shape default
+: Deployment view diagram
+\end_layout
+
+\begin_layout Standard
+In this section in shown how the software components are distributed with
+ respect to the hardware resources available in the system.
+ This diagram reports the main types of clients: 
+\end_layout
+
+\begin_layout Itemize
+Web customer: this is the customer that access the service using a web browser.
+ It communicates with the Web server that receives its requests and provides
+ HTML pages in order to start the user experience, because it doesn’t have
+ an integrated interface.
+ Through the Web server they can interact with the Business server;
+\end_layout
+
+\begin_layout Itemize
+Taxi driver: this client interacts directly with the Business server, bypassing
+ the Web server.
+ This decision has been made basing on the difference between a web application
+ and a mobile application: in spite of the former, the latter has its interface
+ included in the application;
+\end_layout
+
+\begin_layout Itemize
+Mobile customer: the behaviour is the same of the taxi driver; differences
+ between this and the previous client will be further explained in detail;
+\end_layout
+
+\begin_layout Standard
+In every node representing the clients is contained a specific module, called
+ local view, representing the accessible functionalities of the system.
+ Every local view corresponds to a remote view on the Business server.
+ The Business server contains the application logic and the modules that
+ handle the main functionalities of the system.
+ Every module is accessible only by the allowed users, due to the different
+ views that they have.
+ All the data needed for the operations handled by the modules are retrieved
+ from the database in the Data server.
+ The various interactions with the database are monitored by the DBMS in
+ order to guarantee the ACID properties of the database.
+ Finally there is a system administrator, that can access to every server
+ and most of the modules provided, basing on its particular view: we decided
+ to deny a full access to every administrator in order to preserve the clients’
+ privacy and deny access to sensible data.
+ 
 \end_layout
 
 \begin_layout Subsection
@@ -1277,8 +1373,149 @@ Runtime view
 \end_layout
 
 \begin_layout Standard
-(You can use sequence diagrams to describe the way components interact to
- accomplish specific tasks typically related to your use cases)
+In this section are explained through Sequence diagrams some of the most
+ relevant interactions between components and actors of the system.
+ Like in the RASD document, some assumptions are made in order to simplify
+ the representation and clarify some aspects; by the way, some of the most
+ important features, if considered implicit in a Sequence diagram, are explicitl
+y represented in another one.
+\end_layout
+
+\begin_layout Subsubsection
+Registration Sequence diagram
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 1cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Updated Sequence Diagrams/Reg_seq_diagram.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\shape italic
+Figure 2.4
+\shape default
+: Registration Sequence diagram
+\end_layout
+
+\begin_layout Subsubsection
+Private immediate call Sequence diagram
+\end_layout
+
+\begin_layout Standard
+From a detailed structural analysis of the system, we updated the previous
+ sequence diagram shown in the RASD.
+ 
+\end_layout
+
+\begin_layout Standard
+The changes are the following:
+\end_layout
+
+\begin_layout Itemize
+added the Data, Notification Manager, Payment Manager systems;
+\end_layout
+
+\begin_layout Itemize
+added the data storage operation when a ride is assigned;
+\end_layout
+
+\begin_layout Itemize
+explicitly shown the interaction of different systems through the Notification
+ Manager, when necessary;
+\end_layout
+
+\begin_layout Standard
+For simplicity we assumed that, when the system is searching for an available
+ taxi cab, there is at least one in the specific zone of the call.
+\end_layout
+
+\begin_layout Standard
+Another assumption is that the Payment Manager, when verifies the validity
+ of payment information, interacts implicitly with the Data system in order
+ to retrieve the information to check.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 0.5cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Updated Sequence Diagrams/ImmCall_seq_diagram.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\shape italic
+Figure 2.5
+\shape default
+: private immediate call Sequence diagram
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Shared reservation Sequence diagram
+\end_layout
+
+\begin_layout Standard
+For this sequence diagram, the changes with respect to the previous version,
+ are basically the same of the sequence diagram for the Immediate call (2.5.2).
+\end_layout
+
+\begin_layout Standard
+Furthermore, the payment information, after the check by the Payment Manager
+ system, are assumed to be valid.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Updated Sequence Diagrams/ResCall_seq_diagram.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\shape italic
+Figure 2.6
+\shape default
+: shared reservation Sequence diagram
 \end_layout
 
 \begin_layout Subsection
@@ -1302,7 +1539,617 @@ Algorithm design
 \end_layout
 
 \begin_layout Standard
-(Focus on the definition of the most relevant algorithmic part of your project)
+This section contains some algorithms that describes some of the most relevant
+ features of the system.
+ All of these algorithms are written in a java-like pseudocode: their aim
+ is to give an idea of how the code should be written, independently from
+ the chosen programming language.
+ 
+\end_layout
+
+\begin_layout Standard
+Here follows five algorithms implementing the most important functionalities:
+ note that in many cases an algorithm is used by others also described here.
+ Some basilar methods useful for the code understanding are also defined,
+ while others are not defined and they refer to the interaction with gps
+ and other system components.
+ We don’t know whether they exist or not, or exists with different names,
+ but they are surely easily implementable using the appropriate APIs (for
+ example for the gps).
+\end_layout
+
+\begin_layout Subsection
+Taxi queue handler
+\end_layout
+
+\begin_layout Standard
+This function handles the taxi queue for a certain zone, searching for new
+ taxis and deleting the ones that have gone away.
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Standard
+/*
+\end_layout
+
+\begin_layout Standard
+	This function handles the taxi queue
+\end_layout
+
+\begin_layout Standard
+	for a certain zone.It uses some other
+\end_layout
+
+\begin_layout Standard
+	methods defined below for the basic
+\end_layout
+
+\begin_layout Standard
+	operations such as refreshing, adding
+\end_layout
+
+\begin_layout Standard
+	and removing an item from the queue.
+\end_layout
+
+\begin_layout Standard
+	Some methods are not defined and they
+\end_layout
+
+\begin_layout Standard
+	refer to the interaction with gps.
+ We
+\end_layout
+
+\begin_layout Standard
+	don't know weather they exists or
+\end_layout
+
+\begin_layout Standard
+	not, or exists with different names,
+\end_layout
+
+\begin_layout Standard
+	but they are surely easily implemented
+\end_layout
+
+\begin_layout Standard
+	using the gps' API.
+\end_layout
+
+\begin_layout Standard
+*/
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Standard
+List<int> queue;
+\end_layout
+
+\begin_layout Standard
+void TAXI_QUEUE_HANDLER(){
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Standard
+queue = empty_set;
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Standard
+while service is active do{
+\end_layout
+
+\begin_layout Standard
+	List<signal> taxiSignals = searchSignals(currentZone);
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Standard
+	for(i=0; i<taxiSignals.length; i++){
+\end_layout
+
+\begin_layout Standard
+		id = getTaxiDriverId(taxiSignals[i]);
+\end_layout
+
+\begin_layout Standard
+	
+\end_layout
+
+\begin_layout Standard
+		if(id doesn't belongs to queue){
+\end_layout
+
+\begin_layout Standard
+		queue = ADD_TO_QUEUE(id);
+\end_layout
+
+\begin_layout Standard
+		}
+\end_layout
+
+\begin_layout Standard
+	}
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Standard
+	queue = REFRESH_QUEUE(); 
+\end_layout
+
+\begin_layout Standard
+/*
+\end_layout
+
+\begin_layout Standard
+after inserting new elements, the system refreshes the 	queue in order to
+ eliminate taxi drivers that moved in 	another zone.
+\end_layout
+
+\begin_layout Standard
+*/
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Standard
+	}
+\end_layout
+
+\begin_layout Standard
+}
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Standard
+List<int> REFRESH_QUEUE(){
+\end_layout
+
+\begin_layout Standard
+	Position currentPosition;
+\end_layout
+
+\begin_layout Standard
+	
+\end_layout
+
+\begin_layout Standard
+	for(i=0;i<queue.length;i++){
+\end_layout
+
+\begin_layout Standard
+		currentPosition=getTaxiDriverPosition(queue[i]); 	
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Standard
+		if(currentPosition doesn't belongs to currentZone){
+\end_layout
+
+\begin_layout Standard
+			queue = REMOVE_FROM_QUEUE(queue[i]);
+\end_layout
+
+\begin_layout Standard
+			i--;
+\end_layout
+
+\begin_layout Standard
+	/* in this way the algorithm will recheck the same 		value of i at the
+ next iteration, but with the correct 		next value, taking into account
+ that the list we are 		reading changes at every remove.
+\end_layout
+
+\begin_layout Standard
+	*/
+\end_layout
+
+\begin_layout Standard
+		}
+\end_layout
+
+\begin_layout Standard
+	}
+\end_layout
+
+\begin_layout Standard
+	return queue;
+\end_layout
+
+\begin_layout Standard
+}
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Standard
+List<int> ADD_TO_QUEUE(int taxiDriverId){ 	queue.add(taxiDriverId); 
+\end_layout
+
+\begin_layout Standard
+	return queue;
+\end_layout
+
+\begin_layout Standard
+}
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Standard
+List<int> REMOVE_FROM_QUEUE(int taxiDriverId){ 	queue.remove(taxiDriverId);
+\end_layout
+
+\begin_layout Standard
+	return queue;
+\end_layout
+
+\begin_layout Standard
+}
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Standard
+List<int> GET_QUEUE(){
+\end_layout
+
+\begin_layout Standard
+	queue = REFRESH_QUEUE;
+\end_layout
+
+\begin_layout Standard
+	return queue;
+\end_layout
+
+\begin_layout Standard
+}
+\end_layout
+
+\begin_layout Subsection
+Shared ride search
+\end_layout
+
+\begin_layout Standard
+
+\shape italic
+Private Ride Search:
+\shape default
+ the algorithm retrieves the zone of the starting point of the ride, then
+ according to that queue forwards the request to the first taxi driver in
+ the line, empting the queue with a FIFO policy.
+ If the request is accepted the taxi is removed from the queue and takes
+ in charge the call.
+ Otherwise he is removed and re-added to the same queue, in order to shift
+ him in the bottom position.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 0.5cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\color black
+void SEARCH_SHARED_RIDE(Position startingPoint, Position destinationPoint){
+\end_layout
+
+\begin_layout Standard
+
+\color black
+	Ride selectedRide = RIDE_MATCHING;
+\end_layout
+
+\begin_layout Standard
+
+\color black
+	if(ride == null){
+\end_layout
+
+\begin_layout Standard
+
+\color black
+		create a new ride with the specified starting and destination points;
+\end_layout
+
+\begin_layout Standard
+
+\color black
+	}
+\end_layout
+
+\begin_layout Standard
+
+\color black
+	else{
+\end_layout
+
+\begin_layout Standard
+
+\color black
+		add the customer to the selected ride;
+\end_layout
+
+\begin_layout Standard
+
+\color black
+	}
+\end_layout
+
+\begin_layout Standard
+
+\color black
+}
+\end_layout
+
+\begin_layout Standard
+
+\color black
+Ride RIDE_MATCHING(Position startingPoint, Position destinationPoint){
+\end_layout
+
+\begin_layout Standard
+
+\color black
+	List<Position> path <- calculate the ideal path for the 	ride, knowing
+ the starting and destination points as 	parameters;
+\end_layout
+
+\begin_layout Standard
+
+\color black
+	List<Position> currentPath = new List<Position> 	for(Ride r: all the active
+ shared ride){ 		currentPath = r.getPath();
+\end_layout
+
+\begin_layout Standard
+
+\color black
+		if(path is totally contained in currentPath && r.passengers.length()<4)
+\end_layout
+
+\begin_layout Standard
+
+\color black
+		return r;
+\end_layout
+
+\begin_layout Standard
+
+\color black
+	if(currentPath.contains(path.startingPoint) && path.contains(currentPath.destinatio
+nPoint) && r.passengers.length()<4)
+\end_layout
+
+\begin_layout Standard
+
+\color black
+	return r;
+\end_layout
+
+\begin_layout Standard
+
+\color black
+	}
+\end_layout
+
+\begin_layout Standard
+
+\color black
+	return null;
+\end_layout
+
+\begin_layout Standard
+}
+\end_layout
+
+\begin_layout Subsection
+Private ride reservation call
+\end_layout
+
+\begin_layout Standard
+
+\shape italic
+Private Reservation Call:
+\shape default
+ the algorithm is used to accomplish a private reserved ride, so it checks
+ that the hour is at least two hours later and then, 10 minutes before the
+ selected time, searches for a taxi driver in the zone.
+ If there is no available driver checks the nearby zones.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 0.5cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\color black
+/*
+\end_layout
+
+\begin_layout Standard
+
+\color black
+	The algorithm retrieves the zone of the starting point of 	the ride, then
+ according to that queue forwards the reuest 	to the first taxi driver in
+ the line, empting the queue
+\end_layout
+
+\begin_layout Standard
+
+\color black
+	with a FIFO policy.
+ If the request is accepted the taxi 	is removed from the queue and takes
+ in charge the call.
+ 	Otherwise he is removed and readded to the same queue,  	in order to shift
+ him in the bottom position.
+\end_layout
+
+\begin_layout Standard
+
+\color black
+*/
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Standard
+
+\color black
+Ride SEARCH_PRIVATE_RIDE(Call call){
+\end_layout
+
+\begin_layout Standard
+
+\color black
+	Zone startingZone=call.getQueueStartingZone(); 	List<int> queue = startingZone.GE
+T_QUEUE(); 		for(i=0, j=0; i<queue.length() && j<queu.length(); i++, j++){
+\end_layout
+
+\begin_layout Standard
+
+\color black
+	forward request to taxi driver with id queue[i];
+\end_layout
+
+\begin_layout Standard
+
+\color black
+	wait for taxi driver response; 
+\end_layout
+
+\begin_layout Standard
+
+\color black
+	
+\end_layout
+
+\begin_layout Standard
+
+\color black
+		if(taxi driver 	accepts the call){
+\end_layout
+
+\begin_layout Standard
+
+\color black
+		ride<-create a new ride; 		REMOVE_FROM_QUEUE(queue[i]);
+\end_layout
+
+\begin_layout Standard
+
+\color black
+		return ride;
+\end_layout
+
+\begin_layout Standard
+
+\color black
+		}
+\end_layout
+
+\begin_layout Standard
+
+\color black
+		else{
+\end_layout
+
+\begin_layout Standard
+
+\color black
+		REMOVE_FROM_QUEUE(queue[i]); 		ADD_TO_QUEUE(queue[i]);
+\end_layout
+
+\begin_layout Standard
+
+\color black
+		i--; 
+\end_layout
+
+\begin_layout Standard
+
+\color black
+/*
+\end_layout
+
+\begin_layout Standard
+
+\color black
+	In this way at the next iteration i'll chech again the 	same index but
+ with a different associated object, due to 	the shift.
+ j is not decremented, in order to avoid a loop 	if every taxi driver rejects
+ the call and the queue 	restarts from the first rejecting taxi driver:
+ in this way 	we forward every request only one time to the same taxi 	driver.
+\end_layout
+
+\begin_layout Standard
+
+\color black
+*/
+\end_layout
+
+\begin_layout Standard
+
+\color black
+		}
+\end_layout
+
+\begin_layout Standard
+
+\color black
+	}
+\end_layout
+
+\begin_layout Standard
+
+\color black
+	return null;
+\end_layout
+
+\begin_layout Standard
+}
 \end_layout
 
 \begin_layout Section
@@ -1310,10 +2157,297 @@ User interface design
 \end_layout
 
 \begin_layout Standard
-(Provide an overview on how the user interface(s) of your system will look
- like.
- If you have included this part in the RASD, you can simply refer to what
- you have already done, possibly, providing here some extensions if applicable)
+The user interface design, already shown in the RASD, are presented in this
+ document with the addition of the Web Browser UI.
+\end_layout
+
+\begin_layout Subsection
+Customer UI
+\end_layout
+
+\begin_layout Standard
+The following mockups represent the customer UI, regarding both the Web
+ Browser and the Mobile Application interfaces.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 1cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Mockups/Customer/Home.png
+	scale 20
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\shape italic
+Figure 4.1
+\shape default
+: home user interface for the customer
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename /Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Mockups/Customer/Login.png
+	scale 20
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\shape italic
+Figure 4.2
+\shape default
+: login user interface for the customer
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 1cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Mockups/Customer/Registration.png
+	scale 20
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\shape italic
+Figure 4.
+\shape default
+3: registration user interface for the customer
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename /Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Mockups/Customer/Map.png
+	scale 20
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\shape italic
+Figure 4.
+\shape default
+4: map user interface for the customer
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 1cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename /Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Mockups/Customer/User Settings.png
+	scale 20
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\shape italic
+Figure 4.
+\shape default
+5: setting user interface for the customer
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename /Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Mockups/Customer/Confirm Taxi.png
+	scale 20
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\shape italic
+Figure 4.
+\shape default
+6: taxi confirmation user interface for the customer
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 1cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename /Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Mockups/Customer/Reservation.png
+	scale 20
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\shape italic
+Figure 4.
+\shape default
+7: taxi reservation user interface for the customer
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename /Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Mockups/Customer/Sharing.png
+	scale 20
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\shape italic
+Figure 4.
+\shape default
+8: taxi sharing user interface for the customer
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Taxi driver UI
+\end_layout
+
+\begin_layout Standard
+The following mockups represent the taxi driver UI.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename /Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Mockups/Taxi Driver/logintabmockup.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\shape italic
+Figure 4.
+\shape default
+9: home and login user interface for the taxi driver
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename /Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Mockups/Taxi Driver/requesttabmockup.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\shape italic
+Figure 4.
+\shape default
+10: incoming request user interface for the taxi driver
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename /Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Mockups/Taxi Driver/ridingtabmockup.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\shape italic
+Figure 4.
+\shape default
+11: riding and assistance call user interface for the taxi driver
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename /Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Mockups/Taxi Driver/Side Menu.png
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\shape italic
+Figure 4.
+\shape default
+12: slide menu user interface for the taxi driver
 \end_layout
 
 \begin_layout Section
