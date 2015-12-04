@@ -697,7 +697,7 @@ s oj java (JDBC).
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename D:/Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Diagrams/architecture.png
+	filename /Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Diagrams/architecture.png
 	scale 50
 
 \end_inset
@@ -1043,7 +1043,7 @@ begin{enumerate}
 item {
 \backslash
 textit{customerProfileManagement}}: this interface provides methods that
- allow the retrieve and modification of personal data}};
+ allow the retrieve and modification of personal data;
 \end_layout
 
 \begin_layout Plain Layout
@@ -1142,7 +1142,7 @@ begin{enumerate}
 item {
 \backslash
 textit{taxiDriverProfileManagement}}: this interface provides methods that
- allow the taxi driver to see or modify his personal data}};
+ allow the taxi driver to see or modify his personal data;
 \end_layout
 
 \begin_layout Plain Layout
@@ -1175,7 +1175,7 @@ begin{enumerate}
 item {
 \backslash
 textit{incomingCallManagement}}: this interface provides methods that are
- used to accept or decline an incoming call}};
+ used to accept or decline an incoming call;
 \end_layout
 
 \begin_layout Plain Layout
@@ -1208,7 +1208,7 @@ begin{enumerate}
 item {
 \backslash
 textit{assistanceCallManagement}}: this interface provides methods that
- allows the taxi driver to signal a problem during his service}};
+ allows the taxi driver to signal a problem during his service;
 \end_layout
 
 \begin_layout Plain Layout
@@ -1246,6 +1246,13 @@ textit{dataHandler}}: this interface provides the data management methods
 
 \begin_layout Plain Layout
 
+		
+\backslash
+end{enumerate}
+\end_layout
+
+\begin_layout Plain Layout
+
 	
 \backslash
 item {
@@ -1271,6 +1278,34 @@ textit{paymentManagement}};
 
 \begin_layout Plain Layout
 
+		
+\backslash
+end{enumerate}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item {
+\backslash
+textit{Notification manager}}:
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+begin{enumerate}
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+item {
+\backslash
+textit{notificationManagement}};
 \end_layout
 
 \begin_layout Plain Layout
@@ -1373,7 +1408,7 @@ Here is the diagram showing the interaction between the two sides of the
 \begin_layout Standard
 \align left
 \begin_inset Graphics
-	filename D:/Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Diagrams/Sub-system diagram.png
+	filename /Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Diagrams/Sub-system diagram.png
 	scale 40
 
 \end_inset
@@ -1494,7 +1529,7 @@ Registration Sequence diagram
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename D:/Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Updated Sequence Diagrams/Reg_seq_diagram.png
+	filename /Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Updated Sequence Diagrams/Reg_seq_diagram.png
 	scale 50
 
 \end_inset
@@ -1506,9 +1541,9 @@ Registration Sequence diagram
 \align center
 
 \shape italic
-Figure 2.4
+Figure 2.
 \shape default
-: Registration Sequence diagram
+4: Registration Sequence diagram
 \end_layout
 
 \begin_layout Subsubsection
@@ -1559,7 +1594,7 @@ Another assumption is that the Payment Manager, when verifies the validity
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename D:/Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Updated Sequence Diagrams/ImmCall_seq_diagram.png
+	filename /Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Updated Sequence Diagrams/ImmCall_seq_diagram (w payment).png
 	scale 40
 
 \end_inset
@@ -1600,7 +1635,7 @@ Furthermore, the payment information, after the check by the Payment Manager
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename D:/Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Updated Sequence Diagrams/ResCall_seq_diagram.png
+	filename /Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Updated Sequence Diagrams/ResCall_seq_diagram.png
 	scale 40
 
 \end_inset
@@ -1632,6 +1667,16 @@ This section shows what are the interfaces that the system provides to the
 authenticationManagement
 \end_layout
 
+\begin_layout Standard
+This interface provides the methods that will allow the non-logged users
+ to login to the system; it manages situation like guiding the recognized
+ user to the relevant home page.
+\end_layout
+
+\begin_layout Standard
+The most important methods are:
+\end_layout
+
 \begin_layout Itemize
 void login (string id, string password);
 \end_layout
@@ -1642,6 +1687,15 @@ void logout();
 
 \begin_layout Subsubsection
 registrationManagement
+\end_layout
+
+\begin_layout Standard
+This interface provides the methods which contribute to the registration
+ of a new user and the consequent email verification request.
+\end_layout
+
+\begin_layout Standard
+The most important methods are:
 \end_layout
 
 \begin_layout Itemize
@@ -1655,6 +1709,15 @@ bool confirmIdentity (string email);
 
 \begin_layout Subsubsection
 customerProfileManagement
+\end_layout
+
+\begin_layout Standard
+This interface provides methods that allow the retrieve and modification
+ of personal data.
+\end_layout
+
+\begin_layout Standard
+The most important methods are:
 \end_layout
 
 \begin_layout Itemize
@@ -1685,6 +1748,15 @@ void enableSharingMode ()
 taxiDriverProfileManagement
 \end_layout
 
+\begin_layout Standard
+This interface provides methods that allow the taxi driver to see or modify
+ his personal data (with the relevant privileges).
+\end_layout
+
+\begin_layout Standard
+The most important methods are:
+\end_layout
+
 \begin_layout Itemize
 void changePassword (string email, string oldPassword, string newPassword);
 \end_layout
@@ -1711,6 +1783,10 @@ This interface is used both for the private rides and the shared rides.
  private or for shared, and invoke them on the server using thier interfaces.
 \end_layout
 
+\begin_layout Standard
+The main method is:
+\end_layout
+
 \begin_layout Itemize
 void sendImmediateRequest ();
 \end_layout
@@ -1725,12 +1801,25 @@ This interface is used both for the private rides and the shared rides.
  private or for shared, and invoke them on the server using thier interfaces.
 \end_layout
 
+\begin_layout Standard
+The main method is:
+\end_layout
+
 \begin_layout Itemize
 void sendReservationRequest();
 \end_layout
 
 \begin_layout Subsubsection
 incomingCallManagement
+\end_layout
+
+\begin_layout Standard
+This interface provides methods for the taxi driver that are used to accept
+ or decline an incoming call.
+\end_layout
+
+\begin_layout Standard
+The two main methods are:
 \end_layout
 
 \begin_layout Itemize
@@ -1743,6 +1832,15 @@ void declineCall();
 
 \begin_layout Subsubsection
 taxiDriverAssistanceCallManagement
+\end_layout
+
+\begin_layout Standard
+This interface provides methods that allows the taxi driver to signal a
+ problem during his service.
+\end_layout
+
+\begin_layout Standard
+The most important methods are:
 \end_layout
 
 \begin_layout Itemize
@@ -1762,7 +1860,9 @@ dataHandler
 \end_layout
 
 \begin_layout Standard
-The following interfaces contains SQL queries that allow the communication
+This interface provides the data management methods in order to store and
+ retrieve data to and from the server.
+ The following methods contains SQL queries that allow the communication
  with the database.
 \end_layout
 
@@ -1786,6 +1886,19 @@ void modifyData();
 notificationHandler
 \end_layout
 
+\begin_layout Standard
+This interface is used by the components that have to communicate each other
+ by notifications.
+\end_layout
+
+\begin_layout Standard
+Its role is to be an mediator between them.
+\end_layout
+
+\begin_layout Standard
+The main method is:
+\end_layout
+
 \begin_layout Itemize
 void notify();
 \end_layout
@@ -1797,6 +1910,10 @@ paymentManagement
 \begin_layout Standard
 This interface contains a single method that makes requests to the banking
  service the system is associated with.
+\end_layout
+
+\begin_layout Standard
+The main method is:
 \end_layout
 
 \begin_layout Itemize
@@ -2921,7 +3038,7 @@ The following mockups represent the customer UI, regarding both the Web
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename D:/Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Mockups/Customer/Home.png
+	filename /Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Mockups/Customer/Home.png
 	scale 20
 
 \end_inset
@@ -2941,7 +3058,7 @@ Figure 4.1
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename D:/Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Mockups/Customer/Login.png
+	filename /Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Mockups/Customer/Login.png
 	scale 20
 
 \end_inset
@@ -2968,7 +3085,7 @@ Figure 4.2
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename D:/Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Mockups/Customer/Registration.png
+	filename /Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Mockups/Customer/Registration.png
 	scale 20
 
 \end_inset
@@ -2988,7 +3105,7 @@ Figure 4.
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename D:/Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Mockups/Customer/Map.png
+	filename /Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Mockups/Customer/Map.png
 	scale 20
 
 \end_inset
@@ -3015,7 +3132,7 @@ Figure 4.
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename D:/Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Mockups/Customer/User Settings.png
+	filename /Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Mockups/Customer/User Settings.png
 	scale 20
 
 \end_inset
@@ -3035,7 +3152,7 @@ Figure 4.
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename D:/Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Mockups/Customer/Confirm Taxi.png
+	filename /Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Mockups/Customer/Confirm Taxi.png
 	scale 20
 
 \end_inset
@@ -3062,7 +3179,7 @@ Figure 4.
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename D:/Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Mockups/Customer/Reservation.png
+	filename /Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Mockups/Customer/Reservation.png
 	scale 20
 
 \end_inset
@@ -3082,7 +3199,7 @@ Figure 4.
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename D:/Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Mockups/Customer/Sharing.png
+	filename /Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Mockups/Customer/Sharing.png
 	scale 20
 
 \end_inset
@@ -3116,7 +3233,7 @@ The following mockups represent the taxi driver UI.
 
 \begin_layout Standard
 \begin_inset Graphics
-	filename D:/Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Mockups/Taxi Driver/logintabmockup.png
+	filename /Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Mockups/Taxi Driver/logintabmockup.png
 	scale 40
 
 \end_inset
@@ -3142,7 +3259,7 @@ Figure 4.
 
 \begin_layout Standard
 \begin_inset Graphics
-	filename D:/Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Mockups/Taxi Driver/requesttabmockup.png
+	filename /Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Mockups/Taxi Driver/requesttabmockup.png
 	scale 40
 
 \end_inset
@@ -3161,7 +3278,7 @@ Figure 4.
 
 \begin_layout Standard
 \begin_inset Graphics
-	filename D:/Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Mockups/Taxi Driver/ridingtabmockup.png
+	filename /Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Mockups/Taxi Driver/ridingtabmockup.png
 	scale 40
 
 \end_inset
@@ -3180,7 +3297,7 @@ Figure 4.
 
 \begin_layout Standard
 \begin_inset Graphics
-	filename D:/Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Mockups/Taxi Driver/Side Menu.png
+	filename /Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Mockups/Taxi Driver/Side Menu.png
 	scale 30
 
 \end_inset
@@ -3328,6 +3445,55 @@ If the queue of the zone corresponding to the starting position is empty,
 
 \begin_layout Section
 Persistent data management
+\end_layout
+
+\begin_layout Section
+Changes in the RASD
+\end_layout
+
+\begin_layout Standard
+During the writing of the Design Document, we noticed some aspects to change
+ in the RASD.
+\end_layout
+
+\begin_layout Itemize
+Class diagram updated: some attributes added to the 
+\begin_inset Quotes eld
+\end_inset
+
+Ride
+\begin_inset Quotes erd
+\end_inset
+
+ and from the 
+\begin_inset Quotes eld
+\end_inset
+
+Taxi driver
+\begin_inset Quotes erd
+\end_inset
+
+ classes, and an attribute removed from 
+\begin_inset Quotes eld
+\end_inset
+
+Shared ride
+\begin_inset Quotes erd
+\end_inset
+
+ class;
+\end_layout
+
+\begin_layout Itemize
+Sequence diagram updated: see section 2.5 of this document for details;
+\end_layout
+
+\begin_layout Itemize
+Assumptions: see the RASD_updated file in the 2.2 section;
+\end_layout
+
+\begin_layout Itemize
+Functional requirements: see the RASD_updated file in the 3.1 section;
 \end_layout
 
 \begin_layout Section
