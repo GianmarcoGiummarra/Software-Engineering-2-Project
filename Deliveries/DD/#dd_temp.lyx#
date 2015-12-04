@@ -1671,12 +1671,26 @@ queue = empty_set;
 
 \begin_layout Plain Layout
 
-	while service is active do{
+while service is active do{
 \end_layout
 
 \begin_layout Plain Layout
 
-		List<signal> taxiSignals = searchSignals(currentZone);
+	List<signal> taxiSignals = searchSignals(currentZone);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	for(i=0; i<taxiSignals.length; i++){
+\end_layout
+
+\begin_layout Plain Layout
+
+		id = getTaxiDriverId(taxiSignals[i]);
 \end_layout
 
 \begin_layout Plain Layout
@@ -1686,32 +1700,12 @@ queue = empty_set;
 
 \begin_layout Plain Layout
 
-		for(i=0; i<taxiSignals.length; i++){
+		if(id doesn't belongs to queue){
 \end_layout
 
 \begin_layout Plain Layout
 
-			id = getTaxiDriverId(taxiSignals[i]);
-\end_layout
-
-\begin_layout Plain Layout
-
-		
-\end_layout
-
-\begin_layout Plain Layout
-
-			if(id doesn't belongs to queue){
-\end_layout
-
-\begin_layout Plain Layout
-
-				queue = ADD_TO_QUEUE(id);
-\end_layout
-
-\begin_layout Plain Layout
-
-			}
+			queue = ADD_TO_QUEUE(id);
 \end_layout
 
 \begin_layout Plain Layout
@@ -1721,46 +1715,55 @@ queue = empty_set;
 
 \begin_layout Plain Layout
 
-	
-\end_layout
-
-\begin_layout Plain Layout
-
-		queue = REFRESH_QUEUE(); 
-\end_layout
-
-\begin_layout Plain Layout
-
-	/*
-\end_layout
-
-\begin_layout Plain Layout
-
-	after inserting new elements, the system refreshes the
-\end_layout
-
-\begin_layout Plain Layout
-
-	queue in order to eliminate taxi drivers that moved in
-\end_layout
-
-\begin_layout Plain Layout
-
-	another zone.
-\end_layout
-
-\begin_layout Plain Layout
-
-	*/
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
 	}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	queue = REFRESH_QUEUE(); 
+\end_layout
+
+\begin_layout Plain Layout
+
+/*
+\end_layout
+
+\begin_layout Plain Layout
+
+the refreshing of the queue happen whenever a 
+\end_layout
+
+\begin_layout Plain Layout
+
+taxi driver  changes his status, for whatever reason,
+\end_layout
+
+\begin_layout Plain Layout
+
+such as when the unavailability status is set,
+\end_layout
+
+\begin_layout Plain Layout
+
+or a request get declined.
+\end_layout
+
+\begin_layout Plain Layout
+
+*/
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+}
 \end_layout
 
 \begin_layout Plain Layout
@@ -1774,86 +1777,12 @@ queue = empty_set;
 
 \begin_layout Plain Layout
 
-List<int> REFRESH_QUEUE(){
+List<int> ADD_TO_QUEUE(int taxiDriverId){
 \end_layout
 
 \begin_layout Plain Layout
 
-	Position currentPosition;
-\end_layout
-
-\begin_layout Plain Layout
-
-	
-\end_layout
-
-\begin_layout Plain Layout
-
-	for(i=0;i<queue.length;i++){
-\end_layout
-
-\begin_layout Plain Layout
-
-		currentPosition=getTaxiDriverPosition(queue[i]); 	
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-		if(currentPosition doesn't belongs to currentZone){
-\end_layout
-
-\begin_layout Plain Layout
-
-			queue = REMOVE_FROM_QUEUE(queue[i]);
-\end_layout
-
-\begin_layout Plain Layout
-
-			i--;
-\end_layout
-
-\begin_layout Plain Layout
-
-			/*
-\end_layout
-
-\begin_layout Plain Layout
-
-			in this way the algorithm will recheck the same
-\end_layout
-
-\begin_layout Plain Layout
-
-			value of i at the next iteration, but with the correct
-\end_layout
-
-\begin_layout Plain Layout
-
-			next value, taking into account that the list we are
-\end_layout
-
-\begin_layout Plain Layout
-
-			reading changes at every remove.
-\end_layout
-
-\begin_layout Plain Layout
-
-			*/
-\end_layout
-
-\begin_layout Plain Layout
-
-		}
-\end_layout
-
-\begin_layout Plain Layout
-
-	}
+	queue.add(taxiDriverId); 
 \end_layout
 
 \begin_layout Plain Layout
@@ -1872,26 +1801,12 @@ List<int> REFRESH_QUEUE(){
 
 \begin_layout Plain Layout
 
-List<int> ADD_TO_QUEUE(int taxiDriverId){ 	queue.add(taxiDriverId); 
+List<int> REMOVE_FROM_QUEUE(int taxiDriverId){
 \end_layout
 
 \begin_layout Plain Layout
 
-	return queue;
-\end_layout
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-List<int> REMOVE_FROM_QUEUE(int taxiDriverId){ 	queue.remove(taxiDriverId);
+	queue.remove(taxiDriverId);
 \end_layout
 
 \begin_layout Plain Layout
@@ -1938,11 +1853,7 @@ Private ride search
 \end_layout
 
 \begin_layout Standard
-
-\shape italic
-Private ride search:
-\shape default
- the algorithm retrieves the zone of the starting point of the ride, then
+The algorithm retrieves the zone of the starting point of the ride, then
  according to that queue forwards the request to the first taxi driver in
  the line, empting the queue with a FIFO policy.
  If the request is accepted the taxi is removed from the queue and takes
@@ -2022,123 +1933,55 @@ Ride SEARCH_PRIVATE_RIDE(Call call){
 
 \begin_layout Plain Layout
 
-	Zone startingZone=call.getQueueStartingZone();
+Zone startingZone=call.getQueueStartingZone();
 \end_layout
 
 \begin_layout Plain Layout
 
-	List<int> queue = startingZone.GET_QUEUE();
+List<int> queue = startingZone.GET_QUEUE();
 \end_layout
 
 \begin_layout Plain Layout
 
-	
 \end_layout
 
 \begin_layout Plain Layout
 
-	for(i=0, j=0; i<queue.length() && j<queu.length(); i++, j++){
+for(i=0, j=0; i<queue.length() && j<queue.length(); i++, j++){
 \end_layout
 
 \begin_layout Plain Layout
 
-		forward request to taxi driver with id queue[i];
+	forward request to taxi driver with id queue[i];
 \end_layout
 
 \begin_layout Plain Layout
 
-		wait for taxi driver response; 
+	wait for taxi driver response; 
 \end_layout
 
 \begin_layout Plain Layout
 
-	
 \end_layout
 
 \begin_layout Plain Layout
 
-		if(taxi driver 	accepts the call){
+	if(taxi driver 	accepts the call){
 \end_layout
 
 \begin_layout Plain Layout
 
-			ride<-create a new ride;
+		ride<-create a new ride;
 \end_layout
 
 \begin_layout Plain Layout
 
-			REMOVE_FROM_QUEUE(queue[i]);
+		REMOVE_FROM_QUEUE(queue[i]);
 \end_layout
 
 \begin_layout Plain Layout
 
-			return ride;
-\end_layout
-
-\begin_layout Plain Layout
-
-		}
-\end_layout
-
-\begin_layout Plain Layout
-
-		else{
-\end_layout
-
-\begin_layout Plain Layout
-
-			REMOVE_FROM_QUEUE(queue[i]); 		ADD_TO_QUEUE(queue[i]);
-\end_layout
-
-\begin_layout Plain Layout
-
-			i--; 
-\end_layout
-
-\begin_layout Plain Layout
-
-		/*
-\end_layout
-
-\begin_layout Plain Layout
-
-		In this way at the next iteration i'll chech again the
-\end_layout
-
-\begin_layout Plain Layout
-
-		same index but with a different associated object, due to
-\end_layout
-
-\begin_layout Plain Layout
-
-		the shift.
- j is not decremented, in order to avoid a loop
-\end_layout
-
-\begin_layout Plain Layout
-
-		if every taxi driver rejects the call and the queue
-\end_layout
-
-\begin_layout Plain Layout
-
-		restarts from the first rejecting taxi driver: in this way
-\end_layout
-
-\begin_layout Plain Layout
-
-		we forward every request only one time to the same taxi driver.
-\end_layout
-
-\begin_layout Plain Layout
-
-		*/
-\end_layout
-
-\begin_layout Plain Layout
-
-		}
+		return ride;
 \end_layout
 
 \begin_layout Plain Layout
@@ -2148,7 +1991,57 @@ Ride SEARCH_PRIVATE_RIDE(Call call){
 
 \begin_layout Plain Layout
 
-	return null;
+	else{
+\end_layout
+
+\begin_layout Plain Layout
+
+		REMOVE_FROM_QUEUE(queue[i]);
+\end_layout
+
+\begin_layout Plain Layout
+
+		ADD_TO_QUEUE(queue[i]);
+\end_layout
+
+\begin_layout Plain Layout
+
+		KEEP_TRACK_OF_THE_REFUSING_DRIVER();
+\end_layout
+
+\begin_layout Plain Layout
+
+		/* 
+\end_layout
+
+\begin_layout Plain Layout
+
+		This operation in order to not forward
+\end_layout
+
+\begin_layout Plain Layout
+
+		requests to the same taxi driver twice.
+\end_layout
+
+\begin_layout Plain Layout
+
+		*/
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+return null;
 \end_layout
 
 \begin_layout Plain Layout
@@ -2166,10 +2059,114 @@ Private reservation call
 \end_layout
 
 \begin_layout Standard
-the algorithm is used to accomplish a private reserved ride, so it checks
+The algorithm is used to accomplish a private reserved ride, so it checks
  that the hour is at least two hours later and then, 10 minutes before the
  selected time, searches for a taxi driver in the zone.
  If there is no available driver checks the nearby zones.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+Ride PRIVATE_RESERVATION(ReservationCall call){
+\end_layout
+
+\begin_layout Plain Layout
+
+Time reservationTime = call.getRideStartingTime();
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+if(currentTime()-reservationTime < 2hours){
+\end_layout
+
+\begin_layout Plain Layout
+
+	return null;
+\end_layout
+
+\begin_layout Plain Layout
+
+	/*
+\end_layout
+
+\begin_layout Plain Layout
+
+	a reservation must be at least for 2 hours after the call,
+\end_layout
+
+\begin_layout Plain Layout
+
+	otherwise will be rejected
+\end_layout
+
+\begin_layout Plain Layout
+
+	*/
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+else{
+\end_layout
+
+\begin_layout Plain Layout
+
+	wait until 10 minutes before reservationTime;
+\end_layout
+
+\begin_layout Plain Layout
+
+	Ride ride = SEARCH_PRIVATE_RIDE(call);
+\end_layout
+
+\begin_layout Plain Layout
+
+		while(ride == null){
+\end_layout
+
+\begin_layout Plain Layout
+
+			ride = search for a taxi driver in the adjacent zones;
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+return ride;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -2177,12 +2174,8 @@ Shared ride search
 \end_layout
 
 \begin_layout Standard
-
-\shape italic
-Shared ride search:
-\shape default
- the algorithm is used to search for a shared ride, paying attention to
- the matching of the paths.
+The algorithm is used to search for a shared ride, paying attention to the
+ matching of the paths.
  If no shared ride can be matched with the needed path the system creates
  a new shared ride, and the customer will be the first passenger.
 \end_layout
@@ -2208,37 +2201,37 @@ void SEARCH_SHARED_RIDE(Position startingPoint, Position destinationPoint){
 
 \begin_layout Plain Layout
 
-	Ride selectedRide = RIDE_MATCHING;
+Ride selectedRide = RIDE_MATCHING;
 \end_layout
 
 \begin_layout Plain Layout
 
-	if(ride == null){
+if(ride == null){
 \end_layout
 
 \begin_layout Plain Layout
 
-		create a new ride with the specified starting and destination points;
+	create a new ride with the specified starting and destination points;
 \end_layout
 
 \begin_layout Plain Layout
 
-	}
+}
 \end_layout
 
 \begin_layout Plain Layout
 
-	else{
+else{
 \end_layout
 
 \begin_layout Plain Layout
 
-		add the customer to the selected ride;
+	add the customer to the selected ride;
 \end_layout
 
 \begin_layout Plain Layout
 
-	}
+}
 \end_layout
 
 \begin_layout Plain Layout
@@ -2253,57 +2246,37 @@ Ride RIDE_MATCHING(Position startingPoint, Position destinationPoint){
 
 \begin_layout Plain Layout
 
-	List<Position> path <- calculate the ideal path for the 
+List<Position> path <- calculate the ideal path for the 
 \end_layout
 
 \begin_layout Plain Layout
 
-							ride, knowing the starting and 
+		ride, knowing the starting and 
 \end_layout
 
 \begin_layout Plain Layout
 
-							destination points as parameters;
+		destination points as parameters;
 \end_layout
 
 \begin_layout Plain Layout
 
-	List<Position> currentPath = new List<Position> 
+List<Position> currentPath = new List<Position> 
 \end_layout
 
 \begin_layout Plain Layout
 
-	for(Ride r: all the active shared ride){
+for(Ride r: all the active shared ride){
 \end_layout
 
 \begin_layout Plain Layout
 
-		currentPath = r.getPath();
+	currentPath = r.getPath();
 \end_layout
 
 \begin_layout Plain Layout
 
-		if(path is totally contained in currentPath && r.passengers.length()<4)
-\end_layout
-
-\begin_layout Plain Layout
-
-			return r;
-\end_layout
-
-\begin_layout Plain Layout
-
-	if(currentPath.contains(path.startingPoint) && 
-\end_layout
-
-\begin_layout Plain Layout
-
-		path.contains(currentPath.destinationPoint) && 
-\end_layout
-
-\begin_layout Plain Layout
-
-			r.passengers.length()<4)
+	if(path is totally contained in currentPath && r.passengers.length()<4)
 \end_layout
 
 \begin_layout Plain Layout
@@ -2313,17 +2286,65 @@ Ride RIDE_MATCHING(Position startingPoint, Position destinationPoint){
 
 \begin_layout Plain Layout
 
-	}
+if(currentPath.contains(path.startingPoint) && 
 \end_layout
 
 \begin_layout Plain Layout
 
-	return null;
+	path.contains(currentPath.destinationPoint) && 
+\end_layout
+
+\begin_layout Plain Layout
+
+		r.passengers.length()<4)
+\end_layout
+
+\begin_layout Plain Layout
+
+	return r;
 \end_layout
 
 \begin_layout Plain Layout
 
 }
+\end_layout
+
+\begin_layout Plain Layout
+
+return null;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Fee amount for shared rides
+\end_layout
+
+\begin_layout Standard
+This algorithm is used to calculate the cost per passenger for every customer
+ ending a shared ride, dividing the fee of the shared parts of the track
+ with the other customers that are sharing the same track.
+ At the end of the shared ride, the sum of all the costs of every customer
+ that joined must be equal to the cost that results for the same total ride
+ made by a single customer.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+toInsert
 \end_layout
 
 \end_inset
@@ -2377,6 +2398,7 @@ Figure 4.1
 \end_layout
 
 \begin_layout Standard
+\align center
 \begin_inset Graphics
 	filename /Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Mockups/Customer/Login.png
 	scale 20
@@ -2423,6 +2445,7 @@ Figure 4.
 \end_layout
 
 \begin_layout Standard
+\align center
 \begin_inset Graphics
 	filename /Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Mockups/Customer/Map.png
 	scale 20
@@ -2449,6 +2472,7 @@ Figure 4.
 \end_layout
 
 \begin_layout Standard
+\align center
 \begin_inset Graphics
 	filename /Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Mockups/Customer/User Settings.png
 	scale 20
@@ -2468,6 +2492,7 @@ Figure 4.
 \end_layout
 
 \begin_layout Standard
+\align center
 \begin_inset Graphics
 	filename /Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Mockups/Customer/Confirm Taxi.png
 	scale 20
@@ -2494,6 +2519,7 @@ Figure 4.
 \end_layout
 
 \begin_layout Standard
+\align center
 \begin_inset Graphics
 	filename /Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Mockups/Customer/Reservation.png
 	scale 20
@@ -2513,6 +2539,7 @@ Figure 4.
 \end_layout
 
 \begin_layout Standard
+\align center
 \begin_inset Graphics
 	filename /Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Mockups/Customer/Sharing.png
 	scale 20

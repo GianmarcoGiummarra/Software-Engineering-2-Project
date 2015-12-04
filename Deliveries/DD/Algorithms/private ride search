@@ -1,7 +1,13 @@
+
+
+
+
+
+
 Ride SEARCH_PRIVATE_RIDE(Call call){
 		Zone startingZone = call.getQueueStartingZone();
 		List<int> queue = startingZone.GET_QUEUE();
-		for(i=0, j=0; i<queue.length() && j<queu.length(); i++, j++){
+		for(i=0, j=0; i<queue.length() && j<queue.length(); i++, j++){
 			forward request to taxi driver with id queue[i];
 			wait for taxi driver response;
 			if(taxi driver accepts the call){
@@ -12,10 +18,16 @@ Ride SEARCH_PRIVATE_RIDE(Call call){
 			else{
 				REMOVE_FROM_QUEUE(queue[i]);
 				ADD_TO_QUEUE(queue[i]);
-				i--; /*In this way at the next iteration i'll chech again the same index but with a different associated object, due to the shift.
+				KEEP_TRACK_OF_THE_REFUSING_DRIVER();
+					/*
+This operation in order to not forward requests to the
+same taxi driver twice
+*/
+				
+				TOREMOVETHISCODE?[[[i—; /*In this way at the next iteration i'll check again the same index but with a different associated object, due to the shift.
 					  *j is not decremented, in order to avoid a loop if every taxi driver rejects the call and the queue restarts from the first
 					  *rejecting taxi driver: in this way we forward every request only one time to the same taxi driver.
-					 */
+					 */]]]
 			}
 		}
 		return null;

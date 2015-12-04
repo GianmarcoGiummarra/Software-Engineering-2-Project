@@ -1,12 +1,19 @@
+
+
+
+
+
+
+
 Ride PRIVATE_RESERVATION(ReservationCall call){
 		Time reservationTime = call.getRideStartingTime();
-		if(currentTime()-reservationTime < 2hours){
+		if(reservationTime-currentTime() < 2hours){
 			return null; //a reservation must be at least for 2 hours after the call, otherwise will be rejected
 		}
 		else{
 			wait  until 10 minutes before reservationTime;
 			Ride ride = SEARCH_PRIVATE_RIDE(call);
-			while(ride == null){
+			while(ride == null && (reservationTime-currentTime())){
 				ride = search for a taxi driver in the adjacent zones;
 			}
 		}

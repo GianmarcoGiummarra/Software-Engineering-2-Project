@@ -10,26 +10,13 @@ void TAXI_QUEUE_HANDLER(){
 					queue = ADD_TO_QUEUE(id);
 				}
 			}
-			queue = REFRESH_QUEUE(); /*after inserting new elements, the system refreshes the queue in order to eliminate taxi
-									  *drivers that moved in another zone.
-									  */
+			queue = REFRESH_QUEUE(); /*
+							the refreshing of the queue happen whenever a
+							taxi driver  changes his status, for whatever reason,
+							such as when the unavailability status is set, or
+							a request get declined
+							*/
 		}
-	}
-
-List<int> REFRESH_QUEUE(){
-		Position currentPosition;
-		for(i=0; i<queue.length; i++){
-			currentPosition = getTaxiDriverPosition(queue[i]);
-			if(currentPosition doesn't belongs to currentZone){
-				queue = REMOVE_FROM_QUEUE(queue[i]);
-				i--; /*
-					  *In this way the algorithm will recheck the same value of i at the next iteration,
-					  *but with the correct next value, taking into account that the list we are reading
-					  *changes at every remove.
-					  */
-			}
-		}
-		return queue;
 	}
 
 List<int> ADD_TO_QUEUE(int taxiDriverId){
