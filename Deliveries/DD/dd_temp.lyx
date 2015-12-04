@@ -954,463 +954,6 @@ end{itemize}
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Subsubsection
-Interfaces
-\end_layout
-
-\begin_layout Standard
-In this subsection we define the interfaces the components will interact
- with, in order to follow the adopted top-down approach.
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-Server side
-\series default
-:
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{itemize}
-\end_layout
-
-\begin_layout Plain Layout
-
-	
-\backslash
-item {
-\backslash
-textit{Authentication manager}}:
-\end_layout
-
-\begin_layout Plain Layout
-
-		
-\backslash
-begin{enumerate}
-\end_layout
-
-\begin_layout Plain Layout
-
-			
-\backslash
-item {
-\backslash
-textit{authenticationManagement}}: this interface provides the methods that
- will allow the non-logged users to login to the system; it manages situation
- like guiding the recognized user to the relevant home page;
-\end_layout
-
-\begin_layout Plain Layout
-
-			
-\backslash
-item {
-\backslash
-textit{registrationManager}}: this interface provides the methods which
- contribute to the registration of a new user and the consequent email verificat
-ion request;
-\end_layout
-
-\begin_layout Plain Layout
-
-		
-\backslash
-end{enumerate}
-\end_layout
-
-\begin_layout Plain Layout
-
-	
-\backslash
-item{
-\backslash
-textit{Customer profile manager}}
-\end_layout
-
-\begin_layout Plain Layout
-
-		
-\backslash
-begin{enumerate}
-\end_layout
-
-\begin_layout Plain Layout
-
-			
-\backslash
-item {
-\backslash
-textit{customerProfileManagement}}: this interface provides methods that
- allow the retrieve and modification of personal data;
-\end_layout
-
-\begin_layout Plain Layout
-
-		
-\backslash
-end{enumerate}
-\end_layout
-
-\begin_layout Plain Layout
-
-	
-\backslash
-item{
-\backslash
-textit{Immediate call manager}}
-\end_layout
-
-\begin_layout Plain Layout
-
-		
-\backslash
-begin{enumerate}
-\end_layout
-
-\begin_layout Plain Layout
-
-			
-\backslash
-item {
-\backslash
-textit{makeImmediateCall}}: this interface allows the customers to interact
- with the system in order to make requests for immediate taxi calls;
-\end_layout
-
-\begin_layout Plain Layout
-
-		
-\backslash
-end{enumerate}
-\end_layout
-
-\begin_layout Plain Layout
-
-	
-\backslash
-item{
-\backslash
-textit{Reservation call manager}}
-\end_layout
-
-\begin_layout Plain Layout
-
-		
-\backslash
-begin{enumerate}
-\end_layout
-
-\begin_layout Plain Layout
-
-			
-\backslash
-item {
-\backslash
-textit{makeReservation}}: this interface allows the customers to interact
- with the system in order to make requests for reservations;
-\end_layout
-
-\begin_layout Plain Layout
-
-		
-\backslash
-end{enumerate}
-\end_layout
-
-\begin_layout Plain Layout
-
-	
-\backslash
-item {
-\backslash
-textit{Taxi driver profile manager}}
-\end_layout
-
-\begin_layout Plain Layout
-
-		
-\backslash
-begin{enumerate}
-\end_layout
-
-\begin_layout Plain Layout
-
-			
-\backslash
-item {
-\backslash
-textit{taxiDriverProfileManagement}}: this interface provides methods that
- allow the taxi driver to see or modify his personal data;
-\end_layout
-
-\begin_layout Plain Layout
-
-		
-\backslash
-end{enumerate}
-\end_layout
-
-\begin_layout Plain Layout
-
-			
-\backslash
-item {
-\backslash
-textit{Incoming call manager}}
-\end_layout
-
-\begin_layout Plain Layout
-
-				
-\backslash
-begin{enumerate}
-\end_layout
-
-\begin_layout Plain Layout
-
-					
-\backslash
-item {
-\backslash
-textit{incomingCallManagement}}: this interface provides methods that are
- used to accept or decline an incoming call;
-\end_layout
-
-\begin_layout Plain Layout
-
-				
-\backslash
-end{enumerate}
-\end_layout
-
-\begin_layout Plain Layout
-
-		
-\backslash
-item {
-\backslash
-textit{Taxi driver assistance call component}}
-\end_layout
-
-\begin_layout Plain Layout
-
-		
-\backslash
-begin{enumerate}
-\end_layout
-
-\begin_layout Plain Layout
-
-			
-\backslash
-item {
-\backslash
-textit{assistanceCallManagement}}: this interface provides methods that
- allows the taxi driver to signal a problem during his service;
-\end_layout
-
-\begin_layout Plain Layout
-
-		
-\backslash
-end{enumerate}
-\end_layout
-
-\begin_layout Plain Layout
-
-	
-\backslash
-item {
-\backslash
-textit{Data manager}}:
-\end_layout
-
-\begin_layout Plain Layout
-
-		
-\backslash
-begin{enumerate}
-\end_layout
-
-\begin_layout Plain Layout
-
-			
-\backslash
-item {
-\backslash
-textit{dataHandler}}: this interface provides the data management methods
- in order to store and retrieve data to and from the server;
-\end_layout
-
-\begin_layout Plain Layout
-
-		
-\backslash
-end{enumerate}
-\end_layout
-
-\begin_layout Plain Layout
-
-	
-\backslash
-item {
-\backslash
-textit{Payment manager}}:
-\end_layout
-
-\begin_layout Plain Layout
-
-		
-\backslash
-begin{enumerate}
-\end_layout
-
-\begin_layout Plain Layout
-
-			
-\backslash
-item {
-\backslash
-textit{paymentManagement}};
-\end_layout
-
-\begin_layout Plain Layout
-
-		
-\backslash
-end{enumerate}
-\end_layout
-
-\begin_layout Plain Layout
-
-	
-\backslash
-item {
-\backslash
-textit{Notification manager}}:
-\end_layout
-
-\begin_layout Plain Layout
-
-		
-\backslash
-begin{enumerate}
-\end_layout
-
-\begin_layout Plain Layout
-
-			
-\backslash
-item {
-\backslash
-textit{notificationManagement}};
-\end_layout
-
-\begin_layout Plain Layout
-
-		
-\backslash
-end{enumerate}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{itemize}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-Client side
-\series default
-:
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{itemize}
-\end_layout
-
-\begin_layout Plain Layout
-
-	
-\backslash
-item {
-\backslash
-textit{Guest component}}: the guest component communicates with the authenticati
-on and user management component through the {
-\backslash
-textit{registrationManager}} and {
-\backslash
-textit{authenticationManagement}} interfaces, explained above.
-\end_layout
-
-\begin_layout Plain Layout
-
-	
-\backslash
-item {
-\backslash
-textit{Customer component}}: the customer component communicates with the
- corresponding server side components through the {
-\backslash
-textit{customerProfileManagement}}, {
-\backslash
-textit{makeImmediateCall}} and {
-\backslash
-textit{makeReservation}} interfaces, explained above.
-\end_layout
-
-\begin_layout Plain Layout
-
-	
-\backslash
-item {
-\backslash
-textit{Taxi driver component}}: the taxi driver component communicates with
- the corresponding server side components through the {
-\backslash
-textit{taxiDriverProfileManagement}}, {
-\backslash
-textit{incomingCallManagement}} and {
-\backslash
-textit{assistanceCallManagement}} interfaces, explained above.
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{itemize}
-\end_layout
-
-\end_inset
-
 Here is the diagram showing the interaction between the two sides of the
  component view, including the interfaces.
 \end_layout
@@ -2599,22 +2142,7 @@ else{
 
 \begin_layout Plain Layout
 
-		ask the customer if he still wants to enjoy the service;
-\end_layout
-
-\begin_layout Plain Layout
-
-		if(customerWants)
-\end_layout
-
-\begin_layout Plain Layout
-
-			retry in 5 minutes;
-\end_layout
-
-\begin_layout Plain Layout
-
-		else return null;
+		retry in 5 minutes;
 \end_layout
 
 \begin_layout Plain Layout
@@ -3455,6 +2983,115 @@ If the queue of the zone corresponding to the starting position is empty,
 
 \begin_layout Section
 Persistent data management
+\end_layout
+
+\begin_layout Standard
+The structure of the database containing persistent data has been designed
+ basing on a relational database, implemented on the MySQL server used for
+ the Data tier which interfaces with the Business tier.
+\end_layout
+
+\begin_layout Standard
+Entities and relations that we have identified are: 
+\end_layout
+
+\begin_layout Itemize
+Taxi Driver: this entity represents a taxi driver hired by the company.
+ Each one is identified by a unique ID; the other attributes are the profile
+ information (name, surname) and those needed for authentication (the value
+ of a hash function of the password).
+ The association “AssignedTo” means that every taxi driver can be associated
+ to zero or more rides.
+\end_layout
+
+\begin_layout Itemize
+Ride: this entity represents a ride that has been correctly performed (correctly
+ means that it’s already ended without casualties or any kind of complication).
+ Each one is identified by a unique ID; the other attributes are the temporal
+ coordinates (when and at what time the ride has been performed, so date,
+ startingTime and endingTime) and the car used for the ride (carID).
+ This entity generalises Private and Shared, which are the two type of ride
+ that can be performed: the ride type is exclusive, so a ride must be or
+ shared or private, but not both.
+ Every private ride is associated with one and only one call through the
+ relation “Corresponds”, while a shared ride can be related to more than
+ one call to the relation “Matches”.
+ A generic ride (private or shared) corresponds to one and only one taxi
+ driver, through the relation “AssignedTo”.
+ 
+\end_layout
+
+\begin_layout Itemize
+Customer: this entity represents a registered user of the system, identified
+ by a unique couple of e-mail and password.
+ The other attributes are the personal information of the user (name, surname,
+ dateOfBirth) and the payment information(pymentInformation).
+ The relation “comingFrom” states that a customer can make an arbitrary
+ number of calls, zero included.
+\end_layout
+
+\begin_layout Itemize
+Call: this entity represents a user’s call for a taxi.
+ Each call is represented by a unique ID; the other attributes are the temporal
+ coordinates of the call (date), the special coordinates (startingZone,
+ startingPoint and destinationPoint).
+ There is also an optional attribute, rideStartingTime, that is used for
+ reservation calls, representing the time at which the user wants to have
+ a taxi (different from the time in which the call has been made).
+ The “ComingFrom”, “Corresponds” and “Matches” relation means that every
+ call is associated, respectively, with one and only one customer, private
+ ride and shared ride.
+ 
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename Diagrams/er.png
+	scale 20
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+RIDE (Id, date startingTime, endingTime, carId, type, taxiDriver)
+\end_layout
+
+\begin_layout Standard
+TAXIDRIVER (Id, password, name, surname) 
+\end_layout
+
+\begin_layout Standard
+CUSTOMER (e-mail, password, name, surname, dateOfBirth, paymentInformation)
+ 
+\end_layout
+
+\begin_layout Standard
+CALL (id, startingZone, startingPoint, destinationPoint, date, rideStartingTime*
+, type, customer) 
+\end_layout
+
+\begin_layout Standard
+PRIVATERIDE (call, ride)
+\end_layout
+
+\begin_layout Standard
+SHAREDRIDE (call, ride) 
+\end_layout
+
+\begin_layout Subsection
+Conceptual design
+\end_layout
+
+\begin_layout Standard
+The ER diagram below is the result of the analysis of the Class Diagram
+ presented in the RASD document, combined with the data of interest that
+ we want to store persistently.
+ The result of this analysis is the following schema representing the entities
+ and relations of interest.
+ 
 \end_layout
 
 \begin_layout Section
