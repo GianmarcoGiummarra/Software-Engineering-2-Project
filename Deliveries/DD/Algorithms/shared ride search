@@ -1,7 +1,13 @@
+
+
+
+
+
+
 //shared ride search
 
 void SEARCH_SHARED_RIDE(Position startingPoint, Position destinationPoint){
-		Ride selectedRide = RIDE_MATCHING;
+		Ride selectedRide = RIDE_MATCHING(Position startingPoint, Position destinationPoint);
 		if(ride == null){
 			create a new shared ride with the specified starting and destination points;
 		}
@@ -16,7 +22,7 @@ Ride RIDE_MATCHING(Position startingPoint, Position destinationPoint){
 		for(Ride r: all the active shared ride){
 			currentPath = r.getPath();
 			if(path is totally contained in currentPath && r.passengers.length()<4) return r;
-			if(currentPath.contains(path.startingPoint) && path.contains(currentPath.destinationPoint) && r.passengers.length()<4) return r;
+			if(currentPath.contains(path.startingPoint) &&  path.contains(currentPath.destinationPoint) && r.passengers.length()<4) return r;
 		}
 		return null;
 	}

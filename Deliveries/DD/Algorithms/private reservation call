@@ -13,9 +13,14 @@ Ride PRIVATE_RESERVATION(ReservationCall call){
 		else{
 			wait  until 10 minutes before reservationTime;
 			Ride ride = SEARCH_PRIVATE_RIDE(call);
-			while(ride == null && (reservationTime-currentTime())){
+			while(ride == null && (reservationTime-currentTime()) < 5 minutes){
 				ride = search for a taxi driver in the adjacent zones;
 			}
+			notify the customer for the current unavailability of taxi drivers;
+			ask the customer if he still wants to enjoy the service;
+			if(customerWants)
+				retry in 5 minutes;
+			else return null;
 		}
 		return ride;
 	}

@@ -2136,7 +2136,7 @@ else{
 
 \begin_layout Plain Layout
 
-		while(ride == null){
+		while(ride == null && (reservationTime-currentTime()) < 5 minutes){
 \end_layout
 
 \begin_layout Plain Layout
@@ -2147,6 +2147,31 @@ else{
 \begin_layout Plain Layout
 
 		}
+\end_layout
+
+\begin_layout Plain Layout
+
+		notify the customer for the current unavailability of taxi drivers;
+\end_layout
+
+\begin_layout Plain Layout
+
+		ask the customer if he still wants to enjoy the service;
+\end_layout
+
+\begin_layout Plain Layout
+
+		if(customerWants)
+\end_layout
+
+\begin_layout Plain Layout
+
+			retry in 5 minutes;
+\end_layout
+
+\begin_layout Plain Layout
+
+		else return null;
 \end_layout
 
 \begin_layout Plain Layout
@@ -2344,7 +2369,196 @@ status open
 
 \begin_layout Plain Layout
 
-toInsert
+public class Ride{
+\end_layout
+
+\begin_layout Plain Layout
+
+	List<Slot> ride_slots;
+\end_layout
+
+\begin_layout Plain Layout
+
+	//other code
+\end_layout
+
+\begin_layout Plain Layout
+
+/*
+\end_layout
+
+\begin_layout Plain Layout
+
+This method calculates the fee related to his ride.
+\end_layout
+
+\begin_layout Plain Layout
+
+In order to do this, a specific listener activates
+\end_layout
+
+\begin_layout Plain Layout
+
+this method when it  	   observes that a customer
+\end_layout
+
+\begin_layout Plain Layout
+
+ends his shared ride.
+\end_layout
+
+\begin_layout Plain Layout
+
+*/
+\end_layout
+
+\begin_layout Plain Layout
+
+	public float feeAmountCalc(Customer passenger){
+\end_layout
+
+\begin_layout Plain Layout
+
+		float passenger_fee = 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+		foreach(Slot s: ride_slots){
+\end_layout
+
+\begin_layout Plain Layout
+
+		if(passenger isIn s.passengerList){
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+passenger_fee = passenger_fee +
+\end_layout
+
+\begin_layout Plain Layout
+
+ (s.final_time - s.initial_time)*(fee_per_minute)/(s.passengerList.length);
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	return passenger_fee;
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+/*
+\end_layout
+
+\begin_layout Plain Layout
+
+This class represents a time slot; each ride is
+\end_layout
+
+\begin_layout Plain Layout
+
+divided   in many slots.
+   Every time that the
+\end_layout
+
+\begin_layout Plain Layout
+
+number of passengers of the ride   changes (a
+\end_layout
+
+\begin_layout Plain Layout
+
+passenger gets in or gets out of the cab),
+\end_layout
+
+\begin_layout Plain Layout
+
+a new slot is created.
+ Of course the initial
+\end_layout
+
+\begin_layout Plain Layout
+
+time of the   first slot corresponds to the
+\end_layout
+
+\begin_layout Plain Layout
+
+starting time of the ride,    and the final
+\end_layout
+
+\begin_layout Plain Layout
+
+time of the slot n corresponds to the
+\end_layout
+
+\begin_layout Plain Layout
+
+initial time of the slot n+1.
+\end_layout
+
+\begin_layout Plain Layout
+
+*/
+\end_layout
+
+\begin_layout Plain Layout
+
+public class Slot{
+\end_layout
+
+\begin_layout Plain Layout
+
+	private List<Customer> passengerList;
+\end_layout
+
+\begin_layout Plain Layout
+
+	private time initial_time, final_time;
+\end_layout
+
+\begin_layout Plain Layout
+
+	//other code
+\end_layout
+
+\begin_layout Plain Layout
+
+}
 \end_layout
 
 \end_inset
