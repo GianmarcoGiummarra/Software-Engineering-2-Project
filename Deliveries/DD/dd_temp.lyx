@@ -485,12 +485,100 @@ The Design Document is a document which will help the software development
 Definitions, Acronyms, Abbreviations
 \end_layout
 
+\begin_layout Itemize
+
+\series bold
+DBMS:
+\series default
+ database management system, a software that control the creation, maintenance,
+ and use of a database.
+ (e.g.
+ MySQL).
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+EJB:
+\series default
+ Enterprise JavaBeans, a managed server-side component architecture for
+ modular construction of enterprise applications.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Entity bean:
+\series default
+ a distributed object that have persistent state.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+HTML:
+\series default
+ HyperText Markup Language, a markup language for building web pages.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+HTTP:
+\series default
+ Hypertext Transfer Protocol, an application protocol used by web browsers.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+JDBC:
+\series default
+ Java Database Connectivity, a Java API that allows the application to communica
+te with a database.open source database manager system, a software capable
+ of managing data.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+JPA: 
+\series default
+Java Persistent API, a programming interface specification that describes
+ the management of relational data.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+MVC:
+\series default
+ Model-View-Control, a design pattern.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+ORM: 
+\series default
+Object Relational Mapping, a technique of access do databases from object
+ oriented languages.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+SMTP: 
+\series default
+Simple Message Transfer Protocol, an internet standard for e-mail transmission.
+\end_layout
+
 \begin_layout Subsection
 Reference Documents
 \end_layout
 
-\begin_layout Subsection
-Document Structure
+\begin_layout Itemize
+RASD document.
 \end_layout
 
 \begin_layout Section
@@ -609,7 +697,7 @@ s oj java (JDBC).
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename /Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Diagrams/architecture.png
+	filename D:/Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Diagrams/architecture.png
 	scale 50
 
 \end_inset
@@ -1274,7 +1362,7 @@ Here is the diagram showing the interaction between the two sides of the
 \begin_layout Standard
 \align left
 \begin_inset Graphics
-	filename /Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Diagrams/Sub-system diagram.png
+	filename D:/Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Diagrams/Sub-system diagram.png
 	scale 40
 
 \end_inset
@@ -1395,7 +1483,7 @@ Registration Sequence diagram
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename /Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Updated Sequence Diagrams/Reg_seq_diagram.png
+	filename D:/Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Updated Sequence Diagrams/Reg_seq_diagram.png
 	scale 50
 
 \end_inset
@@ -1460,7 +1548,7 @@ Another assumption is that the Payment Manager, when verifies the validity
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename /Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Updated Sequence Diagrams/ImmCall_seq_diagram.png
+	filename D:/Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Updated Sequence Diagrams/ImmCall_seq_diagram.png
 	scale 40
 
 \end_inset
@@ -1501,7 +1589,7 @@ Furthermore, the payment information, after the check by the Payment Manager
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename /Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Updated Sequence Diagrams/ResCall_seq_diagram.png
+	filename D:/Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Updated Sequence Diagrams/ResCall_seq_diagram.png
 	scale 40
 
 \end_inset
@@ -1527,11 +1615,46 @@ Selected architectural styles and patterns
 \end_layout
 
 \begin_layout Standard
-(Please explain which styles/patterns you used, why, and how)
+The architecture of the system has been previously described at higher level:
+ the logical schema of tier provided reflects the hardware architecture.
+ Every tier is hosted on a different machine, in particular: the Client
+ tier is on the pc or smartphone the user access the system from, the Web
+ tier is hosted on a separate server used only for this purpose, while another
+ server hosts the Business tier.
+ Finally a last server contains the Data tier.
+ This division between all levels has been made in order to allow update
+ and maintenance on a particular tier without affecting the others, and
+ to prevent the whole system to interrupt in case of fault of a component.
 \end_layout
 
-\begin_layout Subsection
-Other design decisions
+\begin_layout Standard
+The design pattern used for this system is the Model-View-Controller (MVC).
+ This choice has been made mainly for the flexibility that this pattern
+ provides: the model, the view and the controller are separated into different
+ components that can be modified with a minimum impact with respect to the
+ others, helping to achieve a better scalability and offering the possibility
+ of future changes to the code or the adding of new functionalities to the
+ system.
+\end_layout
+
+\begin_layout Standard
+The Model contains the representation of data and the application logic,
+ so all the functions that manipulates data.
+\end_layout
+
+\begin_layout Standard
+The View makes the model suitable for the user interaction, providing a
+ GUI: every user will access the system and all its functionalities through
+ this component.
+ Furthermore provides the possibility to have different representations
+ (or views) for the same data, depending on the user’s preference or on
+ the user’s permissions.
+\end_layout
+
+\begin_layout Standard
+The Controller is responsible for the communication between the View and
+ the Model: in particular responds to user’s actions and invokes changes
+ on the model.
 \end_layout
 
 \begin_layout Section
@@ -2529,6 +2652,17 @@ time of the slot n corresponds to the
 \begin_layout Plain Layout
 
 initial time of the slot n+1.
+ The current time that
+\end_layout
+
+\begin_layout Plain Layout
+
+fills the relative variables 
+\end_layout
+
+\begin_layout Plain Layout
+
+in each time slot is taken from the system time.
 \end_layout
 
 \begin_layout Plain Layout
@@ -2594,7 +2728,7 @@ The following mockups represent the customer UI, regarding both the Web
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename /Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Mockups/Customer/Home.png
+	filename D:/Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Mockups/Customer/Home.png
 	scale 20
 
 \end_inset
@@ -2614,7 +2748,7 @@ Figure 4.1
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename /Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Mockups/Customer/Login.png
+	filename D:/Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Mockups/Customer/Login.png
 	scale 20
 
 \end_inset
@@ -2641,7 +2775,7 @@ Figure 4.2
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename /Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Mockups/Customer/Registration.png
+	filename D:/Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Mockups/Customer/Registration.png
 	scale 20
 
 \end_inset
@@ -2661,7 +2795,7 @@ Figure 4.
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename /Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Mockups/Customer/Map.png
+	filename D:/Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Mockups/Customer/Map.png
 	scale 20
 
 \end_inset
@@ -2688,7 +2822,7 @@ Figure 4.
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename /Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Mockups/Customer/User Settings.png
+	filename D:/Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Mockups/Customer/User Settings.png
 	scale 20
 
 \end_inset
@@ -2708,7 +2842,7 @@ Figure 4.
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename /Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Mockups/Customer/Confirm Taxi.png
+	filename D:/Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Mockups/Customer/Confirm Taxi.png
 	scale 20
 
 \end_inset
@@ -2735,7 +2869,7 @@ Figure 4.
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename /Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Mockups/Customer/Reservation.png
+	filename D:/Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Mockups/Customer/Reservation.png
 	scale 20
 
 \end_inset
@@ -2755,7 +2889,7 @@ Figure 4.
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename /Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Mockups/Customer/Sharing.png
+	filename D:/Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Mockups/Customer/Sharing.png
 	scale 20
 
 \end_inset
@@ -2789,7 +2923,7 @@ The following mockups represent the taxi driver UI.
 
 \begin_layout Standard
 \begin_inset Graphics
-	filename /Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Mockups/Taxi Driver/logintabmockup.png
+	filename D:/Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Mockups/Taxi Driver/logintabmockup.png
 	scale 40
 
 \end_inset
@@ -2815,7 +2949,7 @@ Figure 4.
 
 \begin_layout Standard
 \begin_inset Graphics
-	filename /Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Mockups/Taxi Driver/requesttabmockup.png
+	filename D:/Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Mockups/Taxi Driver/requesttabmockup.png
 	scale 40
 
 \end_inset
@@ -2834,7 +2968,7 @@ Figure 4.
 
 \begin_layout Standard
 \begin_inset Graphics
-	filename /Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Mockups/Taxi Driver/ridingtabmockup.png
+	filename D:/Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Mockups/Taxi Driver/ridingtabmockup.png
 	scale 40
 
 \end_inset
@@ -2853,7 +2987,7 @@ Figure 4.
 
 \begin_layout Standard
 \begin_inset Graphics
-	filename /Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Mockups/Taxi Driver/Side Menu.png
+	filename D:/Users/gianmarco/Dropbox/MAGISTRALE/SOFTWARE ENGINEERING 2/Project temp/DD/Mockups/Taxi Driver/Side Menu.png
 	scale 30
 
 \end_inset
@@ -2875,104 +3009,145 @@ Requirements traceability
 \end_layout
 
 \begin_layout Standard
-(Explain how the requirements you have defined in the RASD map into the
- design elements that you have defined in this document)
+In the RASD document have been defined all the requirements (both functional
+ and non-functional) of the system: in this section is explained how they
+ maps into the design elements defined in this document.
+\end_layout
+
+\begin_layout Standard
+Here follows the list of requirements, together with how they maps and which
+ components interacts in order to allow their satisfiability:
+\end_layout
+
+\begin_layout Itemize
+The system has to guarantee the registration to all the new major users
+ who want to create a new account: there are no restrictions that could
+ not allow the registration process, such as surveys or something similar;
+\end_layout
+
+\begin_layout Itemize
+In order to complete the registration process, the system sends a confirmation
+ link to the new user via email: in the section 2.5.1, figure 2.4, the sequence
+ diagram shows that after the registration process, if successful, the system
+ sends a confirmation email to the customer (operation 7).
+ Used components: registrationManager, notificationHandlerPool;
+\end_layout
+
+\begin_layout Itemize
+The system has to allow the login to an already registered customer when
+ he types the correct email and password in the login form: in the RASD
+ document, section 5.3, figure 5.6, the sequence diagram shows that the login
+ is successful if and only if there is an existing account associated with
+ the username and password provided (operation 6).
+ Used components: authenticationManager;
+\end_layout
+
+\begin_layout Itemize
+The system has to allow the login to a taxi driver when he types the correct
+ identification code and password in the login form: see the requirement
+ below, the process is the same;
+\end_layout
+
+\begin_layout Itemize
+When a customer provides his payment information, the system verifies the
+ validity of the submitted data and in case of success unlocks all the allowed
+ functionalities: in every process that involves a payment, the system checks
+ the validity of the payment method as a preliminary step, before doing
+ any other operation (see section 2.5.2, figure 2.5, operation 2, and section
+ 2.5.3, figure 2.6, operation 2).
+ Used components: paymentInterfacePool;
+\end_layout
+
+\begin_layout Itemize
+The system notifies the confirm of the call with an email and has to assign
+ the first taxi in the queue of the zone where the call comes from, if it’s
+ not empty: when a user makes a call providing the correct information needed,
+ and after the acceptance by a taxi driver, the notification manager notifies
+ the user with a mail containing the confirmation of the call (see section
+ 2.5.2, figure 2.5, operations 14-15, and section 2.5.3, figure 2.6, operations
+ 19-20).
+ Used components: notificationHandlerPool, manageCall;
+\end_layout
+
+\begin_layout Itemize
+When a taxi is assigned to a ride but rejects it, the system moves the selected
+ taxi to the last position of the starting zone’s queue: in section 3.2 the
+ algorithm removes the taxi from its queue when he rejects a call and then
+ add him to the same queue, placing him in the last position;
+\end_layout
+
+\begin_layout Itemize
+If the queue of the starting zone is empty, the system has to notify it
+ to the calling customer and aborts the current operation: in sections 3.2,
+ 3.3 and 3.4, the algorithm returns a null ride in case of failure of the
+ search.
+ Used components: notificationHandlerPool;
+\end_layout
+
+\begin_layout Itemize
+In a shared ride, the system asks the user the destination too: in the RASD
+ document, section 5.2, figure 5.4, the class diagram shows that the class
+ call contains the destination point of the ride.
+ Furthermore, in this document, section 3.4, the algorithm used for the search
+ of a shared ride requires the destination point as an input for the function;
+\end_layout
+
+\begin_layout Itemize
+The system matches the route with the other shared calls (reservation or
+ immediate calls), compatible both for the time and the path: in section
+ 3.4 the algorithm defines the search for a shared ride, and to achieve this
+ compares the tracks in order to find a compatible ride with the time and
+ the path;
+\end_layout
+
+\begin_layout Itemize
+If there isn’t any compatible shared ride to match with, the system normally
+ assigns the first available taxi: in section 3.4 the algorithm defines the
+ search for a shared ride, and if no shared ride is compatible, creates
+ a new ride with the provided parameters;
+\end_layout
+
+\begin_layout Itemize
+If there isn’t any available taxi in the zone where the request comes from,
+ the system has to notify it to the calling customer and aborts the current
+ operation: in every sequence diagram, section 2.5, the system notifies the
+ user of the unavailability of taxi drivers;
+\end_layout
+
+\begin_layout Itemize
+In a reservation call, the system notifies the confirm of the reservation
+ with an email and allocates a taxi to the request 10 minutes before the
+ meeting time with the user, notifying the first available taxi of the queue
+ of the starting address’ zone: in section 3.3, the described algorithm waits
+ from the time the call has been made until 10 minutes before the desired
+ reservation time, and then uses the search algorithm for a standard ride
+ in order to find a taxi driver for the user.
+ Used components: makeReservation, notificationHandlerPool;
+\end_layout
+
+\begin_layout Itemize
+If the queue of the zone corresponding to the starting position is empty,
+ the system has to forward the request to the first available taxi of the
+ closest zone: in section 3.3, the algorithm, if it’s not able to find a
+ taxi in the starting zone of the ride, searches for an available taxi driver
+ in the nearby zones.
 \end_layout
 
 \begin_layout Section
-References
-\end_layout
-
-\begin_layout Section
-Glossary
+Used tools
 \end_layout
 
 \begin_layout Itemize
-
-\series bold
-DBMS:
-\series default
- database management system, a software that control the creation, maintenance,
- and use of a database.
- (e.g.
- MySQL).
+LYX to generate the pdf document;
 \end_layout
 
 \begin_layout Itemize
-
-\series bold
-HTML:
-\series default
- HyperText Markup Language, a markup language for building web pages.
+draw.io to generate the Sequence and the Use Case diagrams;
 \end_layout
 
 \begin_layout Itemize
-
-\series bold
-HTTP:
-\series default
- Hypertext Transfer Protocol, an application protocol used by web browsers.
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-SMTP: 
-\series default
-Simple Message Transfer Protocol, an internet standard for e-mail transmission.
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-MVC:
-\series default
- Model-View-Control, a design pattern.
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-JDBC:
-\series default
- Java Database Connectivity, a Java API that allows the application to communica
-te with a database.open source database manager system, a software capable
- of managing data.
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-JPA: 
-\series default
-Java Persistent API, a programming interface specification that describes
- the management of relational data.
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-ORM: 
-\series default
-Object Relational Mapping, a technique of access do databases from object
- oriented languages.
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-EJB:
-\series default
- Enterprise JavaBeans, a managed server-side component architecture for
- modular construction of enterprise applications.
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-Entity bean:
-\series default
- a distributed object that have persistent state.
+Balsamiq Mockups 3 to generate the mockups of the mobile app and the web
+ page.
 \end_layout
 
 \end_body
