@@ -901,7 +901,9 @@ item {
 \backslash
 textit{Guest component}}: this is the component where the guest user is
  implemented, with the allowed privileges; it interfaces with the limited
- views which allow the registration;
+ views which allow the registration.
+ Differently from the definition given in the RASD, the guest is a generic
+ user, so it can either not registered or already registered but not logged;
 \end_layout
 
 \begin_layout Plain Layout
@@ -997,9 +999,7 @@ item {
 \backslash
 textit{authenticationManagement}}: this interface provides the methods that
  will allow the non-logged users to login to the system; it manages situation
- like guiding the recognized user to the relevant home page or sending email
- confirmation in case of registration of a new user; it will guide the recognize
-d user to the relevant home page;
+ like guiding the recognized user to the relevant home page;
 \end_layout
 
 \begin_layout Plain Layout
@@ -1042,12 +1042,8 @@ begin{enumerate}
 \backslash
 item {
 \backslash
-textit{customerProfileManagement}}: this interface provides methods such
- as {
-\backslash
-textit{updateProfileInfo()}} and {
-\backslash
-textit{updatePaymentInfo()}};
+textit{customerProfileManagement}}: this interface provides methods that
+ allow the retrieve and modification of personal data}};
 \end_layout
 
 \begin_layout Plain Layout
@@ -1145,12 +1141,8 @@ begin{enumerate}
 \backslash
 item {
 \backslash
-textit{taxiDriverProfileManagement}}: this interface provides methods such
- as {
-\backslash
-textit{updateProfileInfo()}} and {
-\backslash
-textit{seePersonalUserRating()}};
+textit{taxiDriverProfileManagement}}: this interface provides methods that
+ allow the taxi driver to see or modify his personal data}};
 \end_layout
 
 \begin_layout Plain Layout
@@ -1182,12 +1174,8 @@ begin{enumerate}
 \backslash
 item {
 \backslash
-textit{incomingCallManagement}}: this interface provides methods such as
- {
-\backslash
-textit{acceptCall()}} and {
-\backslash
-textit{declineCall()}};
+textit{incomingCallManagement}}: this interface provides methods that are
+ used to accept or decline an incoming call}};
 \end_layout
 
 \begin_layout Plain Layout
@@ -1219,14 +1207,8 @@ begin{enumerate}
 \backslash
 item {
 \backslash
-textit{assistanceCallManagement}}: this interface provides methods such
- as {
-\backslash
-textit{accidentAssistanceCall()}},  {
-\backslash
-textit{systemFailureAssistanceCall()}} or {
-\backslash
-textit{genericAssistanceCall()}};
+textit{assistanceCallManagement}}: this interface provides methods that
+ allows the taxi driver to signal a problem during his service}};
 \end_layout
 
 \begin_layout Plain Layout
@@ -1260,6 +1242,70 @@ item {
 \backslash
 textit{dataHandler}}: this interface provides the data management methods
  in order to store and retrieve data to and from the server;
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+end{enumerate}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item {
+\backslash
+textit{Payment manager}}:
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+begin{enumerate}
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+item {
+\backslash
+textit{paymentManagement}};
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+end{enumerate}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item {
+\backslash
+textit{Notification manager}}:
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+begin{enumerate}
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+item {
+\backslash
+textit{notificationManagement}};
 \end_layout
 
 \begin_layout Plain Layout
@@ -1608,6 +1654,188 @@ Figure 2.6
 
 \begin_layout Subsection
 Component interfaces
+\end_layout
+
+\begin_layout Standard
+This section shows what are the interfaces that the system provides to the
+ world, defining the functionalities they offer and the needed inputs.
+ The high level description of the intercfaces is in section 2.3.2, so in
+ this one are shown only the provided methods and their function.
+\end_layout
+
+\begin_layout Subsubsection
+authenticationManagement
+\end_layout
+
+\begin_layout Itemize
+void login (string id, string password);
+\end_layout
+
+\begin_layout Itemize
+void logout();
+\end_layout
+
+\begin_layout Subsubsection
+registrationManagement
+\end_layout
+
+\begin_layout Itemize
+void submitData (string name, string surname, Date dateOfBirth, string email,
+ string password, string confirmPassword);
+\end_layout
+
+\begin_layout Itemize
+bool confirmIdentity (string email);
+\end_layout
+
+\begin_layout Subsubsection
+customerProfileManagement
+\end_layout
+
+\begin_layout Itemize
+void changeEmail (string oldEmail, string newEmail, pasword);
+\end_layout
+
+\begin_layout Itemize
+void changePassword (string email, string oldPassword, string newPassword);
+\end_layout
+
+\begin_layout Itemize
+string retrievePassword (string email);
+\end_layout
+
+\begin_layout Itemize
+void changePaymentMethods();
+\end_layout
+
+\begin_layout Itemize
+List<Ride> showRideHistory ()
+\end_layout
+
+\begin_layout Itemize
+void enableSharingMode ()
+\end_layout
+
+\begin_layout Subsubsection
+taxiDriverProfileManagement
+\end_layout
+
+\begin_layout Itemize
+void changePassword (string email, string oldPassword, string newPassword);
+\end_layout
+
+\begin_layout Itemize
+string retrievePassword (string email);
+\end_layout
+
+\begin_layout Itemize
+List<Ride> showRideHistory ();
+\end_layout
+
+\begin_layout Itemize
+int showRating ();
+\end_layout
+
+\begin_layout Subsubsection
+immediateCallManagement
+\end_layout
+
+\begin_layout Standard
+This interface is used both for the private rides and the shared rides.
+ The mobile and web application chose locally which methods to use, if for
+ private or for shared, and invoke them on the server using thier interfaces.
+\end_layout
+
+\begin_layout Itemize
+void sendImmediateRequest ();
+\end_layout
+
+\begin_layout Subsubsection
+reservationCallManagement
+\end_layout
+
+\begin_layout Standard
+This interface is used both for the private rides and the shared rides.
+ The mobile and web application chose locally which methods to use, if for
+ private or for shared, and invoke them on the server using thier interfaces.
+\end_layout
+
+\begin_layout Itemize
+void sendReservationRequest();
+\end_layout
+
+\begin_layout Subsubsection
+incomingCallManagement
+\end_layout
+
+\begin_layout Itemize
+void acceptCall();
+\end_layout
+
+\begin_layout Itemize
+void declineCall();
+\end_layout
+
+\begin_layout Subsubsection
+taxiDriverAssistanceCallManagement
+\end_layout
+
+\begin_layout Itemize
+void signalAccident(string comment);
+\end_layout
+
+\begin_layout Itemize
+void signalSystemFailure(string comment);
+\end_layout
+
+\begin_layout Itemize
+signalGenericFault(string comment);
+\end_layout
+
+\begin_layout Subsubsection
+dataHandler
+\end_layout
+
+\begin_layout Standard
+The following interfaces contains SQL queries that allow the communication
+ with the database.
+\end_layout
+
+\begin_layout Itemize
+void storeData();
+\end_layout
+
+\begin_layout Itemize
+string retrieveData();
+\end_layout
+
+\begin_layout Itemize
+void deleteData();
+\end_layout
+
+\begin_layout Itemize
+void modifyData();
+\end_layout
+
+\begin_layout Subsubsection
+notificationHandler
+\end_layout
+
+\begin_layout Itemize
+void notify();
+\end_layout
+
+\begin_layout Subsubsection
+paymentManagement
+\end_layout
+
+\begin_layout Standard
+This interface contains a single method that makes requests to the banking
+ service the system is associated with.
+\end_layout
+
+\begin_layout Itemize
+bool checkPaymentMethodValidity();
 \end_layout
 
 \begin_layout Subsection
@@ -3131,6 +3359,10 @@ If the queue of the zone corresponding to the starting position is empty,
  closest zone: in section 3.3, the algorithm, if it’s not able to find a
  taxi in the starting zone of the ride, searches for an available taxi driver
  in the nearby zones.
+\end_layout
+
+\begin_layout Section
+Persistent data management
 \end_layout
 
 \begin_layout Section
