@@ -490,17 +490,7 @@ Purpose and Scope
 \end_layout
 
 \begin_layout Standard
-The aim of this document is to provide an integration test plan.
-\end_layout
-
-\begin_layout Standard
-The integration test detects the bugs not discovered during unit tests,
- focusing the attention on a group of components to be tested.
-\end_layout
-
-\begin_layout Standard
-Two or more components are integrated and analyzed, and when bugs are detected
- more components can be added to fix the errors
+State the purpose and scope of the document.
 \end_layout
 
 \begin_layout Subsection
