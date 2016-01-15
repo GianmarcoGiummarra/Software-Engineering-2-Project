@@ -490,11 +490,39 @@ Purpose and Scope
 \end_layout
 
 \begin_layout Standard
-State the purpose and scope of the document.
+The aim of this document is to provide an integration test plan.
+\end_layout
+
+\begin_layout Standard
+The integration test detects the bugs not discovered during unit tests,
+ focusing the attention on a group of components to be tested.
+\end_layout
+
+\begin_layout Standard
+Two or more components are integrated and analyzed, and when bugs are detected
+ more components can be added to fix the errors.
+\end_layout
+
+\begin_layout Standard
+In more details, interfaces and interactions between all the components
+ of the myTaxiService system will be tested following the approaches that
+ will be described below.
+\end_layout
+
+\begin_layout Standard
+The scope can be found in the RASD, section 1.3.
 \end_layout
 
 \begin_layout Subsection
-List of Definitions and Abbreviations
+List of Definitions, Acronyms and Abbreviations
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+RASD
+\series default
+: Requirement Analysis and Specification Document;
 \end_layout
 
 \begin_layout Subsection
@@ -506,10 +534,6 @@ List all reference documents, for instance:
 \end_layout
 
 \begin_layout Itemize
-The project description
-\end_layout
-
-\begin_layout Itemize
 The RASD
 \end_layout
 
@@ -518,7 +542,7 @@ The Design document
 \end_layout
 
 \begin_layout Itemize
-The documentation of any tool you plan to use for testing
+******The documentation of any tool you plan to use for testing******
 \end_layout
 
 \begin_layout Standard
