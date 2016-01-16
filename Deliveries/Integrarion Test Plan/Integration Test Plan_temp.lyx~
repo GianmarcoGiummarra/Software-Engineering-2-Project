@@ -3,6 +3,12 @@
 \begin_document
 \begin_header
 \textclass article
+\begin_preamble
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{graphicx}
+\hypersetup{colorlinks, citecolor=black, filecolor=black, linkcolor=black, urlcolor=black}
+\end_preamble
 \use_default_options true
 \maintain_unincluded_children false
 \language english
@@ -25,6 +31,7 @@
 \bibtex_command default
 \index_command default
 \paperfontsize default
+\spacing single
 \use_hyperref false
 \papersize default
 \use_geometry false
@@ -687,11 +694,197 @@ Software Integration Sequence
 \end_layout
 
 \begin_layout Standard
-For each subsystem: Identify the sequence in which the software components
- will be integrated within the subsystem.
- Relate this sequence to any product features/functions that are being built
- up.
- 
+The sub-systems below described are composed by the components described
+ in the section 2.2 of this document.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Guest Component sub-system
+\end_layout
+
+\begin_layout Standard
+This is the sub-system which represents the Guest Component environment.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /Users/gianmarco/Desktop/Testing diagram/New/First guest testing.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\shape italic
+Figure 2.1
+\shape default
+: Integration schema for the Guest Component environment
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align left
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Customer Component sub-system
+\end_layout
+
+\begin_layout Standard
+This is the sub-system which represents the Customer Component environment.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /Users/gianmarco/Desktop/Testing diagram/New/First customer testing.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\shape italic
+Figure 2.
+\shape default
+2: Integration schema for the Customer Profile management
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /Users/gianmarco/Desktop/Testing diagram/New/Second customer testing.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\shape italic
+Figure 2.
+\shape default
+3: Integration schema for the Immediate Call by a Customer
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /Users/gianmarco/Desktop/Testing diagram/New/Third customer testing.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\shape italic
+Figure 2.
+\shape default
+4: Integration schema for the Reservation Call by a Customer
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Taxi Driver Component sub-system
+\end_layout
+
+\begin_layout Standard
+This is the sub-system which represents the Taxi Driver Component environment.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /Users/gianmarco/Desktop/Testing diagram/New/First taxi driver testing.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\shape italic
+Figure 2.
+\shape default
+5: Integration schema for the Profile management
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /Users/gianmarco/Desktop/Testing diagram/New/Second taxi driver testing.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\shape italic
+Figure 2.
+\shape default
+6: Integration schema for the Guest Component environment
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /Users/gianmarco/Desktop/Testing diagram/New/Third taxi driver testing.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\shape italic
+Figure 2.
+\shape default
+7: Integration schema for the Guest Component environment
 \end_layout
 
 \begin_layout Subsubsection
@@ -717,17 +910,220 @@ Identify the order in which subsystems will be integrated.
 Individual Steps and Test Description
 \end_layout
 
+\begin_layout Subsection
+
+\series bold
+Guest Components sub-system
+\end_layout
+
 \begin_layout Standard
-For each step of the integration process identified above, describe the
- type of tests that will be used to verify that the elements integrated
- in this step perform as expected.
- Describe in general the expected results of the test set.
- You may refer to Chapter 3 and Chapter 4 of the test plan example [1] as
- an example of what we expect.
- (NOTE: This is not a detailed description of test protocols.
- Think of this as the test design phase.
- Specific protocols will be written to fulfill the goals of the tests identified
- in this section.)
+\align left
+In this testing sequence, each test is passed when no unexpected behaviour
+ is detected and the login and signup operations are performed as expected.
+\begin_inset Newline newline
+\end_inset
+
+The integration steps are three: I11, I12, I13.
+ 
+\begin_inset Newline newline
+\end_inset
+
+The execution order is described in the 
+\series bold
+Requirements
+\series default
+ column, while the 
+\series bold
+Tested Components
+\series default
+ describes the components relevant to each step and the Needed Drivers column
+ refers to the drivers used to substitute the involved components that are
+ not object of the test step.
+\end_layout
+
+\begin_layout Standard
+\align left
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="4">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="left" valignment="top">
+<column alignment="center" valignment="top" width="0pt">
+<column alignment="left" valignment="top" width="5cm">
+<column alignment="left" valignment="top" width="3cm">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Index
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Requirements
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Tested Components
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Needed Drivers
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+I11
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+---
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Guest Component -> Authentication Manager
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Data Manager, Notification Manager
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+I12
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+I11
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Authentication Manager, Guest Component -> Data Manager
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Notification Manager
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+I13
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+I12
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Guest Component, Authentication Manager, Data Manager -> Notification Manager
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+---
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\shape italic
+Table 2.1.1
+\shape default
+: Integration sequence table for the Guest sub-system 
 \end_layout
 
 \begin_layout Standard

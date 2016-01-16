@@ -2039,7 +2039,7 @@ Needed Drivers
 \begin_inset Text
 
 \begin_layout Plain Layout
-I61
+I51
 \end_layout
 
 \end_inset
@@ -2077,7 +2077,7 @@ Data Manager, Notification Manager
 \begin_inset Text
 
 \begin_layout Plain Layout
-I62
+I52
 \end_layout
 
 \end_inset
@@ -2086,7 +2086,7 @@ I62
 \begin_inset Text
 
 \begin_layout Plain Layout
-I61
+I51
 \end_layout
 
 \end_inset
@@ -2115,7 +2115,7 @@ Notification Manager
 \begin_inset Text
 
 \begin_layout Plain Layout
-I63
+I53
 \end_layout
 
 \end_inset
@@ -2124,7 +2124,7 @@ I63
 \begin_inset Text
 
 \begin_layout Plain Layout
-I62
+I52
 \end_layout
 
 \end_inset
@@ -2162,197 +2162,7 @@ Taxi Driver Component, Incoming Call Manager, Data Manager, Notification
 \shape italic
 Table 3.6
 \shape default
-: Integration sequence table for the Incoming Call Management testing
-\end_layout
-
-\begin_layout Subsubsection
-Assistance Call Manager
-\end_layout
-
-\begin_layout Standard
-\align left
-\begin_inset Tabular
-<lyxtabular version="3" rows="4" columns="4">
-<features rotate="0" tabularvalignment="middle">
-<column alignment="left" valignment="top">
-<column alignment="center" valignment="top" width="0pt">
-<column alignment="left" valignment="top" width="5cm">
-<column alignment="left" valignment="top" width="3cm">
-<row>
-<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-Index
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-Requirements
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-Tested Components
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-Needed Drivers
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-I71
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
----
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Taxi Driver Component, Assistance Call Manager
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Data Manager, Notification Manager
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-I72
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-I71
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Assistance Call Manager, Taxi Driver Component, Data Manager
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Notification Manager
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-I73
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-I72
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Taxi Driver Component, Assistance Call Manager, Data Manager, Notification
- Manager
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
----
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\align center
-
-\shape italic
-Table 3.
-\shape default
-7: Integration sequence table for the Assistance Call Management testing
+: Integration sequence table for the Taxi Driver Profile Management testing
 \end_layout
 
 \begin_layout Standard
