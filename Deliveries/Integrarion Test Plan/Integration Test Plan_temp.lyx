@@ -118,7 +118,7 @@ Corso di Laurea Magistrale in Computer Science and Engineering
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename D:/Dropbox/MAGISTRALE/Logo Politecnico di Milano.png
+	filename /Users/gianmarco/Downloads/20151029123608!Logo_Politecnico_Milano.png
 	scale 40
 
 \end_inset
@@ -583,8 +583,8 @@ Elements to be Integrated
 
 \begin_layout Standard
 The elements to be integrated are, according to the strategy explained in
- the section 2.3 of this document, are the single components of the system,
- as described in the Design Document.
+ the section 2.3 of this document, the single components of the system, as
+ described in the Design Document.
 \end_layout
 
 \begin_layout Standard

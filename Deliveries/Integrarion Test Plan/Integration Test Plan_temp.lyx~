@@ -582,8 +582,73 @@ Elements to be Integrated
 \end_layout
 
 \begin_layout Standard
-Identify the components to be integrated, refer to your design document
- to identify such components in a way that is consistent with your design.
+The elements to be integrated are, according to the strategy explained in
+ the section 2.3 of this document, are the single components of the system,
+ as described in the Design Document.
+\end_layout
+
+\begin_layout Standard
+To give a best description of these 
+\begin_inset Quotes eld
+\end_inset
+
+atomic
+\begin_inset Quotes erd
+\end_inset
+
+ elements of the system, here is a list:
+\end_layout
+
+\begin_layout Itemize
+Authentication manager
+\end_layout
+
+\begin_layout Itemize
+Customer profile manager
+\end_layout
+
+\begin_layout Itemize
+Immediate call manager
+\end_layout
+
+\begin_layout Itemize
+Reservation call manager
+\end_layout
+
+\begin_layout Itemize
+Taxi driver profile manager
+\end_layout
+
+\begin_layout Itemize
+Incoming call manager
+\end_layout
+
+\begin_layout Itemize
+Assistance call manager
+\end_layout
+
+\begin_layout Itemize
+Data component
+\end_layout
+
+\begin_layout Itemize
+Payment manager
+\end_layout
+
+\begin_layout Itemize
+Notification manager
+\end_layout
+
+\begin_layout Itemize
+Guest component
+\end_layout
+
+\begin_layout Itemize
+Customer component
+\end_layout
+
+\begin_layout Itemize
+Taxi driver component
 \end_layout
 
 \begin_layout Subsection
@@ -591,8 +656,19 @@ Integration Testing Strategy
 \end_layout
 
 \begin_layout Standard
-Describe the integration testing approach (top-down, bottom-up, functional
- groupings, etc.) and the rationale for the choosing that approach.
+The chosen integration testing approach for this Integration Plan is the
+ bottom-up approach.
+ The reason of this choice is that by following this strategy it's possible
+ to begin testing the system from the little components that compose every
+ single part and continue the integration at a higher level for each step.
+ This justifies also the presence of the first entry criterium in the point
+ 2.1 of this document; in the rare case that some functions or some part
+ of code at the moment of the integration testing is not developed yet,
+ it should be possible to build a Stub in order to go on with the testing
+ of the whole single functions at the low level.
+ For the same reason, in the integration testing for different components,
+ should be possible to build Drivers that allow to testing the integration
+ when an interface is not completely developed yet.
 \end_layout
 
 \begin_layout Subsection
