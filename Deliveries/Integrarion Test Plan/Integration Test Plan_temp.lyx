@@ -3,6 +3,11 @@
 \begin_document
 \begin_header
 \textclass article
+\begin_preamble
+\usepackage{hyperref}
+\usepackage{listings}
+\hypersetup{colorlinks, citecolor=black, filecolor=black, linkcolor=black, urlcolor=black}
+\end_preamble
 \use_default_options true
 \maintain_unincluded_children false
 \language english
@@ -25,6 +30,7 @@
 \bibtex_command default
 \index_command default
 \paperfontsize default
+\spacing single
 \use_hyperref false
 \papersize default
 \use_geometry false
@@ -687,11 +693,189 @@ Software Integration Sequence
 \end_layout
 
 \begin_layout Standard
-For each subsystem: Identify the sequence in which the software components
- will be integrated within the subsystem.
- Relate this sequence to any product features/functions that are being built
- up.
- 
+The sub-systems below described are composed by the components described
+ in the section 2.2 of this document.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Guest Component sub-system
+\end_layout
+
+\begin_layout Standard
+This is the sub-system which represents the Guest Component environment.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /Users/gianmarco/Desktop/Testing diagram/New/First guest testing.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\shape italic
+Figure 2.1
+\shape default
+: Integration sequence for the Guest Component environment
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Customer Component sub-system
+\end_layout
+
+\begin_layout Standard
+This is the sub-system which represents the Customer Component environment.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /Users/gianmarco/Desktop/Testing diagram/New/First customer testing.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\shape italic
+Figure 2.
+\shape default
+2: Integration sequence for the Customer Profile management
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /Users/gianmarco/Desktop/Testing diagram/New/Second customer testing.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\shape italic
+Figure 2.
+\shape default
+3: Integration sequence for the Immediate Call by a Customer
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /Users/gianmarco/Desktop/Testing diagram/New/Third customer testing.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\shape italic
+Figure 2.
+\shape default
+4: Integration sequence for the Reservation Call by a Customer
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Taxi Driver Component sub-system
+\end_layout
+
+\begin_layout Standard
+This is the sub-system which represents the Taxi Driver Component environment.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /Users/gianmarco/Desktop/Testing diagram/New/First taxi driver testing.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\shape italic
+Figure 2.
+\shape default
+5: Integration sequence for the Profile management
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /Users/gianmarco/Desktop/Testing diagram/New/Second taxi driver testing.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\shape italic
+Figure 2.
+\shape default
+6: Integration sequence for the Guest Component environment
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /Users/gianmarco/Desktop/Testing diagram/New/Third taxi driver testing.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\shape italic
+Figure 2.
+\shape default
+7: Integration sequence for the Guest Component environment
 \end_layout
 
 \begin_layout Subsubsection
