@@ -488,10 +488,6 @@ Introduction
 Revision History
 \end_layout
 
-\begin_layout Standard
-Record all revisions to the document.
-\end_layout
-
 \begin_layout Subsection
 Purpose and Scope
 \end_layout
@@ -532,6 +528,15 @@ RASD
 : Requirement Analysis and Specification Document;
 \end_layout
 
+\begin_layout Itemize
+
+\series bold
+Sub-system
+\series default
+: Each set of Components that interact each others in order to accomplish
+ business operations;
+\end_layout
+
 \begin_layout Subsection
 List of Reference Documents
 \end_layout
@@ -546,10 +551,6 @@ The RASD
 
 \begin_layout Itemize
 The Design document
-\end_layout
-
-\begin_layout Itemize
-******The documentation of any tool you plan to use for testing******
 \end_layout
 
 \begin_layout Standard
@@ -682,13 +683,6 @@ The chosen integration testing approach for this Integration Plan is the
 Sequence of Component/Function Integration
 \end_layout
 
-\begin_layout Standard
-NOTE: The structure of this section may vary depending on the integration
- strategy you select in Section 2.3.
- Use the structure proposed below as a non mandatory guide.
- 
-\end_layout
-
 \begin_layout Subsubsection
 Software Integration Sequence
 \end_layout
@@ -699,17 +693,31 @@ The sub-systems below described are composed by the components described
 \begin_inset Newline newline
 \end_inset
 
-
+For each sub-system are listed the available operations for the specific
+ context.
 \end_layout
 
 \begin_layout Standard
 
 \series bold
-Guest Component sub-system
+S1.
+ Guest sub-system
 \end_layout
 
 \begin_layout Standard
-This is the sub-system which represents the Guest Component environment.
+In this component the Authentication and Registration operations are listed.
+\end_layout
+
+\begin_layout Itemize
+Registration of a new user;
+\end_layout
+
+\begin_layout Itemize
+Customer Authentication in the system, if already logged;
+\end_layout
+
+\begin_layout Itemize
+Taxi Driver authentication;
 \end_layout
 
 \begin_layout Standard
@@ -743,11 +751,32 @@ Figure 2.1
 \begin_layout Standard
 
 \series bold
-Customer Component sub-system
+S2.
+ Customer Profile Management sub-system
 \end_layout
 
-\begin_layout Standard
-This is the sub-system which represents the Customer Component environment.
+\begin_layout Itemize
+Email changing
+\end_layout
+
+\begin_layout Itemize
+Password changing
+\end_layout
+
+\begin_layout Itemize
+Password retrieval
+\end_layout
+
+\begin_layout Itemize
+Payment methods changing
+\end_layout
+
+\begin_layout Itemize
+Ride history showing
+\end_layout
+
+\begin_layout Itemize
+Sharing mode activation
 \end_layout
 
 \begin_layout Standard
@@ -771,6 +800,48 @@ Figure 2.
 \end_layout
 
 \begin_layout Standard
+
+\series bold
+S3.
+ Customer Logout Management sub-system
+\end_layout
+
+\begin_layout Itemize
+Customer Logout
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /Users/gianmarco/Desktop/Testing diagram/New/Customer Logout.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\shape italic
+Figure 2.
+\shape default
+3: Integration schema for the Customer Logout management
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+S4.
+ Customer Immediate Call Management sub-system
+\end_layout
+
+\begin_layout Itemize
+Immediate Call requesting
+\end_layout
+
+\begin_layout Standard
 \align center
 \begin_inset Graphics
 	filename /Users/gianmarco/Desktop/Testing diagram/New/Second customer testing.png
@@ -787,7 +858,18 @@ Figure 2.
 \shape italic
 Figure 2.
 \shape default
-3: Integration schema for the Immediate Call by a Customer
+4: Integration schema for the Immediate Call by a Customer
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+S5.
+ Customer Reservation Call Management sub-system
+\end_layout
+
+\begin_layout Itemize
+Reservation Call requesting
 \end_layout
 
 \begin_layout Standard
@@ -807,17 +889,30 @@ Figure 2.
 \shape italic
 Figure 2.
 \shape default
-4: Integration schema for the Reservation Call by a Customer
+5: Integration schema for the Reservation Call by a Customer
 \end_layout
 
 \begin_layout Standard
 
 \series bold
-Taxi Driver Component sub-system
+S6.
+ Taxi Driver Profile Management sub-system
 \end_layout
 
-\begin_layout Standard
-This is the sub-system which represents the Taxi Driver Component environment.
+\begin_layout Itemize
+Password changing
+\end_layout
+
+\begin_layout Itemize
+Password retrieval
+\end_layout
+
+\begin_layout Itemize
+Ride history showing
+\end_layout
+
+\begin_layout Itemize
+Given rating showing
 \end_layout
 
 \begin_layout Standard
@@ -837,7 +932,22 @@ This is the sub-system which represents the Taxi Driver Component environment.
 \shape italic
 Figure 2.
 \shape default
-5: Integration schema for the Profile management
+6: Integration schema for the Profile management
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+S7.
+ Taxi Driver Incoming Call Management sub-system
+\end_layout
+
+\begin_layout Itemize
+Call accepting
+\end_layout
+
+\begin_layout Itemize
+Call declining
 \end_layout
 
 \begin_layout Standard
@@ -857,7 +967,33 @@ Figure 2.
 \shape italic
 Figure 2.
 \shape default
-6: Integration schema for the Guest Component environment
+7: Integration schema for the Taxi Driver Incoming Call management
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+S8.
+ Taxi Driver Assistance Call Management sub-system
+\end_layout
+
+\begin_layout Itemize
+Accident call
+\end_layout
+
+\begin_layout Itemize
+System failure call
+\end_layout
+
+\begin_layout Itemize
+Generic failure call
 \end_layout
 
 \begin_layout Standard
@@ -877,7 +1013,38 @@ Figure 2.
 \shape italic
 Figure 2.
 \shape default
-7: Integration schema for the Guest Component environment
+8: Integration schema for the Taxi Driver Component Assistance Call management
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+S9.
+ Taxi Driver Logout Management sub-system
+\end_layout
+
+\begin_layout Itemize
+Taxi Driver Logout
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /Users/gianmarco/Desktop/Testing diagram/New/TaxiDriverLogout.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\shape italic
+Figure 2.
+\shape default
+9: Integration schema for the Taxi Driver Logout management
 \end_layout
 
 \begin_layout Subsubsection
@@ -903,25 +1070,10 @@ Identify the order in which subsystems will be integrated.
 Individual Steps and Test Description
 \end_layout
 
-\begin_layout Subsection
-
-\series bold
-Guest Component sub-system
-\end_layout
-
 \begin_layout Standard
 \align left
-In this testing sequence, each test is passed when no unexpected behaviour
- is detected and the login and signup operations are performed as expected.
-\begin_inset Newline newline
-\end_inset
-
-The integration steps are three: I11, I12, I13.
- 
-\begin_inset Newline newline
-\end_inset
-
-The execution order is described in the 
+In the tables showed in the following sub-sections, the execution order
+ is described in the 
 \shape italic
 Requirements
 \shape default
@@ -936,6 +1088,88 @@ Needed Drivers
 \shape default
  column refers to the drivers used to substitute the involved components
  that are not object of the related test step.
+\end_layout
+
+\begin_layout Standard
+At every step a driver is substituted with the corresponding component:
+ in this way, when a problem is detected the solution has to be searched
+ in the interaction with the latest added component.
+\end_layout
+
+\begin_layout Standard
+Since that the system has to be cross-platform, each integration test has
+ to be performed in every supported platform, i.e.
+ Android, iOS, Windows Phone.
+\end_layout
+
+\begin_layout Subsection
+
+\series bold
+Guest Component sub-system
+\end_layout
+
+\begin_layout Standard
+\align left
+The integration steps are three: I11, I12, I13 and the tested operations
+ between the components are the ones described in the 
+\emph on
+authenticationManagement 
+\emph default
+and
+\emph on
+ registrationManagement
+\emph default
+ interfaces.
+\end_layout
+
+\begin_layout Standard
+\align left
+In the Sequence diagram shown in the 
+\emph on
+Figure 2.4
+\emph default
+ of the 
+\emph on
+Section 2.5.1
+\emph default
+ of the Design Document can be found a more detailed representation of the
+ components interaction.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+I11
+\series default
+: the tested interactions are the ones between Guest Component and Authenticatio
+n Manager, using two drivers for the other components of the subsystem;
+ the test is passed when the Login and Registration operations are correctly
+ performed.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+I12
+\series default
+:
+\series bold
+ 
+\series default
+the Data Manager driver is substituted with real component, while a driver
+ still substitutes the Notification Manager component; the test is passed
+ when all the operations involved in the Data storage and retrieval, such
+ as the storage of the data of a new user, are correctly performed.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+I13
+\series default
+: the whole sub-system is tested without using any driver; the test is passed
+ when all the notifications, for all the supported operations, are dispatched
+ to the correct receiver.
 \end_layout
 
 \begin_layout Standard
@@ -1133,6 +1367,65 @@ Table 3.1
 Customer Component sub-system
 \end_layout
 
+\begin_layout Standard
+\align left
+The integration steps are three: I11, I12, I13 and the tested operations
+ between the components are the ones described in the 
+\emph on
+customerProfileManagement 
+\emph default
+interface.
+\end_layout
+
+\begin_layout Standard
+\align left
+In the 
+\emph on
+Section 2.6.3
+\emph default
+ of the Design Document can be found a more detailed list of the methods
+ relevant to this component context, i.e.
+ 
+\emph on
+changeEmail(String oldEmail, String newEmail, String password).
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+I21
+\series default
+: the tested interactions are the ones between Customer Component and Customer
+ Profile Manager, using two drivers for the other components of the subsystem;
+ the test is passed when each method is correctly invoked and each parameter
+ is passed in the correct order and form.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+I22
+\series default
+:
+\series bold
+ 
+\series default
+the Data Manager driver is substituted with real component, while a driver
+ still substitutes the Notification Manager component; the test is passed
+ when all the operations involved in the Data storage, delete, modify and
+ retrieval are correctly performed.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+I23
+\series default
+: the whole sub-system is tested without using any driver; the test is passed
+ when all the notifications, for all the supported operations, are dispatched
+ to the correct receiver.
+\end_layout
+
 \begin_layout Subsubsection
 Customer Profile Manager
 \end_layout
@@ -1321,11 +1614,240 @@ Customer Component, Customer Profile Manager, Data Manager, Notification
 Table 3.2
 \shape default
 : Integration sequence table for the Customer Profile Management testing
- 
+\end_layout
+
+\begin_layout Subsubsection
+Customer Logout Manager
+\end_layout
+
+\begin_layout Standard
+The integration test for the Logout manager in the Customer context checks
+ if the logout operation ends correctly, managing and terminating the current
+ session in the correct way.
+\end_layout
+
+\begin_layout Standard
+The method that will be tested in this case is the 
+\emph on
+logout()
+\emph default
+ method shown in the 
+\emph on
+Section 2.6.1
+\emph default
+ of the Design Document.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+I24
+\series default
+: the tested interaction is the one between the Customer Component and the
+ Authentication Manager; the test is passed when the logout operation terminates
+ without not expected behaviours.
+\end_layout
+
+\begin_layout Standard
+\align left
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="4">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="left" valignment="top">
+<column alignment="center" valignment="top" width="0pt">
+<column alignment="left" valignment="top" width="5cm">
+<column alignment="left" valignment="top" width="3cm">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Index
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Requirements
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Tested Components
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Needed Drivers
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+I24
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+---
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Customer Component, Authentication Manager
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+---
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\shape italic
+Table 3.
+\shape default
+3: Integration sequence table for the Customer Profile Management testing
 \end_layout
 
 \begin_layout Subsubsection
 Immediate Call Manager 
+\end_layout
+
+\begin_layout Standard
+\align left
+The integration steps are four: I31, I32, I33, I34 and the tested operations
+ between the components are the ones described in the 
+\emph on
+immediateCallManagement 
+\emph default
+interface.
+\end_layout
+
+\begin_layout Standard
+\align left
+In the 
+\emph on
+Section 2.6.5
+\emph default
+ of the Design Document can be found a more detailed list of the methods
+ relevant to this component context, i.e.
+ 
+\emph on
+sendImmediateRequest(...).
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+I31
+\series default
+: the tested interaction is the one between the Customer Component and the
+ Immediate Call Manager, using three drivers for the other components of
+ the subsystem; the test is passed if the request is sent using the right
+ parameters, according to the business logic described in the Functional
+ Requirements of the RASD, 
+\emph on
+Section 3.1
+\emph default
+.
+ The different types of Immediate Call operation have to be tested, such
+ as Private or Shared Immediate Call.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+I32
+\series default
+: the Payment Manager Component substitutes the related driver used in the
+ previous testing sequence; the test is passed when the verification and
+ validation of the payment information happens correctly and without unexpected
+ behaviours and that the payment information for the current Call are correctly
+ forwarded to the external banking system.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+I33
+\series default
+: the Data Manager Component is used instead of the related driver used
+ in the previous testing sequence; the test is passed when all the operations
+ involved in the Data storage, delete, modify and retrieval are correctly
+ performed.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+I34
+\series default
+: finally, the Notification Manager Component substitutes the last driver
+ used in the previous testing sequence, in order to test the whole sub-system;
+ the test is passed when all the notifications, for all the supported operations
+, are dispatched to the correct receiver.
+\end_layout
+
+\begin_layout Standard
+This current sub-system testing case needs some drivers that substitutes
+ components of an external sub-system, successively tested and integrated
+ with this one:
+\end_layout
+
+\begin_layout Itemize
+Incoming Call Manager
+\end_layout
+
+\begin_layout Itemize
+Taxi Driver Manager
 \end_layout
 
 \begin_layout Standard
@@ -1547,13 +2069,103 @@ Customer Component, Immediate Call Manager, Payment Manager, Data Manager,
 \align center
 
 \shape italic
-Table 3.3
+Table 3.4
 \shape default
 : Integration sequence table for the Immediate Call Management testing
 \end_layout
 
 \begin_layout Subsubsection
 Reservation Call Manager
+\end_layout
+
+\begin_layout Standard
+\align left
+As for the Immediate Call testing case, the integrations steps are four:
+ I41, I42, I43, I44 and the tested operations between the components are
+ the ones described in the 
+\emph on
+reservationCallManagement 
+\emph default
+interface.
+\end_layout
+
+\begin_layout Standard
+\align left
+In the 
+\emph on
+Section 2.6.6
+\emph default
+ of the Design Document can be found a more detailed list of the methods
+ relevant to this component context, i.e.
+ 
+\emph on
+sendReservationRequest(...).
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+I41
+\series default
+: the tested interaction is the one between the Customer Component and the
+ Reservation Call Manager, using three drivers for the other components
+ of the subsystem; the test is passed if the request is sent using the right
+ parameters, according to the business logic described in the Functional
+ Requirements of the RASD, 
+\emph on
+Section 3.1
+\emph default
+.
+ The different types of Reservation Call operation have to be tested, such
+ as Private or Shared Reservation Call.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+I42
+\series default
+: the Payment Manager Component substitutes the related driver used in the
+ previous testing sequence; in the same way for the Immediate Call Manager
+ testing in the previous section, the test is passed when the payment informatio
+n are correctly sent and received and no unexpected behaviours happen and
+ the payment information for the current Call are correctly forwarded to
+ the external banking system.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+I43
+\series default
+: the Data Manager Component is used instead of the related driver used
+ in the previous testing sequence; the test is passed when all the operations
+ involved in the Data storage and retrieval are correctly performed.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+I44
+\series default
+: finally, the Notification Manager Component substitutes the last driver
+ used in the previous testing sequence; the test is passed when all the
+ notifications, for all the supported operations, are dispatched to the
+ correct receiver.
+\end_layout
+
+\begin_layout Standard
+This current sub-system testing case needs some drivers that substitutes
+ components of an external sub-system, successively tested and integrated
+ with this one:
+\end_layout
+
+\begin_layout Itemize
+Incoming Call Manager
+\end_layout
+
+\begin_layout Itemize
+Taxi Driver Manager
 \end_layout
 
 \begin_layout Standard
@@ -1775,7 +2387,7 @@ Customer Component, Reservation Call Manager, Payment Manager, Data Manager,
 \align center
 
 \shape italic
-Table 3.4
+Table 3.5
 \shape default
 : Integration sequence table for the Reservation Call Management testing
 \end_layout
@@ -1786,6 +2398,70 @@ Taxi Driver Component sub-system
 
 \begin_layout Subsubsection
 Taxi Driver Profile Manager
+\end_layout
+
+\begin_layout Standard
+\align left
+The integration steps are three: I51, I52, I53 and the tested operations
+ between the components are the ones described in the 
+\emph on
+taxiDriverProfileManagement 
+\emph default
+interface.
+\end_layout
+
+\begin_layout Standard
+The integration testing happens in a similar way to the Customer sub-system
+ Profile Manager.
+\end_layout
+
+\begin_layout Standard
+\align left
+In the 
+\emph on
+Section 2.6.4
+\emph default
+ of the Design Document can be found a more detailed list of the methods
+ relevant to this component context, i.e.
+ 
+\emph on
+retrievePassword(String email).
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+I51
+\series default
+: the tested interactions are the ones between Taxi Driver Component and
+ Taxi Driver Profile Manager, using two drivers for the other components
+ of the subsystem; the test is passed when each method is correctly invoked
+ and each parameter is passed in the correct order and form.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+I52
+\series default
+:
+\series bold
+ 
+\series default
+the Data Manager driver is substituted with the real component, while a
+ driver still substitutes the Notification Manager component; the test is
+ passed when all the operations involved in the Data storage, delete, modify
+ and retrieval are correctly performed.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+I53
+\series default
+: the whole sub-system is tested without using any driver; the test is passed
+ when all the notifications, for all the supported operations, are dispatched
+ to the correct receiver.
 \end_layout
 
 \begin_layout Standard
@@ -1969,7 +2645,7 @@ Taxi Driver Component, Taxi Driver Profile Manager, Data Manager, Notification
 \align center
 
 \shape italic
-Table 3.5
+Table 3.6
 \shape default
 : Integration sequence table for the Taxi Driver Profile Management testing
  
@@ -1977,6 +2653,79 @@ Table 3.5
 
 \begin_layout Subsubsection
 Incoming Call Manager
+\end_layout
+
+\begin_layout Standard
+\align left
+The integration steps are three: I61, I62, I63 and the tested operations
+ between the components are the ones described in the 
+\emph on
+incomingCallManagement 
+\emph default
+interface.
+\end_layout
+
+\begin_layout Standard
+\align left
+In the 
+\emph on
+Section 2.6.7
+\emph default
+ of the Design Document can be found a more detailed list of the methods
+ relevant to this component context, i.e.
+ 
+\emph on
+acceptCall() and declineCall().
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+I61
+\series default
+: the tested interactions are the ones between Incoming Call Manager and
+ Notification Manager, using two internal drivers for the other components
+ of the subsystem; the test is passed when the interactions between the
+ two components are correctly performed, without any unexpected behaviours.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+I62
+\series default
+:
+\series bold
+ 
+\series default
+the Taxi Driver Component driver is substituted with the real component,
+ while the last internal driver still substitutes the Data Manager component;
+ the test is passed when all the types of call that a Taxi Driver could
+ receive are correctly notified to the relative Component.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+I63
+\series default
+: the whole sub-system is tested without using any internal driver; the
+ test is passed when all the data storage, delete, modify and retrieval
+ operations are correctly performed.
+\end_layout
+
+\begin_layout Standard
+This current sub-system testing case needs some drivers that substitutes
+ components of an external sub-system, successively tested and integrated
+ with this one:
+\end_layout
+
+\begin_layout Itemize
+Immediate Call Manager
+\end_layout
+
+\begin_layout Itemize
+Customer Manager
 \end_layout
 
 \begin_layout Standard
@@ -2057,7 +2806,11 @@ I61
 \begin_inset Text
 
 \begin_layout Plain Layout
-Taxi Driver Component, Incoming Call Manager
+Incoming Call Manager,
+\end_layout
+
+\begin_layout Plain Layout
+Notification Manager
 \end_layout
 
 \end_inset
@@ -2066,7 +2819,7 @@ Taxi Driver Component, Incoming Call Manager
 \begin_inset Text
 
 \begin_layout Plain Layout
-Data Manager, Notification Manager
+Data Manager, Taxi Driver Manager
 \end_layout
 
 \end_inset
@@ -2095,7 +2848,7 @@ I61
 \begin_inset Text
 
 \begin_layout Plain Layout
-Incoming CallManager, Taxi Driver Component, Data Manager
+Incoming Call Manager, Notification Manager, Taxi Driver Component
 \end_layout
 
 \end_inset
@@ -2104,7 +2857,7 @@ Incoming CallManager, Taxi Driver Component, Data Manager
 \begin_inset Text
 
 \begin_layout Plain Layout
-Notification Manager
+Data Manager
 \end_layout
 
 \end_inset
@@ -2133,8 +2886,7 @@ I62
 \begin_inset Text
 
 \begin_layout Plain Layout
-Taxi Driver Component, Incoming Call Manager, Data Manager, Notification
- Manager
+Incoming Call Manager, Notification Manager, Data Manager, Taxi Driver Component
 \end_layout
 
 \end_inset
@@ -2160,13 +2912,74 @@ Taxi Driver Component, Incoming Call Manager, Data Manager, Notification
 \align center
 
 \shape italic
-Table 3.6
+Table 3.
 \shape default
-: Integration sequence table for the Incoming Call Management testing
+7: Integration sequence table for the Incoming Call Management testing
 \end_layout
 
 \begin_layout Subsubsection
 Assistance Call Manager
+\end_layout
+
+\begin_layout Standard
+\align left
+The integration steps are three: I71, I72, I73 and the tested operations
+ between the components are the ones described in the
+\emph on
+ taxiDriverAssistanceCallManagement 
+\emph default
+interface.
+\end_layout
+
+\begin_layout Standard
+\align left
+In the 
+\emph on
+Section 2.6.8
+\emph default
+ of the Design Document can be found a more detailed list of the methods
+ relevant to this component context, i.e.
+ 
+\emph on
+signalAccident(String comment), signalGenericFault(String comment).
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+I71
+\series default
+: the tested interactions are the ones between Taxi Driver Component and
+ Assistance Call Manager, using two drivers for the other components of
+ the subsystem; the test is passed when each type of assistance call are
+ correctly sent by the Taxi Driver Component and received and managed by
+ the Assistance Call Manager, without any unexpected behaviours.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+I72
+\series default
+:
+\series bold
+ 
+\series default
+the Notification Manager driver is substituted with the real component,
+ while a driver still substitutes the Data Manager component; the test is
+ passed when the Notification Manager correctly receives the request from
+ the Assistance Call Manager and sends the Notification to the Taxi Driver,
+ after the request management.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+I73
+\series default
+: the whole sub-system is tested without using any driver; the test is passed
+ when all the data storage, delete, modify and retrieval operations are
+ correctly performed.
 \end_layout
 
 \begin_layout Standard
@@ -2285,7 +3098,7 @@ I71
 \begin_inset Text
 
 \begin_layout Plain Layout
-Assistance Call Manager, Taxi Driver Component, Data Manager
+Assistance Call Manager, Taxi Driver Component, Notification Manager
 \end_layout
 
 \end_inset
@@ -2294,7 +3107,7 @@ Assistance Call Manager, Taxi Driver Component, Data Manager
 \begin_inset Text
 
 \begin_layout Plain Layout
-Notification Manager
+Data Manager
 \end_layout
 
 \end_inset
@@ -2323,7 +3136,7 @@ I72
 \begin_inset Text
 
 \begin_layout Plain Layout
-Taxi Driver Component, Assistance Call Manager, Data Manager, Notification
+Taxi Driver Component, Assistance Call Manager, Notification Manager, Data
  Manager
 \end_layout
 
@@ -2352,7 +3165,149 @@ Taxi Driver Component, Assistance Call Manager, Data Manager, Notification
 \shape italic
 Table 3.
 \shape default
-7: Integration sequence table for the Assistance Call Management testing
+8: Integration sequence table for the Assistance Call Management testing
+\end_layout
+
+\begin_layout Subsubsection
+Taxi Driver Logout Manager
+\end_layout
+
+\begin_layout Standard
+The integration test for the Logout manager in the Taxi Driver context checks
+ if the logout operation ends correctly, managing and terminating the current
+ session in the correct way.
+\end_layout
+
+\begin_layout Standard
+The method that will be tested in this case is the 
+\emph on
+logout()
+\emph default
+ method shown in the 
+\emph on
+Section 2.6.1
+\emph default
+ of the Design Document.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+I74
+\series default
+: the tested interaction is the one between the Taxi Driver Component and
+ the Authentication Manager; in a similar way to the Customer context, the
+ test is passed when the logout operation terminates without not expected
+ behaviours.
+\end_layout
+
+\begin_layout Standard
+\align left
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="4">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="left" valignment="top">
+<column alignment="center" valignment="top" width="0pt">
+<column alignment="left" valignment="top" width="5cm">
+<column alignment="left" valignment="top" width="3cm">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Index
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Requirements
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Tested Components
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Needed Drivers
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+I71
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+---
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Taxi Driver Component, Assistance Call Manager
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Data Manager, Notification Manager
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\shape italic
+Table 3.
+\shape default
+9: Integration sequence table for the Taxi Driver Logout Management testing
 \end_layout
 
 \begin_layout Standard
