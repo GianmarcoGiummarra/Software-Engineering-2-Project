@@ -502,8 +502,8 @@ The integration test detects the bugs not discovered during unit tests,
 \end_layout
 
 \begin_layout Standard
-Two or more components are integrated and analyzed, and when bugs are detected
- more components can be added to fix the errors.
+Two or more components are integrated and analyzed, and if no bugs are detected
+ more components can be added to the testing sequence.
 \end_layout
 
 \begin_layout Standard
@@ -542,8 +542,8 @@ Component
 \series bold
 Subsystem
 \series default
-: Each set of Components, or Lower Level Subsystem that interact each others
- in order to accomplish business operations;
+: Each set of Components or Lower Level Subsystems that interact between
+ each others in order to accomplish business operations;
 \end_layout
 
 \begin_layout Itemize
@@ -551,23 +551,47 @@ Subsystem
 \series bold
 First Level Subsystem
 \series default
-: Each Subsystem which composed only of Components;
+: Each Subsystem composed only of Components;
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Guest
+\series default
+: a person that has never signed up to the system, so without a personal
+ profile.
+ He can only sign up;
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Customer
+\series default
+: a person already logged to the system that wants to call a taxi, or a
+ person who is actually using the taxi service;
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Taxi Driver
+\series default
+: a person who drive a taxi, with his own taxi driver ID provided by the
+ government that hired him;
 \end_layout
 
 \begin_layout Subsection
 List of Reference Documents
 \end_layout
 
-\begin_layout Standard
-List all reference documents, for instance:
+\begin_layout Itemize
+RASD
 \end_layout
 
 \begin_layout Itemize
-The RASD
-\end_layout
-
-\begin_layout Itemize
-The Design document
+Design Document
 \end_layout
 
 \begin_layout Standard
@@ -591,7 +615,10 @@ Some criteria that have to be met before starting with the integration testing
 \end_layout
 
 \begin_layout Itemize
-All of the atomic functions have to be unit-tested
+All of the Components have to be unit-tested.
+ In this way every internal operation such as the ones described with the
+ algorithms and shown in the sequence diagrams in the Design Document, must
+ have passed the white box test;
 \end_layout
 
 \begin_layout Itemize
@@ -608,8 +635,12 @@ Elements to be Integrated
 
 \begin_layout Standard
 The elements to be integrated are, according to the strategy explained in
- the section 2.3 of this document, the single components of the system, as
- described in the Design Document, 
+ the 
+\emph on
+Section 2.3
+\emph default
+ of this document, the single components of the system, as described in
+ the Design Document, 
 \emph on
 Section 2.3
 \emph default
@@ -617,7 +648,7 @@ Section 2.3
 \end_layout
 
 \begin_layout Standard
-To give a brief summary of these 
+The list below gives a brief summary of these 
 \begin_inset Quotes eld
 \end_inset
 
@@ -625,7 +656,7 @@ atomic
 \begin_inset Quotes erd
 \end_inset
 
- elements of the system, they are listed below:
+ elements of the system:
 \end_layout
 
 \begin_layout Itemize
@@ -691,12 +722,13 @@ The chosen integration testing approach for this Integration Plan is the
  to begin testing the system from the little components that compose every
  single part and continue the integration at a higher level for each step.
  This justifies also the presence of the first entry criterium in the point
- 2.1 of this document; in the rare case that some functions or some part
- of code at the moment of the integration testing is not developed yet,
- it should be possible to build a Stub in order to go on with the testing
- of the whole single functions at the low level.
+ 
+\emph on
+2.1
+\emph default
+ of this document.
  For the same reason, in the integration testing for different components,
- should be possible to build Drivers that allow to testing the integration
+ should be possible to build Drivers that allow to test the integration
  when an interface is not completely developed yet.
 \end_layout
 
@@ -716,9 +748,16 @@ For each subsystem are listed the available operations for the specific
 \begin_layout Standard
 In this section are listed the First Level Subsystems, that are basically
  nine, one for each class of operations.
- They are below divided into three main groups: Guest subsystem (S1), Customer
+ They have been divided into three main groups: Guest subsystem (S1), Customer
  subsystems (S2 to S5) and Taxi Driver subsystems (S6 to S9), depending
- on the actor involved in the considered class of operations.
+ on which actor is involved in the considered class of operations.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 0.5cm
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -883,6 +922,13 @@ Immediate Call requesting
 Figure 2.
 \shape default
 4: Integration schema for the Immediate Call by a Customer
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1071,8 +1117,95 @@ Figure 2.
 9: Integration schema for the Taxi Driver Logout management
 \end_layout
 
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsubsection
 Subsystem Integration Sequence
+\end_layout
+
+\begin_layout Standard
+In this section are described the sequences for the First Level Subsystem
+ integration.
+ Each one of the following sequences describes the interaction between two
+ First Level Subsystems.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 0.5cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+S10.
+ Immediate Call Management subsystem
+\end_layout
+
+\begin_layout Standard
+This Second Level Subsystem is composed by the two Subsystems that manage
+ the Immediate Call operations by the point of view of both the Customer
+ and the Taxi Driver.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /Users/gianmarco/Desktop/Testing diagram/Second Level subsystem sequences/Imm-Second Level.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\shape italic
+Figure 2.
+\shape default
+10: Integration schema for the Immediate Call management
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+S11.
+ Reservation Call Management subsystem
+\end_layout
+
+\begin_layout Standard
+This Second Level Subsystem represents the composition of the two Subsystems
+ that manage the Immediate Call operations by the point of view of both
+ the Customer and the Taxi Driver.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /Users/gianmarco/Desktop/Testing diagram/Second Level subsystem sequences/Res-Second Level.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\shape italic
+Figure 2.
+\shape default
+11: Integration schema for the Reservation Call management
 \end_layout
 
 \begin_layout Standard
@@ -1088,7 +1221,7 @@ Individual Steps and Test Description
 
 \begin_layout Standard
 \align left
-In the tables showed in the following sub-sections, the execution order
+In the tables showed in the following sub-sections, the execution precedence
  is described in the 
 \shape italic
 Requirements
@@ -1113,9 +1246,9 @@ At every step a driver is substituted with the corresponding component:
 \end_layout
 
 \begin_layout Standard
-Since that the system has to be cross-platform, each integration test has
- to be performed in every supported platform, i.e.
- Android, iOS, Windows Phone.
+Due to the fact that the system has to be cross-platform, each integration
+ test has to be performed in every supported platform, i.e.
+ Browsers, Android, iOS, Windows Phone.
 \end_layout
 
 \begin_layout Subsection
@@ -1126,7 +1259,7 @@ Guest Component subsystem (S1)
 
 \begin_layout Standard
 \align left
-The integration steps are three: I11, I12, I13 and the tested operations
+The integration steps are three: I1.1, I1.2, I1.3 and the tested operations
  between the components are the ones described in the 
 \emph on
 authenticationManagement 
@@ -1155,7 +1288,7 @@ Section 2.5.1
 \begin_layout Itemize
 
 \series bold
-I11
+I1.1
 \series default
 : the tested interactions are the ones between Guest Component and Authenticatio
 n Manager, using two drivers for the other components of the subsystem;
@@ -1166,7 +1299,7 @@ n Manager, using two drivers for the other components of the subsystem;
 \begin_layout Itemize
 
 \series bold
-I12
+I1.2
 \series default
 :
 \series bold
@@ -1181,7 +1314,7 @@ the Data Manager driver is substituted with real component, while a driver
 \begin_layout Itemize
 
 \series bold
-I13
+I1.3
 \series default
 : the whole subsystem is tested without using any driver; the test is passed
  when all the notifications, for all the supported operations, are dispatched
@@ -1195,7 +1328,7 @@ I13
 <features rotate="0" tabularvalignment="middle">
 <column alignment="left" valignment="top">
 <column alignment="center" valignment="top" width="0pt">
-<column alignment="left" valignment="top" width="5cm">
+<column alignment="left" valignment="top" width="4cm">
 <column alignment="left" valignment="top" width="3cm">
 <row>
 <cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
@@ -1248,7 +1381,7 @@ Needed Drivers
 \begin_inset Text
 
 \begin_layout Plain Layout
-I11
+I1.1
 \end_layout
 
 \end_inset
@@ -1290,7 +1423,7 @@ Data Manager, Notification Manager
 \begin_inset Text
 
 \begin_layout Plain Layout
-I12
+I1.2
 \end_layout
 
 \end_inset
@@ -1299,7 +1432,7 @@ I12
 \begin_inset Text
 
 \begin_layout Plain Layout
-I11
+I1.1
 \end_layout
 
 \end_inset
@@ -1328,7 +1461,7 @@ Notification Manager
 \begin_inset Text
 
 \begin_layout Plain Layout
-I13
+I1.3
 \end_layout
 
 \end_inset
@@ -1337,7 +1470,7 @@ I13
 \begin_inset Text
 
 \begin_layout Plain Layout
-I12
+I1.2
 \end_layout
 
 \end_inset
@@ -1385,7 +1518,7 @@ Customer Component subsystem
 
 \begin_layout Standard
 \align left
-The integration steps are three: I11, I12, I13 and the tested operations
+The integration steps are three: I2.1, I2.2, I2.3 and the tested operations
  between the components are the ones described in the 
 \emph on
 customerProfileManagement 
@@ -1409,7 +1542,7 @@ changeEmail(String oldEmail, String newEmail, String password).
 \begin_layout Itemize
 
 \series bold
-I21
+I2.1
 \series default
 : the tested interactions are the ones between Customer Component and Customer
  Profile Manager, using two drivers for the other components of the subsystem;
@@ -1420,7 +1553,7 @@ I21
 \begin_layout Itemize
 
 \series bold
-I22
+I2.2
 \series default
 :
 \series bold
@@ -1435,11 +1568,18 @@ the Data Manager driver is substituted with real component, while a driver
 \begin_layout Itemize
 
 \series bold
-I23
+I2.3
 \series default
 : the whole subsystem is tested without using any driver; the test is passed
  when all the notifications, for all the supported operations, are dispatched
  to the correct receiver.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsubsection
@@ -1453,7 +1593,7 @@ Customer Profile Manager (S2)
 <features rotate="0" tabularvalignment="middle">
 <column alignment="left" valignment="top">
 <column alignment="center" valignment="top" width="0pt">
-<column alignment="left" valignment="top" width="5cm">
+<column alignment="left" valignment="top" width="4cm">
 <column alignment="left" valignment="top" width="3cm">
 <row>
 <cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
@@ -1506,7 +1646,7 @@ Needed Drivers
 \begin_inset Text
 
 \begin_layout Plain Layout
-I21
+I2.1
 \end_layout
 
 \end_inset
@@ -1544,7 +1684,7 @@ Data Manager, Notification Manager
 \begin_inset Text
 
 \begin_layout Plain Layout
-I22
+I2.2
 \end_layout
 
 \end_inset
@@ -1553,7 +1693,7 @@ I22
 \begin_inset Text
 
 \begin_layout Plain Layout
-I21
+I2.1
 \end_layout
 
 \end_inset
@@ -1582,7 +1722,7 @@ Notification Manager
 \begin_inset Text
 
 \begin_layout Plain Layout
-I23
+I2.3
 \end_layout
 
 \end_inset
@@ -1591,7 +1731,7 @@ I23
 \begin_inset Text
 
 \begin_layout Plain Layout
-I22
+I2.2
 \end_layout
 
 \end_inset
@@ -1657,7 +1797,7 @@ Section 2.6.1
 \begin_layout Itemize
 
 \series bold
-I24
+I3.1
 \series default
 : the tested interaction is the one between the Customer Component and the
  Authentication Manager; the test is passed when the logout operation terminates
@@ -1671,7 +1811,7 @@ I24
 <features rotate="0" tabularvalignment="middle">
 <column alignment="left" valignment="top">
 <column alignment="center" valignment="top" width="0pt">
-<column alignment="left" valignment="top" width="5cm">
+<column alignment="left" valignment="top" width="4cm">
 <column alignment="left" valignment="top" width="3cm">
 <row>
 <cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
@@ -1724,7 +1864,7 @@ Needed Drivers
 \begin_inset Text
 
 \begin_layout Plain Layout
-I24
+I3.1
 \end_layout
 
 \end_inset
@@ -1773,13 +1913,20 @@ Table 3.
 3: Integration sequence table for the Customer Profile Management testing
 \end_layout
 
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsubsection
-Immediate Call Manager (S4)
+Customer Immediate Call Manager (S4)
 \end_layout
 
 \begin_layout Standard
 \align left
-The integration steps are four: I31, I32, I33, I34 and the tested operations
+The integration steps are four: I4.1, I4.2, I4.3, I4.4 and the tested operations
  between the components are the ones described in the 
 \emph on
 immediateCallManagement 
@@ -1803,7 +1950,7 @@ sendImmediateRequest(...).
 \begin_layout Itemize
 
 \series bold
-I31
+I4.1
 \series default
 : the tested interaction is the one between the Customer Component and the
  Immediate Call Manager, using three drivers for the other components of
@@ -1821,7 +1968,7 @@ Section 3.1
 \begin_layout Itemize
 
 \series bold
-I32
+I4.2
 \series default
 : the Payment Manager Component substitutes the related driver used in the
  previous testing sequence; the test is passed when the verification and
@@ -1833,7 +1980,7 @@ I32
 \begin_layout Itemize
 
 \series bold
-I33
+I4.3
 \series default
 : the Data Manager Component is used instead of the related driver used
  in the previous testing sequence; the test is passed when all the operations
@@ -1844,7 +1991,7 @@ I33
 \begin_layout Itemize
 
 \series bold
-I34
+I4.4
 \series default
 : finally, the Notification Manager Component substitutes the last driver
  used in the previous testing sequence, in order to test the whole subsystem;
@@ -1873,7 +2020,7 @@ Taxi Driver Manager
 <features rotate="0" tabularvalignment="middle">
 <column alignment="left" valignment="top">
 <column alignment="center" valignment="top" width="0pt">
-<column alignment="left" valignment="top" width="5cm">
+<column alignment="left" valignment="top" width="4cm">
 <column alignment="left" valignment="top" width="3cm">
 <row>
 <cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
@@ -1926,7 +2073,7 @@ Needed Drivers
 \begin_inset Text
 
 \begin_layout Plain Layout
-I31
+I4.1
 \end_layout
 
 \end_inset
@@ -1964,7 +2111,7 @@ Data Manager, Payment Manager, Notification Manager
 \begin_inset Text
 
 \begin_layout Plain Layout
-I32
+I4.2
 \end_layout
 
 \end_inset
@@ -1973,7 +2120,7 @@ I32
 \begin_inset Text
 
 \begin_layout Plain Layout
-I31
+I4.1
 \end_layout
 
 \end_inset
@@ -2002,7 +2149,7 @@ Notification Manager, Data Manager
 \begin_inset Text
 
 \begin_layout Plain Layout
-I33
+I4.3
 \end_layout
 
 \end_inset
@@ -2011,7 +2158,7 @@ I33
 \begin_inset Text
 
 \begin_layout Plain Layout
-I32
+I4.2
 \end_layout
 
 \end_inset
@@ -2040,7 +2187,7 @@ Notification Manager
 \begin_inset Text
 
 \begin_layout Plain Layout
-I34
+I4.4
 \end_layout
 
 \end_inset
@@ -2049,12 +2196,12 @@ I34
 \begin_inset Text
 
 \begin_layout Plain Layout
-I33
+I4.3
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -2091,13 +2238,13 @@ Table 3.4
 \end_layout
 
 \begin_layout Subsubsection
-Reservation Call Manager (S5)
+Customer Reservation Call Manager (S5)
 \end_layout
 
 \begin_layout Standard
 \align left
 As for the Immediate Call testing case, the integrations steps are four:
- I41, I42, I43, I44 and the tested operations between the components are
+ I5.1, I5.2, I5.3, I5.4 and the tested operations between the components are
  the ones described in the 
 \emph on
 reservationCallManagement 
@@ -2121,7 +2268,7 @@ sendReservationRequest(...).
 \begin_layout Itemize
 
 \series bold
-I41
+I5.1
 \series default
 : the tested interaction is the one between the Customer Component and the
  Reservation Call Manager, using three drivers for the other components
@@ -2139,12 +2286,12 @@ Section 3.1
 \begin_layout Itemize
 
 \series bold
-I42
+I5.2
 \series default
 : the Payment Manager Component substitutes the related driver used in the
  previous testing sequence; in the same way for the Immediate Call Manager
  testing in the previous section, the test is passed when the payment informatio
-n are correctly sent and received and no unexpected behaviours happen and
+n are correctly sent and received and no unexpected behaviours happens and
  the payment information for the current Call are correctly forwarded to
  the external banking system.
 \end_layout
@@ -2152,7 +2299,7 @@ n are correctly sent and received and no unexpected behaviours happen and
 \begin_layout Itemize
 
 \series bold
-I43
+I5.3
 \series default
 : the Data Manager Component is used instead of the related driver used
  in the previous testing sequence; the test is passed when all the operations
@@ -2162,7 +2309,7 @@ I43
 \begin_layout Itemize
 
 \series bold
-I44
+I5.4
 \series default
 : finally, the Notification Manager Component substitutes the last driver
  used in the previous testing sequence; the test is passed when all the
@@ -2191,7 +2338,7 @@ Taxi Driver Manager
 <features rotate="0" tabularvalignment="middle">
 <column alignment="left" valignment="top">
 <column alignment="center" valignment="top" width="0pt">
-<column alignment="left" valignment="top" width="5cm">
+<column alignment="left" valignment="top" width="4cm">
 <column alignment="left" valignment="top" width="3cm">
 <row>
 <cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
@@ -2244,7 +2391,7 @@ Needed Drivers
 \begin_inset Text
 
 \begin_layout Plain Layout
-I41
+I5.1
 \end_layout
 
 \end_inset
@@ -2282,7 +2429,7 @@ Data Manager, Payment Manager, Notification Manager
 \begin_inset Text
 
 \begin_layout Plain Layout
-I42
+I5.2
 \end_layout
 
 \end_inset
@@ -2291,7 +2438,7 @@ I42
 \begin_inset Text
 
 \begin_layout Plain Layout
-I41
+I5.1
 \end_layout
 
 \end_inset
@@ -2320,7 +2467,7 @@ Notification Manager, Data Manager
 \begin_inset Text
 
 \begin_layout Plain Layout
-I43
+I5.3
 \end_layout
 
 \end_inset
@@ -2329,7 +2476,7 @@ I43
 \begin_inset Text
 
 \begin_layout Plain Layout
-I42
+I5.2
 \end_layout
 
 \end_inset
@@ -2358,7 +2505,7 @@ Notification Manager
 \begin_inset Text
 
 \begin_layout Plain Layout
-I44
+I5.4
 \end_layout
 
 \end_inset
@@ -2367,12 +2514,12 @@ I44
 \begin_inset Text
 
 \begin_layout Plain Layout
-I43
+I5.3
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -2408,6 +2555,13 @@ Table 3.5
 : Integration sequence table for the Reservation Call Management testing
 \end_layout
 
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 Taxi Driver Component subsystem
 \end_layout
@@ -2418,7 +2572,7 @@ Taxi Driver Profile Manager (S6)
 
 \begin_layout Standard
 \align left
-The integration steps are three: I51, I52, I53 and the tested operations
+The integration steps are three: I6.1, I6.2, I6.3 and the tested operations
  between the components are the ones described in the 
 \emph on
 taxiDriverProfileManagement 
@@ -2447,7 +2601,7 @@ retrievePassword(String email).
 \begin_layout Itemize
 
 \series bold
-I51
+I6.1
 \series default
 : the tested interactions are the ones between Taxi Driver Component and
  Taxi Driver Profile Manager, using two drivers for the other components
@@ -2458,7 +2612,7 @@ I51
 \begin_layout Itemize
 
 \series bold
-I52
+I6.2
 \series default
 :
 \series bold
@@ -2473,7 +2627,7 @@ the Data Manager driver is substituted with the real component, while a
 \begin_layout Itemize
 
 \series bold
-I53
+I6.3
 \series default
 : the whole subsystem is tested without using any driver; the test is passed
  when all the notifications, for all the supported operations, are dispatched
@@ -2487,7 +2641,7 @@ I53
 <features rotate="0" tabularvalignment="middle">
 <column alignment="left" valignment="top">
 <column alignment="center" valignment="top" width="0pt">
-<column alignment="left" valignment="top" width="5cm">
+<column alignment="left" valignment="top" width="4cm">
 <column alignment="left" valignment="top" width="3cm">
 <row>
 <cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
@@ -2540,7 +2694,7 @@ Needed Drivers
 \begin_inset Text
 
 \begin_layout Plain Layout
-I51
+I6.1
 \end_layout
 
 \end_inset
@@ -2578,7 +2732,7 @@ Data Manager, Notification Manager
 \begin_inset Text
 
 \begin_layout Plain Layout
-I52
+I6.2
 \end_layout
 
 \end_inset
@@ -2587,7 +2741,7 @@ I52
 \begin_inset Text
 
 \begin_layout Plain Layout
-I51
+I6.1
 \end_layout
 
 \end_inset
@@ -2616,7 +2770,7 @@ Notification Manager
 \begin_inset Text
 
 \begin_layout Plain Layout
-I53
+I6.3
 \end_layout
 
 \end_inset
@@ -2625,7 +2779,7 @@ I53
 \begin_inset Text
 
 \begin_layout Plain Layout
-I52
+I6.2
 \end_layout
 
 \end_inset
@@ -2673,7 +2827,7 @@ Incoming Call Manager (S7)
 
 \begin_layout Standard
 \align left
-The integration steps are three: I61, I62, I63 and the tested operations
+The integration steps are three: I7.1, I7.2, I7.3 and the tested operations
  between the components are the ones described in the 
 \emph on
 incomingCallManagement 
@@ -2697,7 +2851,7 @@ acceptCall() and declineCall().
 \begin_layout Itemize
 
 \series bold
-I61
+I7.1
 \series default
 : the tested interactions are the ones between Incoming Call Manager and
  Notification Manager, using two internal drivers for the other components
@@ -2708,7 +2862,7 @@ I61
 \begin_layout Itemize
 
 \series bold
-I62
+I7.2
 \series default
 :
 \series bold
@@ -2723,7 +2877,7 @@ the Taxi Driver Component driver is substituted with the real component,
 \begin_layout Itemize
 
 \series bold
-I63
+I7.3
 \series default
 : the whole subsystem is tested without using any internal driver; the test
  is passed when all the data storage, delete, modify and retrieval operations
@@ -2751,7 +2905,7 @@ Customer Manager
 <features rotate="0" tabularvalignment="middle">
 <column alignment="left" valignment="top">
 <column alignment="center" valignment="top" width="0pt">
-<column alignment="left" valignment="top" width="5cm">
+<column alignment="left" valignment="top" width="4cm">
 <column alignment="left" valignment="top" width="3cm">
 <row>
 <cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
@@ -2804,7 +2958,7 @@ Needed Drivers
 \begin_inset Text
 
 \begin_layout Plain Layout
-I61
+I7.1
 \end_layout
 
 \end_inset
@@ -2846,7 +3000,7 @@ Data Manager, Taxi Driver Manager
 \begin_inset Text
 
 \begin_layout Plain Layout
-I62
+I7.2
 \end_layout
 
 \end_inset
@@ -2855,7 +3009,7 @@ I62
 \begin_inset Text
 
 \begin_layout Plain Layout
-I61
+I7.1
 \end_layout
 
 \end_inset
@@ -2884,7 +3038,7 @@ Data Manager
 \begin_inset Text
 
 \begin_layout Plain Layout
-I63
+I7.3
 \end_layout
 
 \end_inset
@@ -2893,7 +3047,7 @@ I63
 \begin_inset Text
 
 \begin_layout Plain Layout
-I62
+I7.2
 \end_layout
 
 \end_inset
@@ -2939,7 +3093,7 @@ Assistance Call Manager (S8)
 
 \begin_layout Standard
 \align left
-The integration steps are three: I71, I72, I73 and the tested operations
+The integration steps are three: I8.1, I8.2, I8.3 and the tested operations
  between the components are the ones described in the
 \emph on
  taxiDriverAssistanceCallManagement 
@@ -2963,7 +3117,7 @@ signalAccident(String comment), signalGenericFault(String comment).
 \begin_layout Itemize
 
 \series bold
-I71
+I8.1
 \series default
 : the tested interactions are the ones between Taxi Driver Component and
  Assistance Call Manager, using two drivers for the other components of
@@ -2975,7 +3129,7 @@ I71
 \begin_layout Itemize
 
 \series bold
-I72
+I8.2
 \series default
 :
 \series bold
@@ -2991,7 +3145,7 @@ the Notification Manager driver is substituted with the real component,
 \begin_layout Itemize
 
 \series bold
-I73
+I8.3
 \series default
 : the whole subsystem is tested without using any driver; the test is passed
  when all the data storage, delete, modify and retrieval operations are
@@ -3005,7 +3159,7 @@ I73
 <features rotate="0" tabularvalignment="middle">
 <column alignment="left" valignment="top">
 <column alignment="center" valignment="top" width="0pt">
-<column alignment="left" valignment="top" width="5cm">
+<column alignment="left" valignment="top" width="4cm">
 <column alignment="left" valignment="top" width="3cm">
 <row>
 <cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
@@ -3058,7 +3212,7 @@ Needed Drivers
 \begin_inset Text
 
 \begin_layout Plain Layout
-I71
+I8.1
 \end_layout
 
 \end_inset
@@ -3096,7 +3250,7 @@ Data Manager, Notification Manager
 \begin_inset Text
 
 \begin_layout Plain Layout
-I72
+I8.2
 \end_layout
 
 \end_inset
@@ -3105,7 +3259,7 @@ I72
 \begin_inset Text
 
 \begin_layout Plain Layout
-I71
+I8.1
 \end_layout
 
 \end_inset
@@ -3134,7 +3288,7 @@ Data Manager
 \begin_inset Text
 
 \begin_layout Plain Layout
-I73
+I8.3
 \end_layout
 
 \end_inset
@@ -3143,7 +3297,7 @@ I73
 \begin_inset Text
 
 \begin_layout Plain Layout
-I72
+I8.2
 \end_layout
 
 \end_inset
@@ -3184,6 +3338,13 @@ Table 3.
 8: Integration sequence table for the Assistance Call Management testing
 \end_layout
 
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsubsection
 Taxi Driver Logout Manager (S9)
 \end_layout
@@ -3209,7 +3370,7 @@ Section 2.6.1
 \begin_layout Itemize
 
 \series bold
-I74
+I9.4
 \series default
 : the tested interaction is the one between the Taxi Driver Component and
  the Authentication Manager; in a similar way to the Customer context, the
@@ -3224,7 +3385,7 @@ I74
 <features rotate="0" tabularvalignment="middle">
 <column alignment="left" valignment="top">
 <column alignment="center" valignment="top" width="0pt">
-<column alignment="left" valignment="top" width="5cm">
+<column alignment="left" valignment="top" width="4cm">
 <column alignment="left" valignment="top" width="3cm">
 <row>
 <cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
@@ -3277,7 +3438,7 @@ Needed Drivers
 \begin_inset Text
 
 \begin_layout Plain Layout
-I71
+I9.1
 \end_layout
 
 \end_inset
@@ -3326,7 +3487,311 @@ Table 3.
 9: Integration sequence table for the Taxi Driver Logout Management testing
 \end_layout
 
+\begin_layout Subsubsection
+Immediate Call Manager (S10)
+\end_layout
+
 \begin_layout Standard
+This integration test is a Second Level Subsystem test which integrates
+ the two First Level Subsystem S4 and S7.
+\end_layout
+
+\begin_layout Standard
+The preconditions, of course, includes that both the S4 and S7 integration
+ tests are passed.
+\end_layout
+
+\begin_layout Standard
+The choice to integrate this two subsystems is made because in the S4 and
+ S7 tests some external drivers, respectively included in S7 and S4, were
+ needed in order to accomplish the integration test; with this step, integrating
+ the two subsystems, it's possible to reproduce and test a real situation
+ without using any external driver.
+\end_layout
+
+\begin_layout Standard
+The test is passed if all the operations related to the Immediate Call,
+ both shared or private, involve in the correct way both the subsystems,
+ correctly managing the interactions between the two.
+\end_layout
+
+\begin_layout Standard
+\align left
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="4">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="left" valignment="top">
+<column alignment="center" valignment="top" width="0pt">
+<column alignment="left" valignment="top" width="4cm">
+<column alignment="left" valignment="top" width="3cm">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Index
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Requirements
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Tested Subsystems
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Needed Drivers
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+I10.1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+S4, S7
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+S4, S7
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+---
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\shape italic
+Table 3.10
+\shape default
+: Integration sequence table for the Immediate Call Management testing
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Reservation Call Manager (S11)
+\end_layout
+
+\begin_layout Standard
+This integration test is a Second Level Subsystem test which integrates
+ the two First Level Subsystem S5 and S7.
+\end_layout
+
+\begin_layout Standard
+The preconditions, as for the S10 integration test, includes that both the
+ S5 and S7 integration tests are passed.
+\end_layout
+
+\begin_layout Standard
+The choice to integrate this two subsystems is made because in the S5 and
+ S7 tests some external drivers, respectively included in S7 and S5, were
+ needed in order to accomplish the integration test; with this step, integrating
+ the two subsystems, it's possible to reproduce and test a real situation
+ without using any external driver.
+\end_layout
+
+\begin_layout Standard
+The test is passed if all the operations related to the Reservation Call,
+ both shared or private, involve in the correct way both the subsystems,
+ correctly managing the interactions between the two.
+\end_layout
+
+\begin_layout Standard
+\align left
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="4">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="left" valignment="top">
+<column alignment="center" valignment="top" width="0pt">
+<column alignment="left" valignment="top" width="4cm">
+<column alignment="left" valignment="top" width="3cm">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Index
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Requirements
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Tested Subsystems
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Needed Drivers
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+I11.1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+S5, S7
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+S5, S7
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+---
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\shape italic
+Table 3.11
+\shape default
+: Integration sequence table for the Reservation Call Management testing
+\end_layout
+
+\begin_layout Subsection
+Conclusions
+\end_layout
+
+\begin_layout Standard
+The selected approach allows to test the system starting from the bottom
+ level, in order to reach, finally, the upper level interaction testing.
+ In this case the last tested level is represented by the subsystems S10
+ and S11, and no other subsystems interact each others in order to accomplish
+ the business operations.
+\end_layout
+
+\begin_layout Standard
+By the way, finally a complete system test could be executed, simulating
+ real-life situations, for example the scenarios identified in the 
+\emph on
+Section 4
+\emph default
+ of the RASD; since no interactions have been overlooked, the complete test
+ represents the final level of this integration test plan.
+\end_layout
+
+\begin_layout Standard
+\align center
 \begin_inset Newpage pagebreak
 \end_inset
 
@@ -3338,18 +3803,8 @@ Tools and Test Equipments Required
 \end_layout
 
 \begin_layout Standard
-Identify all tools and test equipment needed to accomplish the integration.
- Refer to the tools presented during the lectures.
- Explain why and how you are going to use them.
- Note that you may also use manual testing for some part.
- Consider manual testing as one of the possible tools you have available.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage pagebreak
-\end_inset
-
-
+The main tool that have to be used for help the integration testing is Arquillia
+n.
 \end_layout
 
 \begin_layout Section
@@ -3357,8 +3812,8 @@ Program Stubs and Test Data Required
 \end_layout
 
 \begin_layout Standard
-Based on the testing strategy and test design, identify any program stubs
- or special test data required for each integration step.
+No Stubs are needed for this integration test plan, due to the selected
+ approach.
 \end_layout
 
 \end_body
