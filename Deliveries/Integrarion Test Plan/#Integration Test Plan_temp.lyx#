@@ -531,10 +531,27 @@ RASD
 \begin_layout Itemize
 
 \series bold
-subsystem
+Component
 \series default
-: Each set of Components that interact each others in order to accomplish
- business operations;
+: The smallest part of the system, which implements a specific function
+ in the business application; it's the first part to be unit-tested;
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Subsystem
+\series default
+: Each set of Components, or Lower Level Subsystem that interact each others
+ in order to accomplish business operations;
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+First Level Subsystem
+\series default
+: Each Subsystem which composed only of Components;
 \end_layout
 
 \begin_layout Subsection
@@ -592,11 +609,15 @@ Elements to be Integrated
 \begin_layout Standard
 The elements to be integrated are, according to the strategy explained in
  the section 2.3 of this document, the single components of the system, as
- described in the Design Document.
+ described in the Design Document, 
+\emph on
+Section 2.3
+\emph default
+.
 \end_layout
 
 \begin_layout Standard
-To give a best description of these 
+To give a brief summary of these 
 \begin_inset Quotes eld
 \end_inset
 
@@ -604,7 +625,7 @@ atomic
 \begin_inset Quotes erd
 \end_inset
 
- elements of the system, here is a list:
+ elements of the system, they are listed below:
 \end_layout
 
 \begin_layout Itemize
@@ -688,13 +709,16 @@ Software Integration Sequence
 \end_layout
 
 \begin_layout Standard
-The subsystems below described are composed by the components described
- in the section 2.2 of this document.
-\begin_inset Newline newline
-\end_inset
-
 For each subsystem are listed the available operations for the specific
  context.
+\end_layout
+
+\begin_layout Standard
+In this section are listed the First Level Subsystems, that are basically
+ nine, one for each class of operations.
+ They are below divided into three main groups: Guest subsystem (S1), Customer
+ subsystems (S2 to S5) and Taxi Driver subsystems (S6 to S9), depending
+ on the actor involved in the considered class of operations.
 \end_layout
 
 \begin_layout Standard
@@ -1052,14 +1076,6 @@ Subsystem Integration Sequence
 \end_layout
 
 \begin_layout Standard
-Identify the order in which subsystems will be integrated.
- If you have a single subsystem, 2.4.1 and 2.4.2 are to be merged in a single
- section.
- You can refer to Section 2.2 of the test plan example [1] as an example
- of what we expect.
-\end_layout
-
-\begin_layout Standard
 \begin_inset Newpage pagebreak
 \end_inset
 
@@ -1105,7 +1121,7 @@ Since that the system has to be cross-platform, each integration test has
 \begin_layout Subsection
 
 \series bold
-Guest Component subsystem
+Guest Component subsystem (S1)
 \end_layout
 
 \begin_layout Standard
@@ -1427,7 +1443,7 @@ I23
 \end_layout
 
 \begin_layout Subsubsection
-Customer Profile Manager
+Customer Profile Manager (S2)
 \end_layout
 
 \begin_layout Standard
