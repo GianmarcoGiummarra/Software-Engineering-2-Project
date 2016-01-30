@@ -560,13 +560,14 @@ For every type of function point the estimation will take into acount the
 \end_layout
 
 \begin_layout Standard
-\begin_inset VSpace 0.5cm
+\begin_inset VSpace defskip
 \end_inset
 
 
 \end_layout
 
 \begin_layout Standard
+\align center
 \begin_inset Tabular
 <lyxtabular version="3" rows="7" columns="4">
 <features rotate="0" tabularvalignment="middle">
@@ -851,6 +852,154 @@ External Inquiry
 FP Extimation
 \end_layout
 
+\begin_layout Subsubsection
+External Input
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+Login/Logout:
+\emph default
+ these are simple operations, so it is adopted the simple weight for them.
+ 2x3=6
+\end_layout
+
+\begin_layout Enumerate
+Customer
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\emph on
+Registration:
+\emph default
+ the guest fills the resistration form, this is a simple operation, so it
+ is adopted the simple weight for it.
+ 1x3=3
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+Rate a Taxi Driver:
+\emph default
+ this is a simple operation, so we can adopt the simple weight for it.
+ 1x3=3
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+Make an Immediate Call:
+\emph default
+ this is not a simple operation.
+ It involves several components: ImmediateCallSystem, TaxiDriver, DataManager,
+ PaymentManager.
+ For this reason it is adopted the medium weight for it.
+ 1x4=4
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+Make a Reservation Call:
+\emph default
+ it is an operation that involves the same components of the immediate call
+ operation, so it is adopted the medium weight for it as before.
+ 1x4=4
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+Make a Shared Call:
+\emph default
+ this operation involves the same components involved in the other "Call"
+ operation but it is more complex, so it is adopted the complex weight for
+ it.
+ 1x6=6
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+Update personal informations:
+\emph default
+ it is a simple operation, so it is adopted the simple weight.
+ 1x3=3
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+Insert/Update payment method:
+\emph default
+ these are simple operations, it is adopted the simple weight for them.
+ 2x3=6 
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Taxi Driver
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\emph on
+Assistance Call:
+\emph default
+ this is a simple operation because involves only the "AssistanceCallManager"
+ component, for this reason it is adopted the simple weight for it.
+ 1x3=3
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+Update personal informations:
+\emph default
+ it is a simple operation, so it is adopted the simple weight for it.
+ 1x3=3
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+Accept/Decline a call request:
+\emph default
+ these are simple operation, so it is adopted the simple weight for them.
+ 2x3=6
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Admin
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\emph on
+Add new taxi driver: 
+\emph default
+this is not a simple operation.
+ It is adopted a medium weight for it.
+ 1x4=4
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+Manage User Data:
+\emph default
+ this is a not simple operation, it is adopted a medium weight for it.
+ 1X4=4
+\end_layout
+
+\end_deeper
 \begin_layout Standard
 \begin_inset Newpage newpage
 \end_inset
