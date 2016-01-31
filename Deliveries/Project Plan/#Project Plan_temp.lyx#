@@ -498,8 +498,7 @@ After the cost estimation can be found an identification of the tasks to
 \begin_layout Standard
 Finally a risk analysis is made in order to identify the principal problems
  that can rise up during the project development: such analysis made a priori
- allows the formulation of a contingency plan that will lead to a risk avoidance
- and will help to solve problems in the eventuality of their appearance.
+ allows the planification of a contingency plan 
 \end_layout
 
 \begin_layout Standard
@@ -867,15 +866,8 @@ External Inquiry
 
 \end_layout
 
-\begin_layout Standard
-\begin_inset Newpage pagebreak
-\end_inset
-
-
-\end_layout
-
 \begin_layout Subsection
-Function Points Estimation
+Function Points Extimation
 \end_layout
 
 \begin_layout Subsubsection
