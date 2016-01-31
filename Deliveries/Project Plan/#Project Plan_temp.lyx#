@@ -3,6 +3,11 @@
 \begin_document
 \begin_header
 \textclass article
+\begin_preamble
+\usepackage{hyperref}
+\usepackage{listings}
+\hypersetup{colorlinks, citecolor=black, filecolor=black, linkcolor=black, urlcolor=black}
+\end_preamble
 \use_default_options true
 \maintain_unincluded_children false
 \language english
@@ -25,6 +30,7 @@
 \bibtex_command default
 \index_command default
 \paperfontsize default
+\spacing single
 \use_hyperref false
 \papersize default
 \use_geometry false
@@ -498,7 +504,8 @@ After the cost estimation can be found an identification of the tasks to
 \begin_layout Standard
 Finally a risk analysis is made in order to identify the principal problems
  that can rise up during the project development: such analysis made a priori
- allows the planification of a contingency plan 
+ allows the formulation of a contingency plan that will lead to a risk avoidance
+ and will help to solve problems in the eventuality of their appearance.
 \end_layout
 
 \begin_layout Standard
@@ -866,8 +873,15 @@ External Inquiry
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
-Function Points Extimation
+Function Points Estimation
 \end_layout
 
 \begin_layout Subsubsection
@@ -911,7 +925,7 @@ interaction with an external banking service.
 \begin_layout Standard
 Due to the complexity of these interactions (acquire city map, retrieve
  a position, interface with the banking system) and the structure of the
- received data , it's reasonable to choose a complex weight.
+ received data , it's reasonable to choose a medium weight.
  3x7=21
 \end_layout
 
@@ -1260,7 +1274,7 @@ External Input
 \begin_inset Text
 
 \begin_layout Plain Layout
-35
+55
 \end_layout
 
 \end_inset
@@ -1322,7 +1336,7 @@ Total
 \begin_inset Text
 
 \begin_layout Plain Layout
-137
+157
 \end_layout
 
 \end_inset

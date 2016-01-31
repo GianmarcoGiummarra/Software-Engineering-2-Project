@@ -3,6 +3,11 @@
 \begin_document
 \begin_header
 \textclass article
+\begin_preamble
+\usepackage{hyperref}
+\usepackage{listings}
+\hypersetup{colorlinks, citecolor=black, filecolor=black, linkcolor=black, urlcolor=black}
+\end_preamble
 \use_default_options true
 \maintain_unincluded_children false
 \language english
@@ -25,6 +30,7 @@
 \bibtex_command default
 \index_command default
 \paperfontsize default
+\spacing single
 \use_hyperref false
 \papersize default
 \use_geometry false
@@ -919,7 +925,7 @@ interaction with an external banking service.
 \begin_layout Standard
 Due to the complexity of these interactions (acquire city map, retrieve
  a position, interface with the banking system) and the structure of the
- received data , it's reasonable to choose a complex weight.
+ received data , it's reasonable to choose a medium weight.
  3x7=21
 \end_layout
 
@@ -1268,7 +1274,7 @@ External Input
 \begin_inset Text
 
 \begin_layout Plain Layout
-35
+55
 \end_layout
 
 \end_inset
@@ -1330,7 +1336,7 @@ Total
 \begin_inset Text
 
 \begin_layout Plain Layout
-137
+157
 \end_layout
 
 \end_inset

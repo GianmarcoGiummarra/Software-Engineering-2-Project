@@ -875,7 +875,7 @@ External Inquiry
 \end_layout
 
 \begin_layout Subsection
-Function Points Extimation
+Function Points Estimation
 \end_layout
 
 \begin_layout Subsubsection
@@ -919,7 +919,7 @@ interaction with an external banking service.
 \begin_layout Standard
 Due to the complexity of these interactions (acquire city map, retrieve
  a position, interface with the banking system) and the structure of the
- received data , it's reasonable to choose a complex weight.
+ received data , it's reasonable to choose a medium weight.
  3x7=21
 \end_layout
 
@@ -1268,7 +1268,7 @@ External Input
 \begin_inset Text
 
 \begin_layout Plain Layout
-35
+55
 \end_layout
 
 \end_inset
@@ -1330,7 +1330,7 @@ Total
 \begin_inset Text
 
 \begin_layout Plain Layout
-137
+157
 \end_layout
 
 \end_inset
