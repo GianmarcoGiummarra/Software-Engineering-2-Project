@@ -124,7 +124,7 @@ Corso di Laurea Magistrale in Computer Science and Engineering
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename D:/Dropbox/MAGISTRALE/Logo Politecnico di Milano.png
+	filename /Users/gianmarco/Downloads/20151029123608!Logo_Politecnico_Milano.png
 	scale 40
 
 \end_inset
@@ -535,7 +535,7 @@ homogeneous set of data used and managed by the application;
 \begin_layout Itemize
 
 \series bold
-EIF - External Interface File: 
+ELF - External Logic File: 
 \series default
 homogeneous set of data used by the application but generated and maintained
  by other applications;
@@ -719,7 +719,7 @@ Internal Logic File
 \begin_inset Text
 
 \begin_layout Plain Layout
-External Interface File
+External Logic File
 \end_layout
 
 \end_inset
@@ -903,7 +903,7 @@ The application includes several internal logic files that are used to store
 \end_layout
 
 \begin_layout Subsubsection
-External Interface Files
+External Logic Files
 \end_layout
 
 \begin_layout Standard
@@ -1014,7 +1014,7 @@ Update personal informations:
 Insert/Update payment method:
 \emph default
  these are simple operations, it is adopted the simple weight for them.
- 2x3=6 
+ 2x3=6
 \end_layout
 
 \end_deeper
@@ -1172,7 +1172,7 @@ Request to consult payments history:
 \end_layout
 
 \begin_layout Subsection
-Function Points Analysis
+Function Points Summary
 \end_layout
 
 \begin_layout Standard
@@ -1245,7 +1245,7 @@ Internal Logic File
 \begin_inset Text
 
 \begin_layout Plain Layout
-External Interface File
+External Logic File
 \end_layout
 
 \end_inset
@@ -1350,9 +1350,413 @@ Total
 \end_layout
 
 \begin_layout Standard
+The total value can be used as the basis to estimate, using the Average
+ Variable Cost (AVC) corresponding to the Java language in the tables
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://www.qsm.com/resources/function-point-languages-table/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+, which corresponds to 53.
+\end_layout
+
+\begin_layout Standard
+The resulting number of lines in this case is: 
+\end_layout
+
+\begin_layout Standard
+\align center
+157 
+\emph on
+FPs
+\emph default
+ * 53 = 8321 
+\emph on
+SLOC = 
+\emph default
+8.321
+\emph on
+ KSLOC
+\emph default
+ 
+\emph on
+(1)
+\end_layout
+
+\begin_layout Standard
 \begin_inset Newpage newpage
 \end_inset
 
+
+\end_layout
+
+\begin_layout Section
+COCOMO II Approach
+\end_layout
+
+\begin_layout Standard
+The COCOMO II tool has been used in order to compute effort and duration
+ of the project development, starting from the number of identified FPs.
+\end_layout
+
+\begin_layout Standard
+In the first step of the estimation all the Cost and Scale Drivers have
+ been considered as 
+\begin_inset Quotes eld
+\end_inset
+
+Nominal
+\begin_inset Quotes erd
+\end_inset
+
+, so the resulting EAF and exponent value E are:
+\end_layout
+
+\begin_layout Itemize
+Effort Adjustment Factor, derived from Cost Drivers: 
+\emph on
+EAF
+\emph default
+ = 1.00;
+\end_layout
+
+\begin_layout Itemize
+Exponent, derived from Scale Drivers: 
+\emph on
+E
+\emph default
+ = 1.0997;
+\end_layout
+
+\begin_layout Standard
+At this point, following the related formula of the model
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\emph on
+effort 
+\emph default
+= 2.94*
+\emph on
+EAF
+\emph default
+*(
+\emph on
+KSLOC
+\emph default
+)
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+textsuperscript{E}
+\end_layout
+
+\end_inset
+
+ 
+\emph on
+(2)
+\end_layout
+
+\begin_layout Standard
+substituting the values obtained with the formula 
+\emph on
+(1) 
+\emph default
+and the parameters described above, the resulting 
+\emph on
+effort 
+\emph default
+value is
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\emph on
+effort = 
+\emph default
+2.94*(1.0)*(8.321)
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+textsuperscript{1.0997}
+\end_layout
+
+\end_inset
+
+ = 30.21791 
+\emph on
+Person-Months
+\end_layout
+
+\begin_layout Standard
+Through the found effort value, it's possible to calculate the value of
+ the duration (in months) of the project, using an exponent E' = 0.3179 with
+ the formula
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\emph on
+Duration 
+\emph default
+= 3.67*
+\emph on
+(effort)
+\emph default
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+textsuperscript{E'}
+\end_layout
+
+\end_inset
+
+ 
+\emph on
+(3)
+\end_layout
+
+\begin_layout Standard
+obtaining
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\emph on
+Duration 
+\emph default
+= 3.67*30.21791
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+textsuperscript{0.3179}
+\end_layout
+
+\end_inset
+
+ = 10.84 
+\emph on
+Months
+\end_layout
+
+\begin_layout Standard
+At this point the number of people needed, N, is easy to find
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\emph on
+N 
+\emph default
+= 
+\emph on
+
+\begin_inset Formula $\frac{effort}{Duration}$
+\end_inset
+
+ (4)
+\end_layout
+
+\begin_layout Standard
+obtaining, substituting the values
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\emph on
+N 
+\emph default
+= 
+\begin_inset Formula $\frac{30.21791\,PM}{10.84\,Months}$
+\end_inset
+
+ 
+\begin_inset Formula $=$
+\end_inset
+
+ 2.79 
+\begin_inset Formula $\simeq$
+\end_inset
+
+3 Persons
+\end_layout
+
+\begin_layout Standard
+which, in first approximation, it's consistent with the number of people
+ involved in this project (see 
+\emph on
+Section 4
+\emph default
+ of this document for further information).
+\end_layout
+
+\begin_layout Standard
+At this point of the evaluation it's good practice to adjust some Cost and
+ Scale Drivers, in order to give a more precise evaluation of the parameters;
+ in order to do so the COCOMO II tool
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://csse.usc.edu/tools/COCOMOII.php
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ is used, in order to comfortably select the value for each value and automatica
+lly change the equations parameters.
+ The results of the execution of the tool are shown in the screenshots above.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /Users/gianmarco/Desktop/Schermata 2016-01-31 alle 23.08.53.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\emph on
+Figure 3.1
+\emph default
+: COCOMO 2 drivers screen
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /Users/gianmarco/Desktop/Schermata 2016-01-31 alle 23.09.13.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\emph on
+Figure 3.2
+\emph default
+: COCOMO 2 results screen
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 1cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+According to the COCOMO 2 results
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\emph on
+effort 
+\emph default
+= 28.3 
+\emph on
+PM
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\emph on
+Duration 
+\emph default
+= 11.1 
+\emph on
+Months
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\emph on
+N 
+\emph default
+= 
+\begin_inset Formula $\frac{effort}{Duration}$
+\end_inset
+
+ = 
+\begin_inset Formula $\frac{28.3\,PM}{11.1\,Months}$
+\end_inset
+
+ = 2.54 
+\begin_inset Formula $\simeq$
+\end_inset
+
+3 Persons
+\end_layout
+
+\begin_layout Standard
+The results are similar as in the case of Nominal Drivers, obviously for
+ the balancement of the values of certain drivers.
+\end_layout
+
+\begin_layout Standard
 
 \end_layout
 
