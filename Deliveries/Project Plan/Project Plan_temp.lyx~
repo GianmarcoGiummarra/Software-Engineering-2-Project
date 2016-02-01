@@ -916,6 +916,14 @@ acquisition of the city map and the positions of both Taxi driver and customer.
 \end_layout
 
 \begin_layout Itemize
+acquisition of users information through the Google+ service;
+\end_layout
+
+\begin_layout Itemize
+acquisition of users information through the Facebook service;
+\end_layout
+
+\begin_layout Itemize
 interaction with an external banking service.
  Such service sends to the system all the information about the validity
  of the customers payment information and the data related to a specific
@@ -926,7 +934,14 @@ interaction with an external banking service.
 Due to the complexity of these interactions (acquire city map, retrieve
  a position, interface with the banking system) and the structure of the
  received data , it's reasonable to choose a medium weight.
- 3x7=21
+ 3x7 + 2x5 =31
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsubsection
@@ -1171,6 +1186,13 @@ Request to consult payments history:
  1x3=3
 \end_layout
 
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 Function Points Summary
 \end_layout
@@ -1254,7 +1276,7 @@ External Logic File
 \begin_inset Text
 
 \begin_layout Plain Layout
-21
+31
 \end_layout
 
 \end_inset
@@ -1380,15 +1402,15 @@ The resulting number of lines in this case is:
 
 \begin_layout Standard
 \align center
-157 
+167 
 \emph on
 FPs
 \emph default
- * 53 = 8321 
+ * 53 = 8851 
 \emph on
 SLOC = 
 \emph default
-8.321
+8.851
 \emph on
  KSLOC
 \emph default
@@ -1431,14 +1453,22 @@ Effort Adjustment Factor, derived from Cost Drivers:
 \emph on
 EAF
 \emph default
+ = 
+\begin_inset Formula $\prod_{i}CD_{i}$
+\end_inset
+
  = 1.00;
 \end_layout
 
 \begin_layout Itemize
 Exponent, derived from Scale Drivers: 
 \emph on
-E
+E 
 \emph default
+= 0.91 + 0.01*
+\begin_inset Formula $\sum_{i}SF_{i}$
+\end_inset
+
  = 1.0997;
 \end_layout
 
@@ -1496,7 +1526,7 @@ value is
 \emph on
 effort = 
 \emph default
-2.94*(1.0)*(8.321)
+2.94*(1.0)*(8.851)
 \begin_inset ERT
 status open
 
@@ -1509,15 +1539,18 @@ textsuperscript{1.0997}
 
 \end_inset
 
- = 30.21791 
+ = 32.341 
 \emph on
 Person-Months
 \end_layout
 
 \begin_layout Standard
 Through the found effort value, it's possible to calculate the value of
- the duration (in months) of the project, using an exponent E' = 0.3179 with
- the formula
+ the duration (in months) of the project, using an exponent E' = 0.28 + 0.2*(
+\emph on
+E
+\emph default
+ - 0.91) = 0.3179 with the formula
 \end_layout
 
 \begin_layout Standard
@@ -1558,7 +1591,7 @@ obtaining
 \emph on
 Duration 
 \emph default
-= 3.67*30.21791
+= 3.67*32.341
 \begin_inset ERT
 status open
 
@@ -1571,7 +1604,7 @@ textsuperscript{0.3179}
 
 \end_inset
 
- = 10.84 
+ = 11.082 
 \emph on
 Months
 \end_layout
@@ -1606,14 +1639,14 @@ obtaining, substituting the values
 N 
 \emph default
 = 
-\begin_inset Formula $\frac{30.21791\,PM}{10.84\,Months}$
+\begin_inset Formula $\frac{32.341\,PM}{11.082\,Months}$
 \end_inset
 
  
 \begin_inset Formula $=$
 \end_inset
 
- 2.79 
+ 2.92 
 \begin_inset Formula $\simeq$
 \end_inset
 
@@ -1632,7 +1665,7 @@ Section 4
 \begin_layout Standard
 At this point of the evaluation it's good practice to adjust some Cost and
  Scale Drivers, in order to give a more precise evaluation of the parameters;
- in order to do so the COCOMO II tool
+ in order to do so is used the COCOMO II tool
 \begin_inset Foot
 status collapsed
 
@@ -1652,16 +1685,16 @@ http://csse.usc.edu/tools/COCOMOII.php
 
 \end_inset
 
- is used, in order to comfortably select the value for each value and automatica
-lly change the equations parameters.
+, to comfortably select the value for each driver and automatically change
+ the equations parameters.
  The results of the execution of the tool are shown in the screenshots above.
 \end_layout
 
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename /Users/gianmarco/Desktop/Schermata 2016-01-31 alle 23.08.53.png
-	scale 60
+	filename /Users/gianmarco/Desktop/Schermata 2016-02-01 alle 13.08.14.png
+	scale 40
 
 \end_inset
 
@@ -1680,7 +1713,7 @@ Figure 3.1
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename /Users/gianmarco/Desktop/Schermata 2016-01-31 alle 23.09.13.png
+	filename /Users/gianmarco/Desktop/Schermata 2016-02-01 alle 13.08.44.png
 	scale 60
 
 \end_inset
@@ -1698,7 +1731,14 @@ Figure 3.2
 \end_layout
 
 \begin_layout Standard
-According to the COCOMO 2 results
+\begin_inset VSpace 1cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+According to the COCOMO II results
 \end_layout
 
 \begin_layout Standard
@@ -1707,7 +1747,7 @@ According to the COCOMO 2 results
 \emph on
 effort 
 \emph default
-= 28.3 
+= 29.5 
 \emph on
 PM
 \end_layout
@@ -1718,7 +1758,7 @@ PM
 \emph on
 Duration 
 \emph default
-= 11.1 
+= 11.2 
 \emph on
 Months
 \end_layout
@@ -1734,10 +1774,10 @@ N
 \end_inset
 
  = 
-\begin_inset Formula $\frac{28.3\,PM}{11.1\,Months}$
+\begin_inset Formula $\frac{29.5\,PM}{11.2\,Months}$
 \end_inset
 
- = 2.54 
+ = 2.634 
 \begin_inset Formula $\simeq$
 \end_inset
 
@@ -1745,11 +1785,14 @@ N
 \end_layout
 
 \begin_layout Standard
-The results are similar as in the case of Nominal Drivers, obviously for
- the balancement of the values of certain drivers.
+The results are similar as in the case of Nominal Drivers, due to the balancemen
+t of the values of certain drivers.
 \end_layout
 
 \begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
 
 \end_layout
 
@@ -1761,14 +1804,119 @@ Tasks and Schedule
 This section defines the tasks to be accomplished in order to fulfill the
  goal of the project and the schedule that will define the work that every
  team component will have to perform.
+ The chosen model for the project is the 
+\emph on
+Waterfall Model 
+\emph default
+which follows a linear execution of the various tasks from the first to
+ the last task.
 \end_layout
 
 \begin_layout Standard
-The team is composed of three members, 
+The team is composed of three Junior developers, called for simplicity Member
+ A, Member B and Member C; due to the limited number of components the decisiona
+l issues can be managed by the whole team.
+\end_layout
+
+\begin_layout Standard
+The tasks listed below are of two kinds: executable by a single member and
+ executable by a group of collaborating members.
+ Some of the tasks need to be executed in parallel with other ones, in this
+ case the greatest number of members has to be assigned to the most critical
+ task.
+\end_layout
+
+\begin_layout Standard
+The list doesn't reflect strictly the execution sequence of the tasks.
 \end_layout
 
 \begin_layout Subsection
 Identified Tasks
+\end_layout
+
+\begin_layout Subsubsection
+RASD
+\end_layout
+
+\begin_layout Itemize
+Requirements collection
+\end_layout
+
+\begin_layout Itemize
+Requirements analysis
+\end_layout
+
+\begin_layout Itemize
+Requirements formalization
+\end_layout
+
+\begin_layout Itemize
+Models formalization
+\end_layout
+
+\begin_layout Itemize
+Alloy Modeling
+\end_layout
+
+\begin_layout Subsubsection
+Design Document
+\end_layout
+
+\begin_layout Itemize
+Architectural Design
+\end_layout
+
+\begin_layout Itemize
+UI Design
+\end_layout
+
+\begin_layout Itemize
+Algorithm Design
+\end_layout
+
+\begin_layout Itemize
+Requirements traceability
+\end_layout
+
+\begin_layout Itemize
+Requirements data management
+\end_layout
+
+\begin_layout Subsubsection
+Implementation
+\end_layout
+
+\begin_layout Itemize
+Code implementation
+\end_layout
+
+\begin_layout Itemize
+Unit Testing
+\end_layout
+
+\begin_layout Itemize
+Code inspection
+\end_layout
+
+\begin_layout Subsubsection
+Integration and System Testing
+\end_layout
+
+\begin_layout Itemize
+Integration strategy
+\end_layout
+
+\begin_layout Itemize
+Integration test planning
+\end_layout
+
+\begin_layout Itemize
+System testing
+\end_layout
+
+\begin_layout Standard
+An intermediate review is to be done after each one of the four steps, and
+ a final review must be done before the release of the application.
 \end_layout
 
 \begin_layout Subsection
@@ -1776,14 +1924,55 @@ Project Schedule
 \end_layout
 
 \begin_layout Standard
-\begin_inset Newpage newpage
+In order to clearly describe the project schedule it's shown below a Gantt
+ Diagram, in which are explicited also the Resource Allocations, related
+ to Members A, B and C.
+\end_layout
+
+\begin_layout Standard
+The starting date of the project is October 1
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+textsuperscript{st}
+\end_layout
+
+\end_inset
+
+, 2015, while the estimated end date is October 1
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+textsuperscript{st}
+\end_layout
+
+\end_inset
+
+, 2016.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 11cm
 \end_inset
 
 
 \end_layout
 
-\begin_layout Section
-Resources Allocation
+\begin_layout Standard
+\align center
+
+\emph on
+Figure 4.1
+\emph default
+: Gantt Diagram for the project schedule
 \end_layout
 
 \begin_layout Standard
@@ -1798,6 +1987,80 @@ Risks
 \end_layout
 
 \begin_layout Standard
+Categorizing the risk that could occurr during the project development,
+ three categories have been defined.
+\end_layout
+
+\begin_layout Subsection
+Project risks
+\end_layout
+
+\begin_layout Standard
+One of the main risks that could threat this project is the members management,
+ due to the fact that there is not a hierarchy and every decision is made
+ after a brainstorming in which all the members are involved.
+\end_layout
+
+\begin_layout Standard
+Another issue, due to the limited team dimension, is that the project plan
+ deadlines could not be respected for several issues: illness or any kind
+ of unexpected unavailabilities.
+ The way to avoid this is trying to maximize the collaboration of the task
+ execution.
+\end_layout
+
+\begin_layout Standard
+A third problem could be the withdrawal of one or more members, which could
+ be resolved with the assumption of a new member or an extension of the
+ deadlines.
+ Although it is considered by the COCOMO II tool, it's a risk to be taken
+ into account because of the facts that the members continuity is not a
+ predictable driver.
+ A way to minimize the damn caused if this risk become real is to ask the
+ members to notice in time the eventual withdrawal and to have some contact
+ eventually available.
+\end_layout
+
+\begin_layout Standard
+Another potential risk is that, at a certain point of the development course,
+ the stakeholders want to add or change some functionalities or requirements;
+ this could significantly affect the duration and the effort of the first
+ part of the project, depending on the entity of the changes.
+ It's possible to try to avoid this risk giving particular importance to
+ the first phase of the project, discussing exhaustively all the requirements
+ before starting to modelize the application.
+\end_layout
+
+\begin_layout Subsection
+Technical risks
+\end_layout
+
+\begin_layout Standard
+A potential technical risk to be taken into account is the loss of data
+ which the team is working on.
+ The most efficient way to avoid or face up this risk is to use Distributed
+ Version Control tools like 
+\emph on
+git
+\emph default
+ and, eventually, the support of Cloud tools.
+ Backups are to be done periodically, i.e.
+ at the end of each working day.
+\end_layout
+
+\begin_layout Subsection
+Business risks
+\end_layout
+
+\begin_layout Standard
+The main business risk is that the Government of the large city that committed
+ the work changes its mind about the project to be built and stops funding
+ the team.
+ In order to avoid this unwanted situation, an analysis of the stakeholder's
+ reliability should be done by the team.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Newpage newpage
 \end_inset
 
@@ -1806,6 +2069,53 @@ Risks
 
 \begin_layout Section
 Used Tools
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+LyX
+\emph default
+ to generate the pdf document
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+COCOMO II 
+\emph default
+to estimate effort, duration and number of members needed: 
+\emph on
+
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+csse.usc.edu/tools/COCOMOII.php
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+smartsheet.com
+\end_layout
+
+\end_inset
+
+
+\emph default
+ to generate the Gantt Diagram
 \end_layout
 
 \end_body
